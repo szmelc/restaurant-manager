@@ -9,6 +9,7 @@
 
   - if user_signed_in?
     %div.login-buttons
+      = link_to 'Lista Dań', meals_path
       = link_to 'Log out', destroy_user_session_path, method: :delete
       = link_to 'Edit Account', edit_user_registration_path
   - else

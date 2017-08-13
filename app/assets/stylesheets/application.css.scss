@@ -14,7 +14,7 @@
  *= require_self
  */
 // @import url('https://fonts.googleapis.com/css?family=Lato:300,400,700');
-
+@import 'mixins';
 @import 'variables';
 * {
   box-sizing: border-box;
@@ -27,4 +27,22 @@ body {
   color: $color1;
   font-weight: 300;
   background-color: $bg-color;
+  .wrapper {
+    padding-top: 60px;
+    @include display(flex, center, center, wrap, row);
+    table {
+      border-spacing: 1.5em;
+      th {
+        font-size: 1.2em;
+        padding: 10px 20px;
+        text-align: left;
+      }
+      tr {
+
+      }
+    }
+  }
+  .button {
+    background-color: $color1;
+  }
 }
