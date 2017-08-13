@@ -1,0 +1,17 @@
+%div.nav
+  %div.nav-left
+    %h2= link_to 'Restaurant Manager', root_path
+    - if user_signed_in?
+      %p.user
+        Logged as:
+        %strong=  current_user.first_name + " " + current_user.last_name
+
+
+  - if user_signed_in?
+    %div.login-buttons
+      = link_to 'Log out', destroy_user_session_path, method: :delete
+      = link_to 'Edit Account', edit_user_registration_path
+  - else
+    %div.login-buttons
+      = link_to 'Log in', new_user_session_path
+      = link_to 'Sign up', new_user_registration_path

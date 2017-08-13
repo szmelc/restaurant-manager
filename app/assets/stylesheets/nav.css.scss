@@ -1,0 +1,30 @@
+@import 'mixins';
+@import 'variables';
+
+.nav {
+  background-color: $nav-bg-color;
+  min-height: 6vh;
+  @include display(flex, space-between, center, wrap, row);
+  padding: 0 40px;
+  border-bottom: 1px solid $color1;
+  a, p, h2 {
+    align-self: center;
+  }
+  .nav-left {
+    @include display(flex, center, center, wrap, row);
+    p.user {
+      margin-left: 40px;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+  }
+  .login-buttons {
+    @include display(flex, center, center, wrap, row);
+    a {
+      padding: 0 10px;
+      text-decoration: none;
+    }
+  }
+}
