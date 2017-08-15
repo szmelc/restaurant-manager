@@ -1,7 +1,31 @@
-- @order.each do |order|
-  %p= order.id
+- @userOrders.each do |order|
+  %table
+    %tbody
+      %th
+        %td Danie
+        %td Ilość
+        %td Cena
+        - order.meals.each do |meal|
+          %tr
+            %td= meal.name
+            %td= meal.price
 
 
 
 
-%h1= current_user.id
+
+
+
+
+-# %table
+-#   %tbody
+-#     %th
+-#       %td Lp.
+-#       %td Danie
+-#       %td Ilość
+-#   - @userOrders.each do |order|
+-#     - order.meals.each do |meal|
+-#       %tr
+-#         %td= order.id
+-#         %td= meal.name
+-#         %td= meal.price
