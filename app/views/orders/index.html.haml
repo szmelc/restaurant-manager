@@ -1,13 +1,14 @@
 - @userOrders.each do |order|
   %table
     %tbody
-      %th
-        %td Danie
-        %td Ilość
-        %td Cena
+      %tr
+        %th Danie
+        %th Ilość
+        %th Cena
         - order.meals.each do |meal|
           %tr
             %td= meal.name
+            %td= 1
             %td= meal.price
 
 

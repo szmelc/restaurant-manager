@@ -29,9 +29,10 @@ body {
   background-color: $bg-color;
   .wrapper {
     padding-top: 60px;
-    @include display(flex, center, center, wrap, row);
+    @include display(flex, center, center, wrap, column);
     table {
       border-spacing: 1.5em;
+      margin: 30px 50px;
       th {
         font-size: 1.2em;
         padding: 10px 20px;
