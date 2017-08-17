@@ -1,13 +1,6 @@
 = simple_form_for @order do |f|
-  = f.simple_fields_for :meals, @order.meals.build do |meal|
-    = meal.collection_select(:name, Meal.all, :name, :name)
+  = f.simple_fields_for :meals, @order.meals.build do |meals|
+    = meals.collection_select(:name, Dish.all, :name, :name)
+    = meals.collection_select(:quantity, 2..4, :quantity, :quantity)
   = f.submit
 
-
--# = simple_form_for @order do |f|
--#   = f.simple_fields_for :meal do |meal|
--#     = meal.input :name
--#     -# = p.select(:name, @meals)
--#
--#   = f.submit
--#   -# = select(:post, :name, @meals)

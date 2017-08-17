@@ -12,8 +12,8 @@ class OrdersController < ApplicationController
   end
 
   def new
+    @dishes = Dish.all
     @order = current_user.orders.build
-    @meals = Meal.all.map { |meal| [meal.name] }
   end
 
   def create

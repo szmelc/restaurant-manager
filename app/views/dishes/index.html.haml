@@ -1,0 +1,10 @@
+%table
+  %tr
+    %th Nazwa
+    %th Rodzaj dania
+    %th Cena
+    - @dishes.each do |dish|
+      %tr
+        %td= dish.name
+        %td= dish.type
+        %td= dish.price
