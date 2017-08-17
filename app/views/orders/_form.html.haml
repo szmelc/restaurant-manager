@@ -1,6 +1,6 @@
 = simple_form_for @order do |f|
   = f.simple_fields_for :meals, @order.meals.build do |meals|
     = meals.collection_select(:name, Dish.all, :name, :name)
-    = meals.collection_select(:quantity, 2..4, :quantity, :quantity)
+    = meals.select "quantity", options_for_select((1..10))
   = f.submit
 

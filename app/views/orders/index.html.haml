@@ -4,12 +4,11 @@
       %tr
         %th Danie
         %th Ilość
-        %th Cena
         - order.meals.each do |meal|
           %tr
             %td= meal.name
-            %td= 1
-            %td= meal.price
+            %td= meal.quantity
+            
 
 
 
