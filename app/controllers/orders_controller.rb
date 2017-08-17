@@ -31,7 +31,7 @@ class OrdersController < ApplicationController
 
   private
   def order_params
-    params.require(:order).permit(:user_id, meals_attributes: [:name, :id, :quantity, :_destroy])
+    params.require(:order).permit(:user_id, meals_attributes: Meal.attribute_names.map(&:to_s).push(:_destroy))
   end
 
   def find_order
