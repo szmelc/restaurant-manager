@@ -1,13 +1,18 @@
-- @userOrders.each do |order|
-  %table
-    %tbody
-      %tr
-        %th Danie
-        %th Ilość
-        - order.meals.each do |meal|
-          %tr
-            %td= meal.name
-            %td= meal.quantity
+- @user_orders.each do |order|
+  - if order.date == Date.today.strftime("%Y-%-m-%d").to_s
+    %table
+      %tbody
+        %tr
+          %th Danie
+          %th Ilość
+        %tr
+          %th(colspan="2")
+            %td= Date.today.strftime("%Y-%-m-%d").to_s
+          - order.meals.each do |meal|
+            %tr
+              %td= meal.name
+              %td= meal.quantity
+              %td= order.date
             
 
 

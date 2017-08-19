@@ -4,4 +4,11 @@ class Order < ApplicationRecord
   accepts_nested_attributes_for :meals, :allow_destroy => true
   # validates :order_id, presence: true
   # validates_associated :meals
+
+
+  def date
+  	created_at.year.to_s + "-" + created_at.month.to_s + "-" + created_at.day.to_s
+  end
+
+
 end

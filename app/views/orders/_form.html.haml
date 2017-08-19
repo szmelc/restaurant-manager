@@ -3,5 +3,5 @@
     = f.simple_fields_for :meals, @order.meals.build do |meals|
       = render 'meal_fields', f: meals
     .links
-      = link_to_add_association 'add meal', f, :meals, data: {association_insertion_node: '.meals', association_insertion_method: 'append' }
+      = link_to_add_association 'Dodaj potrawę', f, :meals
     = f.submit
