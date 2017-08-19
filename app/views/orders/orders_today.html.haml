@@ -1,7 +1,9 @@
+= link_to 'Wszystkie zamówienia', orders_all_path
+%h1 Wszystkie zamówienia dzisiaj
 - @user_orders.each do |order|
   - if order.date == Date.today.strftime("%Y-%-m-%d").to_s
     %table
-      %tbody
+      %%tbody
         %tr
           %th Danie
           %th Ilość

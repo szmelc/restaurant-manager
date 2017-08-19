@@ -2,7 +2,13 @@ class OrdersController < ApplicationController
   before_action :find_order, only: [:show]
   before_action :find_meal, only: [:new]
 
-  def index
+  def orders_all
+    @user = current_user
+    user_id = current_user.id
+    @user_orders = Order.where(:user_id => user_id)
+  end
+
+  def orders_today 
     @user = current_user
     user_id = current_user.id
     @user_orders = Order.where(:user_id => user_id)
