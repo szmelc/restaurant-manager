@@ -18,6 +18,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'simple_form', '~> 3.5'
 gem 'devise', '~> 4.3'
 gem 'cocoon'
+gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 2.13'
