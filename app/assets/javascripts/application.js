@@ -40,4 +40,9 @@ $('.meals').on('change', '.meal-name', function() {
 
 // END
 
+$("tr[data-link]").click(function() {
+	var chosen = $(this)
+  window.location = chosen.data("link");
+});
+
 });
