@@ -13,6 +13,31 @@
 //= require rails-ujs
 //= require turbolinks
 //= require cocoon
+//= require jquery
+//= require jquery_ujs
 //= require_tree .
 
-var header = document.getElementById('new');
+$(document).ready(function() {
+
+// $(".meal-name").change(function(){
+//     var chosen = $(this).find(":selected");
+//     var price = chosen.data("description");
+//     $(this).siblings("input").val(price);
+// })
+
+
+// CHANGE PRICE TEXT FIELD VALUE WHEN A MEAL IS CHOSEN
+
+$('.meals').on('change', '.meal-name', function() {
+	$('.meal-name').on('change', function() {		
+		var chosen = $(this).find(":selected");
+		var price = chosen.data("description");
+		console.log(price)		
+		$(this).siblings("input").val(price);
+
+	})
+})
+
+// END
+
+});

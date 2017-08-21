@@ -1,7 +1,7 @@
-= simple_form_for @order do |f|
+= simple_form_for @order, :html => {:id => 'order-form'} do |f|
   .meals
     = f.simple_fields_for :meals, @order.meals.build do |meals|
       = render 'meal_fields', f: meals
     .links
-      = link_to_add_association 'Dodaj potrawę', f, :meals
+      = link_to_add_association 'Add meal', f, :meals
     = f.submit
