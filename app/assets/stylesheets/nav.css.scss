@@ -10,11 +10,19 @@
   a, p, h2 {
     align-self: center;
   }
+  img {
+    border-radius: 50%;
+    height: 50px;
+    align-self: center;
+    margin: 0 10px;
+
+    &:hover {
+     box-shadow: 0 0 4px 1px rgba(0,0,0,.1);
+     cursor: pointer;
+    }
+  }
   .nav-left {
     @include display(flex, center, center, wrap, row);
-    p.user {
-      margin-left: 40px;
-    }
     a {
       text-decoration: none;
       color: inherit;

@@ -40,9 +40,22 @@ $('.meals').on('change', '.meal-name', function() {
 
 // END
 
+// GO TO USER PAGE WHEN CLICKING ON A ROW
+
 $("tr[data-link]").click(function() {
 	var chosen = $(this)
   window.location = chosen.data("link");
 });
+
+// END
+
+// GO TO USER PAGE WHEN CLICKING ON AVATAR
+
+$("img[data-link]").click(function() {
+	var chosen = $(this)
+  window.location = chosen.data("link");
+});
+
+// END
 
 });

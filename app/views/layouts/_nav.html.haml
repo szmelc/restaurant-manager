@@ -1,9 +1,11 @@
+
+
 %div.nav
   %div.nav-left
     %h2= link_to 'Restaurant Manager', root_path
     - if user_signed_in?
-      %p.user
-        Logged as:
+      = image_tag current_user.user_avatar
+      %p.user 
         %strong= link_to current_user.first_name + " " + current_user.last_name, user_path(current_user)
 
 
