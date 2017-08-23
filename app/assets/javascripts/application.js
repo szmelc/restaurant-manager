@@ -40,9 +40,9 @@ $('.meals').on('change', '.meal-name', function() {
 
 // END
 
-// GO TO USER PAGE WHEN CLICKING ON A ROW
+// GO TO USER PAGE WHEN CLICKING ON A DIV
 
-$("tr[data-link]").click(function() {
+$("img[data-link]").click(function() {
 	var chosen = $(this)
   window.location = chosen.data("link");
 });

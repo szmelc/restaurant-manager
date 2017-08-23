@@ -4,10 +4,94 @@
 @import 'mixins';
 @import 'variables';
 
+/* USERS LIST */
+
+#user-list{
+	@include display(flex, flex-start, flex-start, wrap, row);
+	align-items: flex-start;
+	width: 80vw;
+	margin: auto;
+	.user {
+		width: 25%;
+		padding: 10px;
+		@include display(flex, center, flex-start, wrap, column);
+		#avatar {
+			width: auto;
+			margin: auto;
+			&:hover {
+				cursor: pointer;
+			}
+		}
+		h3 {
+			text-align: center;
+			display: inline-block;
+			font-weight: 400;
+			margin-top: 10px;
+		}
+		&:hover {
+			background-color: rgba(255,255,255,.5)
+		}
+	}
+}
+
+
 .user-row {
 	cursor: pointer;
 }
 
+
+/* USER DISPLAY SCREEN */
+
 .user {
 	@include display(flex, center, flex-start, wrap, row);
+	width: 60vw;
+	margin: auto;
+	#avatar {
+		margin: 0 20px;
+	}
+	.personal-info {
+		@include display(flex, center, flex-start, wrap, row);
+		h1 {
+			margin: 0;
+		}
+		h3 {
+			font-weight: 300;
+		}
+		.name-info {
+			@include display(flex, center, flex-start, wrap, column);
+			margin-right: 40px;
+			padding-right: 40px;
+			border-right: 1px solid #333;
+			width: 60%;
+		}
+		.contact-info {
+	    a {
+	      text-decoration: none;
+	      color: inherit;
+	    }			
+			@include display(flex, center, center, wrap, column);
+			.contact-row {
+				margin: 12px 0;
+			}
+			#email, 
+			#location {
+				@include display(flex, flex-start, center, wrap, row);
+			}
+			h2 {
+				display: inline-block;
+				font-weight: 300;
+				font-size: .9em;
+				margin: 0 4px;
+			}
+				.contact-image {
+					height: 20px;
+					display: inline-block;
+			}
+			.contact-pic {
+				width: 30px;
+				margin-right: 10px;
+				@include display(flex, center, center, wrap, row);
+			}
+		}
+	}	
 }

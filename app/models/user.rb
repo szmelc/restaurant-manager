@@ -18,7 +18,22 @@ class User < ApplicationRecord
   	end
   end
 
+# Method to slice a phone number and join with '-'
 
+  def phone_number
+    if phonenumber.present?
+      phonenumber.scan(/.../).join('-')
+    else
+      '-'
+    end
+  end
+
+# Concatenate first name and last name
+
+  def name
+    [first_name, last_name].join(' ')
+  end
 
 
 end
+

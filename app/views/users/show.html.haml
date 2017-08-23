@@ -1,14 +1,37 @@
 %div.user 
 	%div.profile-pic
-		= image_tag current_user.user_avatar
+		= image_tag @user.user_avatar, :id => "avatar"
 	%div.personal-info
-		%h1
-			= @user.first_name
-			= @user.last_name
-	%div.contact-info
-		%h2
-			= @user.email
+		%div.name-info
+			%h1
+				= @user.first_name
+				= @user.last_name
+			%div.description
+				%h3
+					= @user.description
+		%div.contact-info
+			%div#email.contact-row
+				%div.contact-pic
+					= image_tag 'email.svg', {class: "contact-image"}
+				%h2
+					= mail_to @user.email, @user.email
+			%div#location.contact-row
+				%div.contact-pic
+					= image_tag 'location.png', {class: "contact-image"}
+				%h2
+					= @user.city
+			%div#location.contact-row
+				%div.contact-pic
+					= image_tag 'telephone.svg', {class: "contact-image"}
+				%h2
+					= @user.phone_number
 
-
+%h1 Współpracownicy
+%div#user-list
+	- @users.each do |user|
+		- if user.id != @user
+			%div.user
+				= image_tag user.user_avatar, :id => "avatar", :data => {:link => user_path(user)}
+				%h3= user.name 
 
 
