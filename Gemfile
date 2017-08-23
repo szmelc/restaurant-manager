@@ -18,6 +18,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'simple_form', '~> 3.5'
 gem 'devise', '~> 4.3'
 gem 'cocoon'
+gem 'chart-js-rails'
 gem "paperclip", "~> 5.0.0"
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 group :development, :test do
