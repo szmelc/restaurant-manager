@@ -1,0 +1,43 @@
+@import 'variables';
+@import 'mixins';
+
+
+#form-div {
+	@include display(flex, center, center, wrap, column);
+}
+
+form {
+	width: 60%;
+	margin: auto;
+	input {
+		font-family: "Lato", sans-serif;
+		font-size: 1em;
+		padding: 5px;
+		font-weight: 300;
+		box-shadow: none;
+		border: 1px solid rgba(0,0,0,.2);
+		width: 50%;
+	}
+	#password {
+		display: none;
+	}
+	label {
+		font-weight: 400;
+		margin-bottom: 8px;
+		font-size: 1.1em;
+	}
+	.form-actions {
+		@include display(flex, center, center, wrap, row);
+	}
+}
+
+
+
+.input {
+	margin: 10px 10px;
+	@include display(flex, space-between, center, wrap, column);
+}
+
+.show {
+	display: block !important;
+}

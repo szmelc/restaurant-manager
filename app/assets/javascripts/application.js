@@ -62,11 +62,34 @@ $("img[data-link]").click(function() {
 
 // DROPDOWN MENU
 
-// $('.dropbtn').click(function() {
-// 	$('.dropdown-content').toggleClass('show');
-// })
 
-function myFunction() {
+function toggleMenu() {
     document.getElementById("my-dropdown").classList.toggle("show");
 }
+
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+
+// DROPDOWN MENU END
+
+
+// SHOW AND HIDE PASSWORD FIELDS
+
+
+function togglePassword() {
+  document.getElementById("password").classList.toggle('show');
+}
+
+// SHOW AND HIDE PASSWORD FIELDS END
 
