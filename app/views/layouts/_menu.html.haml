@@ -1,0 +1,9 @@
+%div{:onclick => "myFunction()", :class => "dropbtn"}
+	- if user_signed_in?
+		= image_tag current_user.user_avatar, :id => 'avatar-thumb'
+		%div.dropdown-content#my-dropdown
+			= link_to 'Mój profil', user_path(current_user)
+			= link_to 'Ustawienia konta', edit_user_registration_path
+			= link_to 'Wyloguj', destroy_user_session_path, method: :delete
+
+%p= link_to current_user.name, user_path(current_user)

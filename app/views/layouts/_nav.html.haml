@@ -2,12 +2,8 @@
 
 %div.nav
   %div.nav-left
-    %h2= link_to 'Restaurant Manager', root_path
-    - if user_signed_in?
-      = image_tag current_user.user_avatar, :id => 'avatar-thumb'
-      %p 
-        %strong= link_to current_user.first_name + " " + current_user.last_name, user_path(current_user)
-
+    = render 'layouts/menu'
+    
 
   - if user_signed_in?
     %div.login-buttons

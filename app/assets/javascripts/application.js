@@ -59,3 +59,14 @@ $("img[data-link]").click(function() {
 // END
 
 });
+
+// DROPDOWN MENU
+
+// $('.dropbtn').click(function() {
+// 	$('.dropdown-content').toggleClass('show');
+// })
+
+function myFunction() {
+    document.getElementById("my-dropdown").classList.toggle("show");
+}
+
