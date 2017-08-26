@@ -20,6 +20,7 @@ gem 'devise', '~> 4.3'
 gem 'cocoon'
 gem "paperclip", "~> 5.0.0"
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
+gem 'ransack'
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 2.13'
