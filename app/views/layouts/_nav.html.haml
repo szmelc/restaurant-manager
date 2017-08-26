@@ -3,7 +3,9 @@
 %div.nav
   %div.nav-left
     = render 'layouts/menu'
-    %input{:type => "text", :placeholder => "Search", :id => "search"}
+  
+  = form_with  :url => search_path, :local => true, :method => :get do |f|
+    = f.text_field :q, :type => "text", :placeholder => "Szukaj...", :id => "search", :data => {:behavior => "autocomplete"}
     
 
   - if user_signed_in?
