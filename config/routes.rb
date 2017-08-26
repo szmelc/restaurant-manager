@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+	get :search, controller: :main
   devise_for :users
   root to: "home#index"
   resources :meals

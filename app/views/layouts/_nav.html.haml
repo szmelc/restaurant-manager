@@ -3,6 +3,7 @@
 %div.nav
   %div.nav-left
     = render 'layouts/menu'
+    %input{:type => "text", :placeholder => "Search", :id => "search"}
     
 
   - if user_signed_in?
