@@ -4,31 +4,100 @@
 
 #form-div {
 	@include display(flex, center, center, wrap, column);
-}
-
-form {
-	width: 60%;
-	margin: auto;
-	input {
+	.form-inputs {
+		@include display(flex, center, center, wrap, row);
+		#form-contactinfo {
+			margin-right: 30px;
+			background-color: rgba(255,255, 255,.5);
+			box-shadow: 0 0 1px 1px rgba(0,0,0,.1);
+			padding: 15px;
+		}
+		#form-additional {
+			margin-left: 30px;
+			background-color: rgba(255,255, 255,.5);
+			box-shadow: 0 0 1px 1px rgba(0,0,0,.1);
+			padding: 15px;
+			@include display(flex, space-between, center, wrap, column);
+			#save {
+				span {
+					margin-bottom: 15px;
+				}
+			}
+		}
+	}
+	form {
+	input,
+	textarea {
 		font-family: "Lato", sans-serif;
 		font-size: 1em;
-		padding: 5px;
+		background: none;
+		padding: 8px;
 		font-weight: 300;
 		box-shadow: none;
-		border: 1px solid rgba(0,0,0,.2);
-		width: 50%;
-	}
-	#password {
-		display: none;
+		border: none;
+		border-bottom: 2px solid rgba(0,0,0,.2);
+		width: 350px;
+		&:focus {
+			outline: none;
+			border-bottom: 2px solid rgba(27, 157, 226, 0.7);
+		}
 	}
 	label {
 		font-weight: 400;
 		margin-bottom: 8px;
+		display: block;
 		font-size: 1.1em;
+	}
+	textarea {
+		resize: none;
+		display: block;
+		margin: 10px;
+		height: 30%;
+		border: 2px solid rgba(0,0,0,.2);
+		&:focus {
+			border: 2px solid rgba(27, 157, 226, 0.7);
+		}
+	}
+	#count {
+		text-align: right;
+		font-size: .7em;
+		margin: 0 10px;
+	}
+	#avatar-div {
+		@include display(flex, space-between, center, wrap, row);
+		img {
+			margin: 10px;
+		}	
+		label {
+			display: inline-block;
+			margin-top: 10px;
+		}
+		#file-field {
+			@include display(flex, space-between, center, wrap, column);
+		}
+		input {
+			width: 250px;
+		}
+	}
+	
+	input[type="file"]{
+		display: block;
 	}
 	.form-actions {
 		@include display(flex, center, center, wrap, row);
 	}
+}
+
+input[type="submit"] {
+	border: none;
+	background-color: #36b56b;
+	color: #FFF;
+	&:hover {
+		cursor: pointer;
+		box-shadow: 0 0 1px 1px rgba(0,0,0,.1)
+	}
+}
+
 }
 
 
@@ -38,6 +107,3 @@ form {
 	@include display(flex, space-between, center, wrap, column);
 }
 
-.show {
-	display: block !important;
-}

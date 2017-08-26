@@ -19,11 +19,20 @@
 
 $(document).ready(function() {
 
-// $(".meal-name").change(function(){
-//     var chosen = $(this).find(":selected");
-//     var price = chosen.data("description");
-//     $(this).siblings("input").val(price);
-// })
+$('#count').text((200 - $('#textarea').val().length))
+
+$("#textarea").keyup(function(){
+  $count = (200 - $(this).val().length)
+  $("#count").text($count);
+  if ($count < 0) {
+    $("#count").css("color", "red");
+  } else {
+    $("#count").css("color", "black");
+  }
+});
+
+
+
 
 
 // CHANGE PRICE TEXT FIELD VALUE WHEN A MEAL IS CHOSEN
@@ -49,17 +58,6 @@ $("img[data-link]").click(function() {
 
 // END
 
-// GO TO USER PAGE WHEN CLICKING ON AVATAR
-
-$("img[data-link]").click(function() {
-	var chosen = $(this)
-  window.location = chosen.data("link");
-});
-
-// END
-
-});
-
 // DROPDOWN MENU
 
 
@@ -84,12 +82,9 @@ window.onclick = function(event) {
 // DROPDOWN MENU END
 
 
-// SHOW AND HIDE PASSWORD FIELDS
 
 
-function togglePassword() {
-  document.getElementById("password").classList.toggle('show');
-}
 
-// SHOW AND HIDE PASSWORD FIELDS END
+
+});
 

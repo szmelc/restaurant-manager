@@ -8,40 +8,44 @@
     = f.error_notification 
 
     %div{:class => "form-inputs"}
-      = f.label :first_name, "Imię"
-      = f.input :first_name, required: true, label: false
-      = f.label :last_name, "Nazwisko"
-      = f.input :last_name, required: true, label: false 
-      = f.label :email, "Adres e-mail"
-      = f.input :email, required: true, label: false 
-      = f.label :phonenumber, "Numer telefonu"
-      = f.input :phonenumber, required: true, label: false 
-      = f.label :city, "Miasto"
-      = f.input :city, required: true, label: false 
+      %div{:id => "form-contactinfo"}
+        = f.label :first_name, "Imię"
+        = f.input :first_name, required: true, label: false
+        = f.label :last_name, "Nazwisko"
+        = f.input :last_name, required: true, label: false 
+        = f.label :email, "Adres e-mail"
+        = f.input :email, required: true, label: false 
+        = f.label :phonenumber, "Numer telefonu"
+        = f.input :phonenumber, required: true, label: false 
+        = f.label :city, "Miasto"
+        = f.input :city, required: true, label: false 
+        = f.label :password_autocomplete, "Zmień hasło", {:id => "change-password-btn", :onclick => "togglePassword()"}
+        %div#password
+          = f.input :password, autocomplete: "off", required: false, label: false
+          = f.input :password_confirmation, required: false, label: false, hint: 'Potwierdź hasło'
+
 
 
       - if devise_mapping.confirmable? && resource.pending_reconfirmation? 
         %p Currently waiting confirmation for: 
         = resource.unconfirmed_email 
 
-      = f.label :current_password, "Obecne hasło"
-      = f.input :current_password, hint: "Jeśli chcesz zatwierdzić zmiany, wpisz hasło", required: false, label: false 
-      = f.label :description, "Napisz kilka słów o sobie"
-      = f.text_area :description
-      = f.label :password_autocomplete, "Zmień hasło", {:id => "change-password-btn", :onclick => "togglePassword()"}
-      %div#password
-        = f.input :password, autocomplete: "off", required: false, label: false
-        = f.input :password_confirmation, required: false, label: false, hint: 'Potwierdź hasło'
-      = f.file_field :avatar
+      %div#form-additional
+        = f.label :description, "Napisz kilka słów o sobie"
+        = f.text_area :description, {:id => "textarea"}
+        %div#count
+        %div#avatar-div
+          = image_tag current_user.avatar(:thumb)
+          %div#file-field
+            = f.label :avatar, "Wybierz avatar"
+            = f.file_field :avatar
+        %div#save
+          = f.label :current_password, "Obecne hasło"
+          = f.input :current_password, hint: "Jeśli chcesz zatwierdzić zmiany, wpisz hasło", required: false, label: false   
+          %div{:class => "form-actions"}
+            = f.button :submit, "Zapisz"      
 
     
 
-    %div{:class => "form-actions"}
-      = f.button :submit, "Update", data: { confirm: "Czy jesteś DSADewien?" }
-      -# = button_to "Usuń konto chuju", registration_path(resource_name), data: { confirm: "Czy jesteś pewien?" }, method: :delete 
 
 
-
-  
-
-  = link_to "Back", :back 
