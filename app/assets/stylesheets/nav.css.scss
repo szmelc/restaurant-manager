@@ -37,22 +37,26 @@
       text-decoration: none;
     }
   }
-  input {
-    height: 50%;
-    align-self: center;
-    border: none;
-    min-width: 200px;
-    padding: 8px;
-    font-family: "Lato", sans-serif;
-    font-size: 1em;
-    padding: 8px;
-    font-weight: 300;
-    box-shadow: none;
-    margin-left: 100px;
-    &:focus {
-      outline: none;
-      border-bottom: 2px solid rgba(27, 157, 226, 0.7);
+  form {
+    @include display(flex, center, center, wrap, column);
+    input {
+      height: 50%;
+      align-self: center;
+      border: none;
+      border-radius: 2px;
+      min-width: 250px;
+      padding: 8px;
+      font-family: "Lato", sans-serif;
+      font-size: 1em;
+      padding: 8px;
+      font-weight: 300;
+      box-shadow: 0 0 1px 1px rgba(0,0,0,.1);
+      margin: auto;
+      &:focus {
+        outline: none;
+        border-bottom: 2px solid rgba(27, 157, 226, 0.7);
     }
+  }
   }
 }
 
