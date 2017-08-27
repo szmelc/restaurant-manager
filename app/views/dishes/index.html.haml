@@ -1,10 +1,19 @@
-%table
-  %tr
-    %th Nazwa
-    %th Rodzaj dania
-    %th Cena
-    - @dishes.each do |dish|
-      %tr
-        %td= dish.name
-        %td= dish.type
-        %td= dish.price
+%div#dishes
+	%div#dish-list
+		%table
+			- @categories.each do |category|
+				%tr
+					%th{:colspan => "2", :class => :tableheader}= category 
+					%tr
+						%th Nazwa
+						%th Cena
+					- @dishes.each do |dish|
+						- if dish.category == category
+							%tr
+								%td= link_to dish.name, dish_path(dish), {:remote => true, :class => 'dish-link', :data => {:link => dish_path(dish)}}
+								%td= dish.price
+	%div#dish-view
+		%div#card
+			= image_tag 'dish.svg'
+			%h1 Restauracja 'U Zaraza'
+	

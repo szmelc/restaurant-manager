@@ -6,12 +6,22 @@
 
 /* USERS LIST */
 
+h1 {
+	text-align: center;
+}
+
 #user-list{
 	@include display(flex, flex-start, flex-start, wrap, row);
 	align-items: flex-start;
-	width: 80vw;
+	max-width: 900px;
+	min-width: 750px;
+	background-color: rgba(255,255, 255,.5);
+	box-shadow: 0 0 1px 1px rgba(0,0,0,.1);
+	padding: 15px;	
 	margin: auto;
-	.user {
+	margin-bottom: 50px;
+
+	.user-thumb {
 		width: 25%;
 		padding: 10px;
 		@include display(flex, center, flex-start, wrap, column);
@@ -44,30 +54,40 @@
 
 .user {
 	@include display(flex, center, flex-start, wrap, row);
-	width: 60vw;
+	max-width: 900px;
+	min-width: 750px;
 	margin: auto;
+	background-color: rgba(255,255, 255,.5);
+	box-shadow: 0 0 1px 1px rgba(0,0,0,.1);
+	padding: 15px;
 	#avatar {
 		margin: 0 20px;
 	}
 	.personal-info {
-		@include display(flex, center, flex-start, wrap, row);
+		@include display(flex, flex-start, flex-start, wrap, row);
 		h1 {
 			margin: 0;
 		}
 		h3 {
 			font-weight: 300;
 		}
+		.description {
+			line-height: 1.5;
+			font-size: 1em;
+			text-align: justify;
+		}
 		.name-info {
 			@include display(flex, center, flex-start, wrap, column);
 			margin-right: 40px;
 			padding-right: 40px;
 			border-right: 1px solid #333;
-			width: 60%;
+			width: 50%;
 		}
 		.contact-info {
 	    a {
 	      text-decoration: none;
 	      color: inherit;
+	      min-width: 300px;
 	    }			
 			@include display(flex, center, center, wrap, column);
 			.contact-row {

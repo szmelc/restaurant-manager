@@ -1,13 +1,13 @@
 %div.user 
-	%div.profile-pic
-		= image_tag @user.user_avatar, :id => "avatar"
 	%div.personal-info
+		%div.profile-pic
+			= image_tag @user.user_avatar, :id => "avatar"
 		%div.name-info
 			%h1
 				= @user.first_name
 				= @user.last_name
 			%div.description
-				%h3
+				%p
 					= @user.description
 		%div.contact-info
 			%div#email.contact-row
@@ -30,7 +30,7 @@
 %div#user-list
 	- @users.each do |user|
 		- if user.id != @user
-			%div.user
+			%div.user-thumb
 				= image_tag user.user_avatar, :id => "avatar", :data => {:link => user_path(user)}
 				%h3= user.name 
 

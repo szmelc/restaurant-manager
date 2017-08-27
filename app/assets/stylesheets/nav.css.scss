@@ -2,6 +2,11 @@
 @import 'variables';
 
 .nav {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
   background-color: $nav-bg-color;
   min-height: 6vh;
   @include display(flex, space-between, center, wrap, row);

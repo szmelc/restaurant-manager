@@ -34,31 +34,6 @@ $("#textarea").keyup(function(){
 
 
 
-
-
-// CHANGE PRICE TEXT FIELD VALUE WHEN A MEAL IS CHOSEN
-
-$('.meals').on('change', '.meal-name', function() {
-	$('.meal-name').on('change', function() {		
-		var chosen = $(this).find(":selected");
-		var price = chosen.data("description");
-		console.log(price)		
-		$(this).siblings("input").val(price);
-
-	})
-})
-
-// END
-
-// GO TO USER PAGE WHEN CLICKING ON A DIV
-
-$("img[data-link]").click(function() {
-	var chosen = $(this)
-  window.location = chosen.data("link");
-});
-
-// END
-
 // DROPDOWN MENU
 
 
@@ -84,6 +59,57 @@ window.onclick = function(event) {
 
 
 
+
+
+
+
+// CHANGE PRICE TEXT FIELD VALUE WHEN A MEAL IS CHOSEN
+
+$('.meals').on('change', '.meal-name', function() {
+	$('.meal-name').on('change', function() {		
+		var chosen = $(this).find(":selected");
+		var price = chosen.data("description");
+		console.log(price)		
+		$(this).siblings("input").val(price);
+
+	})
+})
+
+// END
+
+
+// DROPDOWN MENU
+
+
+function toggleMenu() {
+    document.getElementById("my-dropdown").classList.toggle("show");
+}
+
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+
+// DROPDOWN MENU END
+
+
+// GO TO USER PAGE WHEN CLICKING ON A DIV
+
+$("img[data-link]").click(function() {
+  var chosen = $(this)
+  window.location = chosen.data("link");
+});
+
+// END
 
 
 

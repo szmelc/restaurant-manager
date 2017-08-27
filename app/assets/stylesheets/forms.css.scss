@@ -2,6 +2,10 @@
 @import 'mixins';
 
 
+h2 {
+	text-align: center;
+}
+
 #form-div {
 	@include display(flex, center, center, wrap, column);
 	.form-inputs {
@@ -37,6 +41,7 @@
 		border: none;
 		border-bottom: 2px solid rgba(0,0,0,.2);
 		width: 350px;
+		transition: border-bottom .5s;
 		&:focus {
 			outline: none;
 			border-bottom: 2px solid rgba(27, 157, 226, 0.7);
