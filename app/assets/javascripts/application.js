@@ -16,6 +16,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.easy-autocomplete
+//= require Chart.bundle
 //= require_tree .
 
 $(document).ready(function() {
