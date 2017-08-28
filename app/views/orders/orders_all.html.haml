@@ -1,20 +1,24 @@
-= link_to 'Zamówienia z dziś', orders_today_path
-%h1 Wszystkie zamówienia dzisiaj
-- @user_orders.each do |order|
-  %table
-    %tbody
-      %tr
-        %th Danie
-        %th Ilość
-      %tr
-        %th(colspan="2")
-          %td= Date.today.strftime("%Y-%-m-%d").to_s
-      - order.meals.each do |meal|
-        %tr
-          %td= meal.name
-          %td= meal.quantity
-          %td= order.date
-            
+%div#orders
+  %div.orders-list
+    = link_to 'Zamówienia z dziś', orders_today_path
+    %h1 Wszystkie zamówienia 
+    - @user_orders.each do |order|
+      %table
+        %tbody
+          %tr
+            %th Danie
+            %th Ilość
+          %tr
+            %th(colspan="2")
+              %td= Date.today.strftime("%Y-%-m-%d").to_s
+          - order.meals.each do |meal|
+            %tr
+              %td= meal.name
+              %td= meal.quantity
+              %td= order.date
+  %div#chart
+    %canvas#pieChart{:width => 400, :height => 400}
+
 
 
 

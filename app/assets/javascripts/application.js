@@ -21,6 +21,7 @@
 
 $(document).ready(function() {
 
+
 $('#count').text((200 - $('#textarea').val().length))
 
 $("#textarea").keyup(function(){
@@ -111,6 +112,12 @@ $("img[data-link]").click(function() {
 });
 
 // END
+
+
+
+
+
+
 
 
 
