@@ -3,5 +3,6 @@ json.orders @user_orders do |order|
 	json.user_id order.user_id
 	json.meals order.meals do |meal|
 		json.meal meal.name
+		json.quantity meal.quantity
 	end
 end
