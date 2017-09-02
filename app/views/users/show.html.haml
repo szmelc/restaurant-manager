@@ -26,6 +26,12 @@
 				%h2
 					= @user.phone_number
 
+- if current_user.id == @user.id # showing chart only for the user that's logged in
+	%h2{:id => "orders-header"} Pokaż ilość przyjmowanych zamówień
+	%div#orders-chart
+		%canvas#barChart
+
+
 %h1 Współpracownicy
 %div#user-list
 	- @users.each do |user|

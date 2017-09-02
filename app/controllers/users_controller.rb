@@ -7,6 +7,8 @@ class UsersController < ApplicationController
 	def show
 		@users = User.all.order('id ASC')
 		@user = User.find(params[:id])
+		user_id = current_user.id # tutaj nie jest DRY; zrefaktoruj to
+		@user_orders = Order.where(:user_id => user_id)  
 	end
 
   def update

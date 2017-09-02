@@ -1,6 +1,7 @@
 json.extract! @user, :id, :name
 json.orders @user.orders do |order|
 	json.id order.id
+	json.date order.created_at
 	json.meals order.meals do |meal|
 		json.name meal.name
 		json.quantity meal.quantity
