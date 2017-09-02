@@ -20,6 +20,7 @@ gem 'devise', '~> 4.3'
 gem 'cocoon'
 gem "paperclip", "~> 5.0.0"
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
+gem 'devise-i18n'
 gem 'chartjs-ror'
 gem 'ransack'
 group :development, :test do
