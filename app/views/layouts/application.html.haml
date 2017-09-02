@@ -10,7 +10,7 @@
 
 %body{class: [controller_name, action_name] }
   = render 'layouts/nav'
-  %p.notice= notice
-  %p.alert= alert
   %div.wrapper
+    %p.notice= notice
+    %p.alert= alert  
     = yield

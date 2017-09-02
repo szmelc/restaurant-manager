@@ -1,5 +1,5 @@
 %div#orders
-  %div.orders-list
+  %div#orders-list
     = link_to 'Zamówienia z dziś', orders_today_path
     %h1 Wszystkie zamówienia 
     - @user_orders.each do |order|
@@ -17,7 +17,11 @@
               %td= meal.quantity
               %td= order.date
   %div#chart
-    %canvas#pieChart{:width => 400, :height => 400}
+    %canvas#pieChart
+    %div#stats
+      %h4 
+        Wszystkie zamówienia: 
+        %p= @user_orders.count
 
 
 
