@@ -35,17 +35,26 @@ body.users {
 					cursor: pointer;
 				}
 			}
+			.username {
+				@include display(flex, center, center, wrap, row);
+				margin-top: 10px;
+			}
 			a {
 				text-align: center;
 				display: inline-block;
 				font-weight: 400;
-				margin-top: 10px;
 				text-decoration: none;
 				color: #333;
 			}
 			&:hover {
 				background-color: rgba(0,0,0,.015);
 				cursor: pointer;
+			}
+			.admin-tag {
+				display: inline-block;
+				width: 20px;
+				height: 20px;
+				margin-right: 3px;
 			}
 		}
 	}

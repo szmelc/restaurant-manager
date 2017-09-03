@@ -1,3 +1,5 @@
+%div#home.navbutton{:data => {:link => root_path}}
+	= image_tag 'home.svg'
 %div#avatar-div
 	- if user_signed_in?
 		= image_tag current_user.user_avatar, :id => 'avatar-thumb'

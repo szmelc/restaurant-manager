@@ -8,9 +8,10 @@
   left: 0;
   z-index: 1;
   background-color: $nav-bg-color;
-  min-height: 6vh;
+  height: 60px;
+  max-height: 90px;
   @include display(flex, space-between, center, wrap, row);
-  padding: 0 40px;
+  padding: 0 40px 0 0;
   #navbar {
     width: 100%;
     @include display(flex, space-between, center, no-wrap, row);
@@ -47,9 +48,19 @@
       text-decoration: none;
       color: $color1;
     }
+    #home {
+      width: 60px;
+      img {
+        border-radius: 0;
+        width: 35px;        
+        &:hover {
+          box-shadow: none;
+        }
+      }
+    }
     #avatar-div {
       margin: 0 10px;
-      padding: 5px 0;
+      @include display(flex, center, center, wrap, column);
       &:hover {
         background-color: rgba(0,0,0,.15)
       }
