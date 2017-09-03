@@ -18,6 +18,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'simple_form', '~> 3.5'
 gem 'devise', '~> 4.3'
 gem 'cocoon'
+gem 'cancancan', '~> 2.0'
 gem "paperclip", "~> 5.0.0"
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem 'devise-i18n'
