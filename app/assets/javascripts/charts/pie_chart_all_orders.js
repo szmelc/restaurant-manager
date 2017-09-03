@@ -1,6 +1,6 @@
 // CHART
-$(".orders.orders_all").ready(function() {
-  if($('body').hasClass('orders_all')) {
+$(".orders.index").ready(function() {
+  if($('body').hasClass('orders')) {
     // Download .json for all orders  
     $.getJSON(window.location + '.json', function(json) {
       let ordersCount = json.orders.length // number of all orders
@@ -27,7 +27,7 @@ $(".orders.orders_all").ready(function() {
             }
           };
         }
-        console.log(meals.sort())
+        // console.log(meals.sort())
       };
       defineLabels();
 
@@ -64,21 +64,23 @@ $(".orders.orders_all").ready(function() {
           }
         }
 
-        data.sort(compare);
+        data.sort(compare); // returns all orders
 
-        console.log(data);
+        // console.log(data); 
         
         for(let i = 0; i < meals.length; i++) {
           let counter = 0;
+          // compares how many instances of a meal there's in all orders
           for(let j = 0; j < data.length; j++) {
             if(data[j].meal == meals[i]) {
               counter++;
             }          
           }
-          counterArr.push(counter)
+          counterArr.push(counter) // returns array with quantites of certain meals
+          // console.log(counterArr)
           
         }
-        console.log(counterArr)
+        // console.log(counterArr)
         for(let i = 0; i < counterArr.length; i++) { 
           for(let j = 0; j < counterArr[i]; j++) {
             quantArr.push(data[0]);
@@ -104,15 +106,19 @@ $(".orders.orders_all").ready(function() {
 
 
 
-      let ctp = document.getElementById("pieChart");
+      let ctp = document.getElementById("pie-chart-all");
       let myChart = new Chart(ctp, {
-        type: 'doughnut',
+        type: 'doughnut',        
         data: {
           labels: meals,
           datasets: [{
             backgroundColor: defineColors(),
             data: defineAmountOfSoldMeals()
           }]
+        },
+        options: {
+          maintainAspectRatio: false,
+          responsive: true
         }
       });
     });

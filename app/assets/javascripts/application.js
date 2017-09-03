@@ -36,32 +36,6 @@ $("#textarea").keyup(function(){
 
 
 
-// DROPDOWN MENU
-
-
-function toggleMenu() {
-    document.getElementById("my-dropdown").classList.toggle("show");
-}
-
-window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn')) {
-
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
-    }
-  }
-}
-
-// DROPDOWN MENU END
-
-
-
-
 
 
 
@@ -80,38 +54,9 @@ $('.meals').on('change', '.meal-name', function() {
 // END
 
 
-// DROPDOWN MENU
 
 
-function toggleMenu() {
-    document.getElementById("my-dropdown").classList.toggle("show");
-}
 
-window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn')) {
-
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
-    }
-  }
-}
-
-// DROPDOWN MENU END
-
-
-// GO TO USER PAGE WHEN CLICKING ON A DIV
-
-$("img[data-link]").click(function() {
-  var chosen = $(this)
-  window.location = chosen.data("link");
-});
-
-// END
 
 
 

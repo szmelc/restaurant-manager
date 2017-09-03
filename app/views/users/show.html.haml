@@ -1,7 +1,8 @@
+= content_for :title, "Arbejder | " + @user.name
 %div.user 
 	%div.personal-info
 		%div.profile-pic
-			= image_tag @user.user_avatar, :id => "avatar"
+			= image_tag @user.user_avatar, :class => "avatar"
 		%div.name-info
 			%h1
 				= @user.first_name
@@ -25,6 +26,9 @@
 					= image_tag 'telephone.svg', {class: "contact-image"}
 				%h2
 					= @user.phone_number
+	- if current_user.id == @user.id					
+		%div#settings{:data => {:link => edit_user_registration_path}}
+			= image_tag 'settings.png', :alt => "Ustawienia"
 
 - if current_user.id == @user.id # showing chart only for the user that's logged in
 	%h2{:id => "orders-header"} Pokaż ilość przyjmowanych zamówień
@@ -36,8 +40,8 @@
 %div#user-list
 	- @users.each do |user|
 		- if user.id != @user
-			%div.user-thumb
-				= image_tag user.user_avatar, :id => "avatar", :data => {:link => user_path(user)}
-				%h3= user.name 
+			%div.user-thumb{:data => {:link => user_path(user)}}
+				= image_tag user.user_avatar, :class => "avatar", :data => {:link => user_path(user)}
+				= link_to user.name, user_path(user)
 
 

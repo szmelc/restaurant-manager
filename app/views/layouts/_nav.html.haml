@@ -1,20 +1,32 @@
 
 
 %div.nav
-  %div.nav-left
-    = render 'layouts/menu'
-  
-  = form_with  :url => search_path, :local => true, :method => :get do |f|
-    = f.text_field :q, :type => "text", :placeholder => "Szukaj...", :id => "search", :data => {:behavior => "autocomplete"}
-    -# = f.button 'Search'
-    
+  %div#navbar
+    %div.nav-left
+      = render 'layouts/menu'
 
-  - if user_signed_in?
-    %div.login-buttons
-      = link_to 'Lista Dań', dishes_path
-      = link_to 'Nowe zamówienie', new_order_path
-      = link_to 'Wyświetl zamówienia', orders_path      
-  - else
-    %div.login-buttons
-      = link_to 'Log in', new_user_session_path
-      = link_to 'Sign up', new_user_registration_path
+    - if user_signed_in?  
+      = form_with  :url => search_path, :local => true, :method => :get do |f|
+        = f.text_field :q, :type => "text", :placeholder => "Szukaj...", :id => "search", :data => {:behavior => "autocomplete"}
+      -# = f.button 'Search'
+      
+
+    - if user_signed_in?
+      %div.login-buttons
+        %div.navbutton{:data => {:link => dishes_path}}
+          = link_to 'Lista Dań', dishes_path 
+        %div.navbutton{:data => {:link => new_order_path}}
+          = link_to 'Nowe zamówienie', new_order_path
+        %div.navbutton{:data => {:link => orders_path}}
+          = link_to 'Wyświetl zamówienia', orders_path      
+    - else
+      %div.login-buttons
+        %div.navbutton{:data => {:link => new_user_session_path}}
+          = link_to 'Log in', new_user_session_path
+        %div.navbutton{:data => {:link => new_user_registration_path}}
+          = link_to 'Sign up', new_user_registration_path
+  %div#user-buttons
+    - if user_signed_in?
+      = link_to 'Mój profil', user_path(current_user)
+    = link_to 'Ustawienia konta', edit_user_registration_path
+    = link_to 'Wyloguj', destroy_user_session_path, method: :delete

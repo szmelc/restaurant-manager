@@ -112,3 +112,60 @@ input[type="submit"] {
 	@include display(flex, space-between, center, wrap, column);
 }
 
+
+// LOGIN
+
+#login,
+#register {
+	@include display(flex, center, center, wrap, column);
+	background-color: rgba(255,255, 255,.5);
+	box-shadow: 0 0 1px 1px rgba(0,0,0,.1);
+	padding: 15px;	
+	max-width: 600px;
+	min-width: 400px;
+	margin: auto;
+	label{
+		margin-left: 30px;
+		margin-top: 15px;
+	}
+	form {
+	input,
+	textarea {
+		font-family: "Lato", sans-serif;
+		font-size: 1em;
+		background: none;
+		padding: 8px;
+		font-weight: 300;
+		box-shadow: none;
+		border: none;
+		border-bottom: 2px solid rgba(0,0,0,.2);
+		width: 85%;
+		margin: auto;
+		transition: border-bottom .5s;
+		&:focus {
+			outline: none;
+			border-bottom: 2px solid rgba(27, 157, 226, 0.7);
+		}
+	}
+	}
+	.form-actions{
+		@include display(flex, center, center, wrap, row);
+		input[type="submit"] {
+			margin: auto;
+			background-color: #36b56b;
+			color: white;
+			border: none;
+			margin: 10px 0;
+			transition: box-shadow .2s;
+			&:active {
+				transform: translate(1px, 1px);
+			}
+			&:hover {
+				box-shadow: 0 0 1px 1px rgba(0,0,0,.1);
+			}
+		}	
+	}
+
+}
+
+
