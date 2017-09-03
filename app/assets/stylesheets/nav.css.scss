@@ -68,6 +68,14 @@
       cursor: pointer;
       background-color: #0e8acc;
     }
+    img {
+      border-radius: 0;
+      width: 20px;
+      height: auto;
+      &:hover {
+        box-shadow: none;
+      }
+    }
   }  
   form {
     @include display(flex, center, center, wrap, column);

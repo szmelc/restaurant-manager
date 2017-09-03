@@ -1,7 +1,11 @@
 @import 'variables';
 @import 'mixins';
 
-
+body[class="registrations edit"] {
+	.wrapper {
+		@include display(flex, flex-start, center, wrap, column);	
+	}
+}
 h2 {
 	text-align: center;
 }
