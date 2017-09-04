@@ -37,9 +37,9 @@
 
 
 %h1 Współpracownicy
-%div#user-list
+%div.user-list
 	- @users.each do |user|
-		- if user.id != @user
+		- if user.id != current_user.id
 			%div.user-thumb{:data => {:link => user_path(user)}}
 				= image_tag user.user_avatar, :class => "avatar", :data => {:link => user_path(user)}
 				%div.username

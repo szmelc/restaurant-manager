@@ -1,0 +1,19 @@
+= content_for :title, "Arbejder | Panel Administratora"
+%h1 Moi robole
+%div.user-list
+	- @users.each do |user|
+		- if current_user.id != user.id
+			%div.user-thumb{:data => {:link => user_path(user)}}
+				= image_tag user.user_avatar, :class => "avatar", :data => {:link => user_path(user)}
+				%div.username
+					- if user.admin?
+						= image_tag 'admin.png', :class => "admin-tag", :alt => "Admin"
+					= link_to user.name, user_path(user)
+					%div#admin-buttons
+						= link_to 'Edytuj', admin_edit_user_path(user), {:id => "edit-link"}
+						= link_to 'Usuń', admin_destroy_user_path(user), :id => "delete-link", method: :delete, data: {confirm: "Czy jesteś pewien że chcesz usunąć użytkownika #{user.name}?"}
+%h1 Produktywność roboli
+%div#orders-chart
+	%canvas#barChartAllEmployees
+%div#orders-chart
+	%canvas#barChartAllEmployeesDailyComparison

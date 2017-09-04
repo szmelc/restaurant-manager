@@ -5,6 +5,8 @@ $(document).ready(function() {
 				$('#orders-chart').slideToggle(250)
 			});
 
+			
+
 			function setLabels() {
 				var startDate = new Date - 24 * 3600 * 1000 * 7 - 1 //returns miliseconds
 				var endDate = new Date()

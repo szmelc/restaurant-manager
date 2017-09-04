@@ -1,0 +1,16 @@
+// Place all the styles related to the Admin controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body[class="admin"] {
+	background-color: black;
+	.user-list {
+		.user-thumb {
+			.username {
+				#admin-buttons {
+					font-size: .3em;
+				}				
+			}
+		}
+	}
+}

@@ -19,4 +19,18 @@ class UsersController < ApplicationController
     	redirect_to root_path
     end
 	end
+
+	def edit
+		@user = User.find(params[:id])
+	end
+
+
+  def destroy
+  	@user = User.find(params[:id])
+  	@user.destroy
+
+  	if @user.destroy
+  		redirect_to admin_path
+  	end
+  end
 end

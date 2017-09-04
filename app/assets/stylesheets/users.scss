@@ -5,7 +5,8 @@
 @import 'variables';
 
 
-body.users {
+body.users,
+body.admin {
 
 	/* USERS LIST */
 
@@ -13,7 +14,7 @@ body.users {
 		text-align: center;
 	}
 
-	#user-list {
+	.user-list {
 		@include display(flex, flex-start, flex-start, wrap, row);
 		align-items: flex-start;
 		max-width: 900px;
@@ -36,8 +37,23 @@ body.users {
 				}
 			}
 			.username {
-				@include display(flex, center, center, wrap, row);
+				@include display(flex, center, center, wrap, column);
 				margin-top: 10px;
+				#admin-buttons {
+					@include display(flex, center, center, wrap, row);
+					font-size: 0.8em;
+					&> * {
+						margin: 0 3px;
+						padding: 2px 3px;
+					}
+					#delete-link {
+						color: red;
+						&:hover {
+							color: white;
+							background-color: red;
+						}
+					}
+				}
 			}
 			a {
 				text-align: center;
