@@ -14,6 +14,12 @@
 						= link_to 'Usuń', admin_destroy_user_path(user), :id => "delete-link", method: :delete, data: {confirm: "Czy jesteś pewien że chcesz usunąć użytkownika #{user.name}?"}
 %h1 Produktywność roboli
 %div#orders-chart
-	%canvas#barChartAllEmployees
-%div#orders-chart
-	%canvas#barChartAllEmployeesDailyComparison
+	%div#buttons
+		%div.button.active{:alt => "barChartAllOrders"} Wszystkie zamówienia danego dnia
+		%div.button{:alt => "barChartAllEmployees"} Wszystkie zamówienia pracowników
+		%div.button{:alt => "barChartAllEmployeesDailyComparison"} Porównanie zamówień
+	%div#chart	
+		%canvas#barChartAllOrders
+		%canvas#barChartAllEmployees
+		%canvas#barChartAllEmployeesDailyComparison
+

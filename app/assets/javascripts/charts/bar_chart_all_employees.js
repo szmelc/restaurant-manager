@@ -7,8 +7,6 @@ $(document).ready(function() {
 					labels.push(user.name)
 					data.push(user.count)
 				}
-				console.log(labels);
-				console.log(data);
 				var ctu = document.getElementById('barChartAllEmployees');
 				var chartAllEmployees = new Chart(ctu, {
 					type: 'bar',

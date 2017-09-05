@@ -91,7 +91,7 @@ $(document).ready(function() {
 						data.push({label: user.name, backgroundColor: colors[i], data: amounts});												
 						i++						
 						amounts = []
-					}					
+					}
 					return data
 				}
 				
@@ -105,8 +105,7 @@ $(document).ready(function() {
 					for(user of json.users) {
 						for(order of user.orders) {
 							orderDates.push(returnDate(order.created_at))
-						}
-						console.log(orderDates)
+						}						
 						for(let i = 0; i < setLabels().length; i++) {
 							for(let j = 0; j < orderDates.length; j++) {
 								if(orderDates[j] == setLabels()[i]) {
@@ -117,7 +116,6 @@ $(document).ready(function() {
 							counter = 0;														
 						}						
 						orderDates = [];
-						console.log(amounts);
 						amounts = []
 					}
 				}

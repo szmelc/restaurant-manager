@@ -1,6 +1,7 @@
 class AdminController < ApplicationController
   def index
   	@users = User.all
+    @orders = Order.all
   end
 
   def destroy

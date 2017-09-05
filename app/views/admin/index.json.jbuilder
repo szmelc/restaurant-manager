@@ -3,3 +3,4 @@ json.users @users do |user|
 	json.count user.orders.count
 	json.orders user.orders
 end
+

@@ -22,6 +22,20 @@ $(document).ready(function() {
 	  window.location = chosen.data("link");
 	});
 
+
+// Navigate through charts in admin panel
+
+	$('.button').click(function() {
+		$(this).siblings().removeClass('active');
+		$(this).addClass('active');
+		$alt = $(this).attr('alt')
+		$('canvas').css('display', 'none')
+		
+
+		$('canvas[id="' + $alt + '"]').css('display', 'inline');
+	});
+
+
 });
 
 
