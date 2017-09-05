@@ -1,0 +1,1483 @@
+/*
+ * easy-autocomplete
+ * jQuery plugin for autocompletion
+ * 
+ * @author Łukasz Pawełczak (http://github.com/pawelczak)
+ * @version 1.3.5
+ * Copyright  License: 
+ */
+
+
+.easy-autocomplete {
+  position: relative;
+}
+.easy-autocomplete input {
+  border-color: #ccc;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) inset;
+  color: #555;
+  float: none;
+  padding: 6px 12px;
+}
+.easy-autocomplete input:hover, .easy-autocomplete input:focus {
+  box-shadow: none;
+}
+.easy-autocomplete a {
+  display: block;
+}
+.easy-autocomplete.eac-blue-light input:hover, .easy-autocomplete.eac-blue-light input:focus {
+  border-color: #66afe9;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(102, 175, 233, 0.6);
+}
+.easy-autocomplete.eac-blue-light ul {
+  border-color: #66afe9;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(102, 175, 233, 0.6);
+}
+.easy-autocomplete.eac-blue-light ul li, .easy-autocomplete.eac-blue-light ul .eac-category {
+  border-color: #66afe9;
+}
+.easy-autocomplete.eac-blue-light ul li.selected, .easy-autocomplete.eac-blue-light ul .eac-category.selected {
+  background-color: #ecf5fc;
+}
+.easy-autocomplete.eac-green-light input:hover, .easy-autocomplete.eac-green-light input:focus {
+  border-color: #41DB00;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(146, 237, 107, 0.6);
+}
+.easy-autocomplete.eac-green-light ul {
+  border-color: #41DB00;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(146, 237, 107, 0.6);
+}
+.easy-autocomplete.eac-green-light ul li, .easy-autocomplete.eac-green-light ul .eac-category {
+  border-color: #41DB00;
+}
+.easy-autocomplete.eac-green-light ul li.selected, .easy-autocomplete.eac-green-light ul .eac-category.selected {
+  background-color: #9eff75;
+}
+.easy-autocomplete.eac-red-light input:hover, .easy-autocomplete.eac-red-light input:focus {
+  border-color: #ff5b5b;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(255, 90, 90, 0.6);
+}
+.easy-autocomplete.eac-red-light ul {
+  border-color: #ff5b5b;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(255, 90, 90, 0.6);
+}
+.easy-autocomplete.eac-red-light ul li, .easy-autocomplete.eac-red-light ul .eac-category {
+  border-color: #ff5b5b;
+}
+.easy-autocomplete.eac-red-light ul li.selected, .easy-autocomplete.eac-red-light ul .eac-category.selected {
+  background-color: #ff8e8e;
+}
+.easy-autocomplete.eac-yellow-light input:hover, .easy-autocomplete.eac-yellow-light input:focus {
+  border-color: #ffdb00;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(255, 231, 84, 0.6);
+}
+.easy-autocomplete.eac-yellow-light ul {
+  border-color: #ffdb00;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(255, 231, 84, 0.6);
+}
+.easy-autocomplete.eac-yellow-light ul li, .easy-autocomplete.eac-yellow-light ul .eac-category {
+  border-color: #ffdb00;
+}
+.easy-autocomplete.eac-yellow-light ul li.selected, .easy-autocomplete.eac-yellow-light ul .eac-category.selected {
+  background-color: #ffe233;
+}
+.easy-autocomplete.eac-dark-light input:hover, .easy-autocomplete.eac-dark-light input:focus {
+  border-color: #333;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(55, 55, 55, 0.6);
+}
+.easy-autocomplete.eac-dark-light ul {
+  border-color: #333;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(55, 55, 55, 0.6);
+}
+.easy-autocomplete.eac-dark-light ul li, .easy-autocomplete.eac-dark-light ul .eac-category {
+  border-color: #333;
+}
+.easy-autocomplete.eac-dark-light ul li.selected, .easy-autocomplete.eac-dark-light ul .eac-category.selected {
+  background-color: #4d4d4d;
+  color: #fff;
+}
+.easy-autocomplete.eac-dark {
+  color: #fff;
+}
+.easy-autocomplete.eac-dark input {
+  background-color: #404040;
+  border-radius: 4px;
+  box-shadow: 0;
+  color: #f6f6f6;
+}
+.easy-autocomplete.eac-dark input:hover, .easy-autocomplete.eac-dark input:focus {
+  border-color: #333;
+  box-shadow: 0;
+}
+.easy-autocomplete.eac-dark ul {
+  border-color: #333;
+}
+.easy-autocomplete.eac-dark ul li, .easy-autocomplete.eac-dark ul .eac-category {
+  background-color: #404040;
+  border-color: #333;
+}
+.easy-autocomplete.eac-dark ul li.selected, .easy-autocomplete.eac-dark ul .eac-category.selected {
+  background-color: #737373;
+  color: #f6f6f6;
+}
+.easy-autocomplete.eac-dark-glass {
+  color: #fff;
+}
+.easy-autocomplete.eac-dark-glass input {
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 4px;
+  box-shadow: 0;
+  color: #f6f6f6;
+}
+.easy-autocomplete.eac-dark-glass input:hover, .easy-autocomplete.eac-dark-glass input:focus {
+  border-color: rgba(0, 0, 0, 0.8);
+  box-shadow: 0;
+}
+.easy-autocomplete.eac-dark-glass ul {
+  border-color: rgba(0, 0, 0, 0.8);
+}
+.easy-autocomplete.eac-dark-glass ul li, .easy-autocomplete.eac-dark-glass ul .eac-category {
+  background-color: rgba(0, 0, 0, 0.8);
+  border-color: rgba(0, 0, 0, 0.8);
+}
+.easy-autocomplete.eac-dark-glass ul li.selected, .easy-autocomplete.eac-dark-glass ul .eac-category.selected {
+  background-color: rgba(64, 64, 64, 0.8);
+  color: #f6f6f6;
+}
+.easy-autocomplete.eac-dark-glass ul li:last-child, .easy-autocomplete.eac-dark-glass ul .eac-category:last-child {
+  border-radius: 0 0 4px 4px;
+}
+.easy-autocomplete.eac-blue {
+  color: #fff;
+}
+.easy-autocomplete.eac-blue input {
+  background-color: #6d9ed1;
+  border-radius: 4px;
+  box-shadow: 0;
+  color: #f6f6f6;
+}
+.easy-autocomplete.eac-blue input::-webkit-input-placeholder {
+  color: #f6f6f6;
+}
+.easy-autocomplete.eac-blue input:-moz-placeholder {
+  color: #f6f6f6;
+}
+.easy-autocomplete.eac-blue input::-moz-placeholder {
+  color: #f6f6f6;
+}
+.easy-autocomplete.eac-blue input:-ms-input-placeholder {
+  color: #f6f6f6;
+}
+.easy-autocomplete.eac-blue input:hover, .easy-autocomplete.eac-blue input:focus {
+  border-color: #5A91CB;
+  box-shadow: 0;
+}
+.easy-autocomplete.eac-blue ul {
+  border-color: #5A91CB;
+}
+.easy-autocomplete.eac-blue ul li, .easy-autocomplete.eac-blue ul .eac-category {
+  background-color: #6d9ed1;
+  border-color: #5A91CB;
+}
+.easy-autocomplete.eac-blue ul li.selected, .easy-autocomplete.eac-blue ul .eac-category.selected {
+  background-color: #94b8dd;
+  color: #f6f6f6;
+}
+.easy-autocomplete.eac-yellow {
+  color: #333;
+}
+.easy-autocomplete.eac-yellow input {
+  background-color: #ffdb7e;
+  border-color: #333;
+  border-radius: 4px;
+  box-shadow: 0;
+  color: #333;
+}
+.easy-autocomplete.eac-yellow input:hover, .easy-autocomplete.eac-yellow input:focus {
+  border-color: #333;
+  box-shadow: 0;
+}
+.easy-autocomplete.eac-yellow ul {
+  border-color: #333;
+}
+.easy-autocomplete.eac-yellow ul li, .easy-autocomplete.eac-yellow ul .eac-category {
+  background-color: #ffdb7e;
+  border-color: #333;
+}
+.easy-autocomplete.eac-yellow ul li.selected, .easy-autocomplete.eac-yellow ul .eac-category.selected {
+  background-color: #ffe9b1;
+  color: #333;
+}
+.easy-autocomplete.eac-purple {
+  color: #333;
+}
+.easy-autocomplete.eac-purple input {
+  background-color: #d6d1e7;
+  border-color: #b8afd5;
+  box-shadow: 0;
+  color: #333;
+}
+.easy-autocomplete.eac-purple input:hover, .easy-autocomplete.eac-purple input:focus {
+  border-color: #333;
+  box-shadow: 0;
+}
+.easy-autocomplete.eac-purple ul {
+  border-color: #333;
+}
+.easy-autocomplete.eac-purple ul li, .easy-autocomplete.eac-purple ul .eac-category {
+  background-color: #d6d1e7;
+  border-color: #333;
+}
+.easy-autocomplete.eac-purple ul li.selected, .easy-autocomplete.eac-purple ul .eac-category.selected {
+  background-color: #ebe8f3;
+  color: #333;
+}
+.easy-autocomplete.eac-bootstrap input {
+  border-color: #ccc;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  color: #555;
+  padding: 6px 12px;
+}
+
+.easy-autocomplete-container {
+  left: 0;
+  position: absolute;
+  width: 100%;
+  z-index: 2;
+}
+.easy-autocomplete-container ul {
+  background: none repeat scroll 0 0 #ffffff;
+  border-top: 1px dotted #ccc;
+  display: none;
+  margin-top: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  position: relative;
+  top: -1px;
+}
+.easy-autocomplete-container ul li, .easy-autocomplete-container ul .eac-category {
+  background: inherit;
+  border-color: #ccc;
+  border-image: none;
+  border-style: solid;
+  border-width: 0 1px;
+  display: block;
+  font-size: 14px;
+  font-weight: normal;
+  padding: 4px 12px;
+}
+.easy-autocomplete-container ul li:last-child {
+  border-radius: 0 0 2px 2px;
+  border-width: 0 1px 1px;
+}
+.easy-autocomplete-container ul li.selected {
+  background: none repeat scroll 0 0 #ebebeb;
+  cursor: pointer;
+}
+.easy-autocomplete-container ul li.selected div {
+  font-weight: normal;
+}
+.easy-autocomplete-container ul li div {
+  display: block;
+  font-weight: normal;
+  word-break: break-all;
+}
+.easy-autocomplete-container ul li b {
+  font-weight: bold;
+}
+.easy-autocomplete-container ul .eac-category {
+  font-color: #aaa;
+  font-style: italic;
+}
+
+.eac-description .eac-item span {
+  color: #aaa;
+  font-style: italic;
+  font-size: 0.9em;
+}
+
+.eac-icon-left .eac-item img {
+  margin-right: 4px;
+  max-height: 30px;
+}
+
+.eac-icon-right .eac-item {
+  margin-top: 8px;
+  min-height: 24px;
+  position: relative;
+}
+.eac-icon-right .eac-item img {
+  margin-left: 4px;
+  max-height: 30px;
+  position: absolute;
+  right: -4px;
+  top: -8px;
+}
+
+/*# sourceMappingURL=easy-autocomplete.css.map */
+/*
+ * easy-autocomplete
+ * jQuery plugin for autocompletion
+ * 
+ * @author Łukasz Pawełczak (http://github.com/pawelczak)
+ * @version 1.3.5
+ * Copyright  License: 
+ */
+
+
+.easy-autocomplete {
+  /* Theme Square */
+  /* Round */
+  /* Funky */
+  /* Solid */
+  /* Plate */
+}
+.easy-autocomplete.eac-square {
+  font-family: "Roboto", "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+.easy-autocomplete.eac-square input {
+  border: 1px solid #7f8c8d;
+  border-radius: 0;
+  color: #7f8c8d;
+  font-family: inherit;
+  font-size: 18px;
+  font-style: italic;
+  font-weight: 300;
+  margin: 0;
+  min-width: 350px;
+  padding: 12px 43px 12px 15px;
+}
+.easy-autocomplete.eac-square ul {
+  border-color: #7f8c8d;
+  border-top: 0;
+  box-shadow: none;
+  top: 0;
+}
+.easy-autocomplete.eac-square ul li, .easy-autocomplete.eac-square ul .eac-category {
+  border-color: #7f8c8d;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 300;
+  padding: 6px 12px;
+  transition: all 0.4s ease 0s;
+}
+.easy-autocomplete.eac-square ul li *, .easy-autocomplete.eac-square ul .eac-category * {
+  font-weight: 300;
+}
+.easy-autocomplete.eac-square ul li.selected, .easy-autocomplete.eac-square ul .eac-category.selected {
+  background-color: #f1f1f1;
+  font-weight: 300;
+}
+.easy-autocomplete.eac-square ul li b, .easy-autocomplete.eac-square ul .eac-category b {
+  font-weight: 600;
+}
+.easy-autocomplete.eac-round {
+  font-family: "Open Sans", "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+.easy-autocomplete.eac-round input {
+  border: 2px solid #888;
+  border-radius: 10px;
+  color: #888;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 400;
+  margin: 0;
+  min-width: 300px;
+  padding: 10px;
+}
+.easy-autocomplete.eac-round input:hover, .easy-autocomplete.eac-round input:focus {
+  border-color: #3079ed;
+}
+.easy-autocomplete.eac-round ul {
+  background: none;
+  border-color: #888;
+  border-width: 0;
+  box-shadow: none;
+  min-width: 300px;
+  top: 20px;
+}
+.easy-autocomplete.eac-round ul li, .easy-autocomplete.eac-round ul .eac-category {
+  background: #fff;
+  border-color: #3079ed;
+  border-width: 0 2px;
+  font-size: 14px;
+  padding: 8px 12px;
+  transition: all 0.4s ease 0s;
+}
+.easy-autocomplete.eac-round ul li.selected, .easy-autocomplete.eac-round ul .eac-category.selected {
+  background-color: #d4e3fb;
+}
+.easy-autocomplete.eac-round ul li:first-child, .easy-autocomplete.eac-round ul .eac-category:first-child {
+  border-radius: 10px 10px 0 0;
+  border-width: 2px 2px 0;
+}
+.easy-autocomplete.eac-round ul li:last-child, .easy-autocomplete.eac-round ul .eac-category:last-child {
+  border-radius: 0 0 10px 10px;
+  border-width: 0 2px 2px;
+}
+.easy-autocomplete.eac-round ul li b, .easy-autocomplete.eac-round ul .eac-category b {
+  font-weight: 700;
+}
+.easy-autocomplete.eac-funky {
+  font-family: "Inconsolata", "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+.easy-autocomplete.eac-funky input {
+  background: #07ED89;
+  border: 0;
+  border-radius: 0;
+  color: #ED076B;
+  font-family: inherit;
+  font-size: 18px;
+  min-width: 240px;
+  padding: 12px;
+}
+.easy-autocomplete.eac-funky ul {
+  background: transparent;
+  border: 0;
+}
+.easy-autocomplete.eac-funky ul li, .easy-autocomplete.eac-funky ul .eac-category {
+  background: transparent;
+  border: 0;
+  color: #ED076B;
+  font-size: 18px;
+  padding: 4px 12px;
+  transition: all 0.4s ease 0s;
+}
+.easy-autocomplete.eac-funky ul li.selected, .easy-autocomplete.eac-funky ul .eac-category.selected {
+  color: #8907ED;
+}
+.easy-autocomplete.eac-solid input {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15) inset;
+  border-color: #ddd;
+  color: #666;
+  font-size: 13px;
+  min-height: 0;
+  padding: 6px 12px;
+}
+.easy-autocomplete.eac-solid ul li, .easy-autocomplete.eac-solid ul .eac-category {
+  transition: all 0.4s ease 0s;
+}
+.easy-autocomplete.eac-solid ul li.selected, .easy-autocomplete.eac-solid ul .eac-category.selected {
+  background-color: #f2f2f2;
+}
+.easy-autocomplete.eac-plate {
+  font-family: "Open Sans", "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+.easy-autocomplete.eac-plate input {
+  font-size: 13px;
+  padding: 6px 12px;
+}
+.easy-autocomplete.eac-plate ul {
+  background: #b5b5b5;
+  border-radius: 6px;
+  border-width: 0;
+  top: 10px;
+}
+.easy-autocomplete.eac-plate ul li, .easy-autocomplete.eac-plate ul .eac-category {
+  background: #b5b5b5;
+  color: #FAFAFA;
+  font-size: 12px;
+  transition: all 0.4s ease 0s;
+}
+.easy-autocomplete.eac-plate ul li b, .easy-autocomplete.eac-plate ul .eac-category b {
+  color: #ffd464;
+}
+.easy-autocomplete.eac-plate ul li.selected, .easy-autocomplete.eac-plate ul .eac-category.selected {
+  background: #656565;
+}
+.easy-autocomplete.eac-plate ul li:first-child, .easy-autocomplete.eac-plate ul .eac-category:first-child {
+  border-radius: 6px 6px 0 0;
+}
+.easy-autocomplete.eac-plate ul li:last-child, .easy-autocomplete.eac-plate ul .eac-category:last-child {
+  border-radius: 0 0 6px 6px;
+}
+.easy-autocomplete.eac-plate-dark {
+  font-family: "Open Sans", "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+.easy-autocomplete.eac-plate-dark input {
+  font-size: 13px;
+  padding: 6px 12px;
+}
+.easy-autocomplete.eac-plate-dark ul {
+  background: #212121;
+  border-radius: 6px;
+  border-width: 0;
+  top: 10px;
+}
+.easy-autocomplete.eac-plate-dark ul li, .easy-autocomplete.eac-plate-dark ul .eac-category {
+  background: #212121;
+  color: #FAFAFA;
+  font-size: 12px;
+  transition: all 0.4s ease 0s;
+}
+.easy-autocomplete.eac-plate-dark ul li b, .easy-autocomplete.eac-plate-dark ul .eac-category b {
+  color: #ffd464;
+}
+.easy-autocomplete.eac-plate-dark ul li.selected, .easy-autocomplete.eac-plate-dark ul .eac-category.selected {
+  background: #656565;
+}
+.easy-autocomplete.eac-plate-dark ul li:first-child, .easy-autocomplete.eac-plate-dark ul .eac-category:first-child {
+  border-radius: 6px 6px 0 0;
+}
+.easy-autocomplete.eac-plate-dark ul li:last-child, .easy-autocomplete.eac-plate-dark ul .eac-category:last-child {
+  border-radius: 0 0 6px 6px;
+}
+
+/*# sourceMappingURL=easy-autocomplete.themes.css.map */
+/* line 7, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/admin.css.scss */
+#orders-chart {
+  padding: 0;
+  width: 900px;
+  max-width: 900px;
+  min-width: 750px;
+  margin: auto;
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+/* line 15, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/admin.css.scss */
+#orders-chart #buttons {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 100%;
+  margin-bottom: 20px;
+}
+/* line 19, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/admin.css.scss */
+#orders-chart #buttons .button {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  text-align: center;
+  width: 33.3%;
+  border-left: 1px solid rgba(0, 0, 0, 0.15);
+  border-right: 1px solid rgba(0, 0, 0, 0.15);
+  height: 50px;
+}
+/* line 27, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/admin.css.scss */
+#orders-chart #buttons .button:hover {
+  cursor: pointer;
+  background-image: linear-gradient(white 70%, rgba(0, 0, 0, 0.01) 100%);
+}
+/* line 31, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/admin.css.scss */
+#orders-chart #buttons .button.active {
+  font-weight: 400;
+  border-bottom: none;
+}
+/* line 35, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/admin.css.scss */
+#orders-chart #buttons .button:last-child {
+  border-right: none;
+}
+/* line 38, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/admin.css.scss */
+#orders-chart #buttons .button:first-child {
+  border-left: none;
+}
+/* line 41, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/admin.css.scss */
+#orders-chart #buttons .button:not(.active) {
+  background-color: rgba(0, 0, 0, 0.009);
+}
+/* line 1, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/dish.css.scss */
+#card {
+  width: 60%;
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+}
+/* line 7, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/dishes.scss */
+#dishes {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  min-height: 100vh;
+}
+/* line 10, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/dishes.scss */
+#dishes #dish-list,
+#dishes #dish-view {
+  width: 50vw;
+}
+/* line 13, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/dishes.scss */
+#dishes #dish-list #card,
+#dishes #dish-view #card {
+  width: 90%;
+  margin: auto;
+  margin-top: 20px;
+  min-height: 80%;
+}
+/* line 21, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/dishes.scss */
+#dishes #dish-list table {
+  min-width: 50%;
+  margin: auto;
+  margin-top: 50px;
+}
+/* line 25, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/dishes.scss */
+#dishes #dish-list table th.tableheader {
+  text-align: center;
+  background-color: #FFF;
+}
+/* line 29, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/dishes.scss */
+#dishes #dish-list table a {
+  text-decoration: none;
+  color: #000;
+}
+/* line 5, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/forms.css.scss */
+body[class="registrations edit"] .wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+/* line 9, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/forms.css.scss */
+h2 {
+  text-align: center;
+}
+
+/* line 13, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/forms.css.scss */
+#form-div {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+/* line 15, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/forms.css.scss */
+#form-div .form-inputs {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+/* line 17, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/forms.css.scss */
+#form-div .form-inputs #form-contactinfo {
+  margin-right: 30px;
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+}
+/* line 23, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/forms.css.scss */
+#form-div .form-inputs #form-additional {
+  margin-left: 30px;
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+/* line 30, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/forms.css.scss */
+#form-div .form-inputs #form-additional #save span {
+  margin-bottom: 15px;
+}
+/* line 37, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/forms.css.scss */
+#form-div form input,
+#form-div form textarea {
+  font-family: "Lato", sans-serif;
+  font-size: 1em;
+  background: none;
+  padding: 8px;
+  font-weight: 300;
+  box-shadow: none;
+  border: none;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+  width: 350px;
+  transition: border-bottom .5s;
+}
+/* line 49, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/forms.css.scss */
+#form-div form input:focus,
+#form-div form textarea:focus {
+  outline: none;
+  border-bottom: 2px solid rgba(27, 157, 226, 0.7);
+}
+/* line 54, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/forms.css.scss */
+#form-div form label {
+  font-weight: 400;
+  margin-bottom: 8px;
+  display: block;
+  font-size: 1.1em;
+}
+/* line 60, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/forms.css.scss */
+#form-div form textarea {
+  resize: none;
+  display: block;
+  margin: 10px;
+  height: 30%;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+}
+/* line 66, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/forms.css.scss */
+#form-div form textarea:focus {
+  border: 2px solid rgba(27, 157, 226, 0.7);
+}
+/* line 70, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/forms.css.scss */
+#form-div form #count {
+  text-align: right;
+  font-size: .7em;
+  margin: 0 10px;
+}
+/* line 75, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/forms.css.scss */
+#form-div form #avatar-div {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+/* line 77, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/forms.css.scss */
+#form-div form #avatar-div img {
+  margin: 10px;
+}
+/* line 80, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/forms.css.scss */
+#form-div form #avatar-div label {
+  display: inline-block;
+  margin-top: 10px;
+}
+/* line 84, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/forms.css.scss */
+#form-div form #avatar-div #file-field {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+/* line 87, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/forms.css.scss */
+#form-div form #avatar-div input {
+  width: 250px;
+}
+/* line 92, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/forms.css.scss */
+#form-div form input[type="file"] {
+  display: block;
+}
+/* line 95, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/forms.css.scss */
+#form-div form .form-actions {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+/* line 100, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/forms.css.scss */
+#form-div input[type="submit"] {
+  border: none;
+  background-color: #36b56b;
+  color: #FFF;
+}
+/* line 104, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/forms.css.scss */
+#form-div input[type="submit"]:hover {
+  cursor: pointer;
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+/* line 114, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/forms.css.scss */
+.input {
+  margin: 10px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+/* line 122, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/forms.css.scss */
+#login,
+#register {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  max-width: 600px;
+  min-width: 400px;
+  margin: auto;
+}
+/* line 131, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/forms.css.scss */
+#login label,
+#register label {
+  margin-left: 30px;
+  margin-top: 15px;
+}
+/* line 136, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/forms.css.scss */
+#login form input,
+#login form textarea,
+#register form input,
+#register form textarea {
+  font-family: "Lato", sans-serif;
+  font-size: 1em;
+  background: none;
+  padding: 8px;
+  font-weight: 300;
+  box-shadow: none;
+  border: none;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+  width: 85%;
+  margin: auto;
+  transition: border-bottom .5s;
+}
+/* line 149, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/forms.css.scss */
+#login form input:focus,
+#login form textarea:focus,
+#register form input:focus,
+#register form textarea:focus {
+  outline: none;
+  border-bottom: 2px solid rgba(27, 157, 226, 0.7);
+}
+/* line 155, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/forms.css.scss */
+#login .form-actions,
+#register .form-actions {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+/* line 157, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/forms.css.scss */
+#login .form-actions input[type="submit"],
+#register .form-actions input[type="submit"] {
+  margin: auto;
+  background-color: #36b56b;
+  color: white;
+  border: none;
+  margin: 10px 0;
+  transition: box-shadow .2s;
+}
+/* line 164, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/forms.css.scss */
+#login .form-actions input[type="submit"]:active,
+#register .form-actions input[type="submit"]:active {
+  transform: translate(1px, 1px);
+}
+/* line 167, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/forms.css.scss */
+#login .form-actions input[type="submit"]:hover,
+#register .form-actions input[type="submit"]:hover {
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+/* line 6, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/meals.scss */
+table {
+  border-collapse: collapse;
+  border: none;
+}
+/* line 7, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/meals.scss */
+table table:first-child {
+  background-color: black;
+}
+/* line 12, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/meals.scss */
+table td {
+  padding: .5em 0;
+}
+/* line 15, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/meals.scss */
+table tr:hover {
+  background-color: white;
+}
+/* line 4, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/nav.css.scss */
+.nav {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background-color: #1b9de2;
+  height: 60px;
+  max-height: 90px;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  padding: 0 40px 0 0;
+}
+/* line 15, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/nav.css.scss */
+.nav #navbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  flex-wrap: no-wrap;
+  flex-direction: row;
+  min-width: 1050px;
+}
+/* line 20, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/nav.css.scss */
+.nav #user-buttons {
+  display: none;
+  width: 100%;
+  padding: 8px 0;
+}
+/* line 24, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/nav.css.scss */
+.nav #user-buttons a {
+  text-decoration: none;
+  margin: 10px;
+}
+/* line 29, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/nav.css.scss */
+.nav a, .nav p, .nav h2 {
+  align-self: center;
+  color: #FFF;
+}
+/* line 33, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/nav.css.scss */
+.nav img {
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  align-self: center;
+  margin: 0 10px;
+}
+/* line 40, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/nav.css.scss */
+.nav img:hover {
+  box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+/* line 45, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/nav.css.scss */
+.nav .nav-left {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+/* line 47, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/nav.css.scss */
+.nav .nav-left a {
+  text-decoration: none;
+  color: #FFF;
+}
+/* line 51, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/nav.css.scss */
+.nav .nav-left #home {
+  width: 60px;
+}
+/* line 53, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/nav.css.scss */
+.nav .nav-left #home img {
+  border-radius: 0;
+  width: 35px;
+}
+/* line 56, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/nav.css.scss */
+.nav .nav-left #home img:hover {
+  box-shadow: none;
+}
+/* line 61, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/nav.css.scss */
+.nav .nav-left #avatar-div {
+  margin: 0 10px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+/* line 64, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/nav.css.scss */
+.nav .nav-left #avatar-div:hover {
+  background-color: rgba(0, 0, 0, 0.15);
+}
+/* line 69, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/nav.css.scss */
+.nav .login-buttons {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+/* line 71, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/nav.css.scss */
+.nav .login-buttons a {
+  text-decoration: none;
+}
+/* line 75, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/nav.css.scss */
+.nav .navbutton {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  padding: 0 10px;
+}
+/* line 78, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/nav.css.scss */
+.nav .navbutton:hover {
+  cursor: pointer;
+  background-color: #0e8acc;
+}
+/* line 82, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/nav.css.scss */
+.nav .navbutton img {
+  border-radius: 0;
+  width: 20px;
+  height: auto;
+}
+/* line 86, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/nav.css.scss */
+.nav .navbutton img:hover {
+  box-shadow: none;
+}
+/* line 91, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/nav.css.scss */
+.nav form {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+/* line 93, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/nav.css.scss */
+.nav form input {
+  height: 50%;
+  align-self: center;
+  border: none;
+  border-radius: 2px;
+  min-width: 250px;
+  padding: 8px;
+  font-family: "Lato", sans-serif;
+  font-size: 1em;
+  padding: 8px;
+  font-weight: 300;
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+  margin: auto;
+}
+/* line 106, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/nav.css.scss */
+.nav form input:focus {
+  outline: none;
+  border-bottom: 2px solid rgba(27, 157, 226, 0.7);
+}
+/* line 9, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/orders.scss */
+body[class="orders"] #orders-chart {
+  display: flex;
+  justify-content: center;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 900px;
+  max-width: 900px;
+  min-width: 750px;
+  margin: auto;
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+}
+/* line 20, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/orders.scss */
+body[class="orders"] body[class='orders index'] {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+/* line 23, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/orders.scss */
+body[class="orders"] body[class='orders index'] #orders {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  padding: 0 50px;
+  width: 100%;
+}
+/* line 27, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/orders.scss */
+body[class="orders"] body[class='orders index'] #orders #orders-list {
+  width: 40%;
+  display: flex;
+  justify-content: flex-start;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: flex-start;
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  margin-right: 20px;
+  max-height: 89vh;
+  overflow: scroll;
+}
+/* line 38, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/orders.scss */
+body[class="orders"] body[class='orders index'] #orders #chart {
+  display: flex;
+  justify-content: center;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 40%;
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  margin-left: 20px;
+}
+/* line 46, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/orders.scss */
+body[class="orders"] body[class='orders index'] #orders #stats {
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 10px 10px;
+  margin-top: 10px;
+  width: 100%;
+}
+/* line 51, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/orders.scss */
+body[class="orders"] body[class='orders index'] #orders #stats p {
+  display: inline-block;
+  font-weight: 300;
+}
+/* line 63, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/orders.scss */
+body[class="orders"] body[class='orders index'] #charts {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+/* line 67, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/orders.scss */
+body[class="orders"] body[class='orders index'] #charts div {
+  width: 40%;
+  height: 400px;
+  margin: auto;
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  margin: 0 30px;
+}
+/* line 76, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/orders.scss */
+body[class="orders"] body[class='orders index'] #charts #orders-all-table,
+body[class="orders"] body[class='orders index'] #charts #orders-today-table {
+  overflow: scroll;
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-content: center;
+  flex-wrap: no-wrap;
+  flex-direction: column;
+}
+/* line 84, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/orders.scss */
+body[class="orders"] body[class='orders index'] #charts table tr .tablequantity {
+  margin: auto;
+  text-align: center;
+}
+/* line 88, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/orders.scss */
+body[class="orders"] body[class='orders index'] #charts table tr td {
+  margin: 0 10px;
+}
+/* line 8, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/users.scss */
+body.users,
+body.admin {
+  /* USERS LIST */
+  /* USER DISPLAY SCREEN */
+}
+/* line 13, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/users.scss */
+body.users h1,
+body.admin h1 {
+  text-align: center;
+}
+/* line 17, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/users.scss */
+body.users .user-list,
+body.admin .user-list {
+  display: flex;
+  justify-content: flex-start;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: flex-start;
+  max-width: 900px;
+  width: 900px;
+  min-width: 750px;
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  margin: auto;
+  margin-bottom: 50px;
+}
+/* line 29, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/users.scss */
+body.users .user-list .user-thumb,
+body.admin .user-list .user-thumb {
+  width: 25%;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+/* line 33, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/users.scss */
+body.users .user-list .user-thumb .avatar,
+body.admin .user-list .user-thumb .avatar {
+  width: auto;
+  margin: auto;
+}
+/* line 36, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/users.scss */
+body.users .user-list .user-thumb .avatar:hover,
+body.admin .user-list .user-thumb .avatar:hover {
+  cursor: pointer;
+}
+/* line 40, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/users.scss */
+body.users .user-list .user-thumb .username,
+body.admin .user-list .user-thumb .username {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin-top: 10px;
+}
+/* line 43, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/users.scss */
+body.users .user-list .user-thumb .username #admin-buttons,
+body.admin .user-list .user-thumb .username #admin-buttons {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  font-size: 0.8em;
+}
+/* line 46, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/users.scss */
+body.users .user-list .user-thumb .username #admin-buttons > *,
+body.admin .user-list .user-thumb .username #admin-buttons > * {
+  margin: 0 3px;
+  padding: 2px 3px;
+}
+/* line 50, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/users.scss */
+body.users .user-list .user-thumb .username #admin-buttons #delete-link,
+body.admin .user-list .user-thumb .username #admin-buttons #delete-link {
+  color: red;
+}
+/* line 52, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/users.scss */
+body.users .user-list .user-thumb .username #admin-buttons #delete-link:hover,
+body.admin .user-list .user-thumb .username #admin-buttons #delete-link:hover {
+  color: white;
+  background-color: red;
+}
+/* line 59, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/users.scss */
+body.users .user-list .user-thumb a,
+body.admin .user-list .user-thumb a {
+  text-align: center;
+  display: inline-block;
+  font-weight: 400;
+  text-decoration: none;
+  color: #333;
+}
+/* line 66, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/users.scss */
+body.users .user-list .user-thumb:hover,
+body.admin .user-list .user-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.015);
+  cursor: pointer;
+}
+/* line 70, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/users.scss */
+body.users .user-list .user-thumb .admin-tag,
+body.admin .user-list .user-thumb .admin-tag {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 3px;
+}
+/* line 80, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/users.scss */
+body.users .user-row,
+body.admin .user-row {
+  cursor: pointer;
+}
+/* line 87, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/users.scss */
+body.users .user,
+body.admin .user {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  flex-direction: row;
+  max-width: 900px;
+  width: 900px;
+  min-width: 750px;
+  margin: auto;
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+}
+/* line 97, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/users.scss */
+body.users .user .avatar,
+body.admin .user .avatar {
+  margin: 0 20px;
+}
+/* line 100, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/users.scss */
+body.users .user .personal-info,
+body.admin .user .personal-info {
+  display: flex;
+  justify-content: flex-start;
+  align-content: flex-start;
+  flex-wrap: no-wrap;
+  flex-direction: row;
+}
+/* line 102, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/users.scss */
+body.users .user .personal-info h1,
+body.admin .user .personal-info h1 {
+  margin: 0;
+  text-align: left;
+}
+/* line 106, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/users.scss */
+body.users .user .personal-info h3,
+body.admin .user .personal-info h3 {
+  font-weight: 300;
+}
+/* line 109, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/users.scss */
+body.users .user .personal-info .description,
+body.admin .user .personal-info .description {
+  line-height: 1.5;
+  font-size: 1em;
+  text-align: justify;
+}
+/* line 114, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/users.scss */
+body.users .user .personal-info .name-info,
+body.admin .user .personal-info .name-info {
+  display: flex;
+  justify-content: space-between;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin-right: 40px;
+  padding-right: 40px;
+  border-right: 1px solid #333;
+  width: 50%;
+}
+/* line 121, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/users.scss */
+body.users .user .personal-info .contact-info,
+body.admin .user .personal-info .contact-info {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+/* line 122, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/users.scss */
+body.users .user .personal-info .contact-info a,
+body.admin .user .personal-info .contact-info a {
+  text-decoration: none;
+  color: inherit;
+  min-width: 300px;
+}
+/* line 128, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/users.scss */
+body.users .user .personal-info .contact-info .contact-row,
+body.admin .user .personal-info .contact-info .contact-row {
+  display: flex;
+  justify-content: flex-start;
+  align-content: center;
+  flex-wrap: no-wrap;
+  flex-direction: row;
+  margin: 12px 0;
+}
+/* line 132, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/users.scss */
+body.users .user .personal-info .contact-info h2,
+body.admin .user .personal-info .contact-info h2 {
+  display: inline-block;
+  font-weight: 300;
+  font-size: .9em;
+  margin: 0 4px;
+}
+/* line 138, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/users.scss */
+body.users .user .personal-info .contact-info .contact-image,
+body.admin .user .personal-info .contact-info .contact-image {
+  height: 20px;
+  display: inline-block;
+}
+/* line 142, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/users.scss */
+body.users .user .personal-info .contact-info .contact-pic,
+body.admin .user .personal-info .contact-info .contact-pic {
+  width: 30px;
+  margin-right: 10px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+/* line 149, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/users.scss */
+body.users .user #settings,
+body.admin .user #settings {
+  position: absolute;
+  bottom: 2px;
+  right: 4px;
+  z-index: 1;
+}
+/* line 154, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/users.scss */
+body.users .user #settings:hover,
+body.admin .user #settings:hover {
+  cursor: pointer;
+}
+/* line 157, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/users.scss */
+body.users .user #settings img,
+body.admin .user #settings img {
+  cursor: pointer;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+
+
+ */
+/* line 21, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/application.css.scss */
+* {
+  box-sizing: border-box;
+}
+
+/* line 25, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/application.css.scss */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Lato", sans-serif;
+  color: #333;
+  font-weight: 300;
+  background-color: #f2fcf7;
+}
+/* line 32, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/application.css.scss */
+body .wrapper {
+  padding-top: 60px;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+/* line 36, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/application.css.scss */
+body .wrapper table {
+  border-spacing: 1.5em;
+  margin: 30px 50px;
+}
+/* line 39, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/application.css.scss */
+body .wrapper table th {
+  font-size: 1.2em;
+  padding: 10px 20px;
+  text-align: left;
+}
+/* line 49, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/application.css.scss */
+body .button {
+  background-color: #FFF;
+}
+
+/* line 55, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/application.css.scss */
+#footer {
+  height: 70px;
+  clear: both;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  background-color: #1b9de2;
+  max-height: 25px;
+  color: white;
+  font-size: .7em;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+/* line 66, /Users/lszmelc/Documents/Programming/Ruby/Ruby on Rails/restaurant/app/assets/stylesheets/application.css.scss */
+#footer p {
+  margin: 0;
+  align-self: center;
+}
