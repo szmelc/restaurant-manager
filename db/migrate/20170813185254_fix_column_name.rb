@@ -1,5 +1,7 @@
 class FixColumnName < ActiveRecord::Migration[5.1]
   def change
-    rename_column :meals, :type, :mealkind
+  	if column_exists? :meals, :type
+	    rename_column :meals, :type, :mealkind
+	  end
   end
 end
