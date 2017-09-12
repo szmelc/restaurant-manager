@@ -23,6 +23,13 @@ $(document).ready(function() {
 	});
 
 
+// Go to action when clicking on action button
+
+	$(".action-button").click(function() {
+		var chosen = $(this)
+		window.location = chosen.data('link')
+	});
+
 // Navigate through charts in admin panel
 
 	$('.button').click(function() {

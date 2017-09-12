@@ -6,3 +6,12 @@
   flex-direction: $direction;
 }
 
+@mixin container($padding, $width, $max-width, $min-width, $margin, $bgcolor, $shadow) {
+	padding: $padding;
+	width: $width;
+	max-width: $max-width;
+	min-width: $min-width;
+	margin: $margin;
+	background-color: $bgcolor;
+	box-shadow: $shadow;
+}

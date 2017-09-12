@@ -1,0 +1,10 @@
+%div#form-div
+	= simple_form_for @dish, :html => {:id => 'dish-form'} do |f|
+		%div.form-inputs
+			= f.label :name, 'Nazwa'
+			= f.input :name, label: false
+			= f.label :price, 'Cena' # verify if it's an integer
+			= f.input :price, label: false
+			= f.label :description, 'Opis potrawy'
+			= f.text_area :description, label: false
+			= f.submit

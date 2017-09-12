@@ -5,13 +5,7 @@
 @import 'variables';
 
 #orders-chart {
-	padding: 0;
-	width: 900px;
-	max-width: 900px;
-	min-width: 750px;
-	margin: auto;
-	background-color: rgba(255,255, 255,.5);
-	box-shadow: 0 0 1px 1px rgba(0,0,0,.1);	
+	@include container(0, 900px, 900px, 750px, auto, rgba(255,255, 255,.5), 0 0 1px 1px rgba(0,0,0,.1));
 	#buttons {
 		@include display(flex, center, center, wrap, row);
 		width: 100%;	
@@ -44,3 +38,26 @@
 		}
 	}	
 }
+
+#actions {
+	@include container(0, 900px, 900px, 750px, auto, rgba(255,255, 255,.5), 0 0 1px 1px rgba(0,0,0,.1));
+	@include display(flex, center, center, wrap, row);
+	.action-button {
+		@include display(flex, center, flex-start, wrap, row);
+		width: 225px;
+		padding: 10px;
+		img {
+			width: 150px;
+			height: auto;
+		}
+		h2 {
+			margin: 0;
+		}
+		&:hover {
+			background-color: rgba(0,0,0,.009);
+			cursor: pointer;
+		}
+	}
+}
+
+

@@ -12,6 +12,16 @@
 					%div#admin-buttons
 						= link_to 'Edytuj', admin_edit_user_path(user), {:id => "edit-link"}
 						= link_to 'Usuń', admin_destroy_user_path(user), :id => "delete-link", method: :delete, data: {confirm: "Czy jesteś pewien że chcesz usunąć użytkownika #{user.name}?"}
+%h1 Akcje						
+%div#actions
+	%div.action-button#add-dish{:data => {:link => new_dish_path}}
+		= image_tag 'dish_add.svg'
+		%h2 Dodaj potrawę
+	%div.action-button
+	%div.action-button
+	%div.action-button
+
+
 %h1 Produktywność roboli
 %div#orders-chart
 	%div#buttons
