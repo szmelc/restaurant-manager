@@ -43,15 +43,19 @@
 	@include container(0, 900px, 900px, 750px, auto, rgba(255,255, 255,.5), 0 0 1px 1px rgba(0,0,0,.1));
 	@include display(flex, center, center, wrap, row);
 	.action-button {
-		@include display(flex, center, flex-start, wrap, row);
-		width: 225px;
+		@include display(flex, center, center, wrap, column);
+		width: 150px;
 		padding: 10px;
 		img {
-			width: 150px;
-			height: auto;
+			width: 50px;
+			margin: auto;
+			margin-top: 0;
+			margin-bottom: 0;
 		}
-		h2 {
-			margin: 0;
+		h4 {
+			margin-top: 10px;
+			margin-bottom: 0;
+			text-align: center;
 		}
 		&:hover {
 			background-color: rgba(0,0,0,.009);

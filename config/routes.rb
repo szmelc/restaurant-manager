@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   get 'admin/index'
 
 	get :search, controller: :main
-  devise_for :users
+  devise_for :users, :path_prefix => 'my'
+    resources :users
   root to: "home#index"
   resources :meals
   resources :orders

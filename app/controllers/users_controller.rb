@@ -11,6 +11,19 @@ class UsersController < ApplicationController
 		@user_orders = Order.where(:user_id => user_id)  
 	end
 
+  def new
+    @user = User.new
+  end  
+
+  def create
+    @user = User.create(user_params)
+    if @user.save
+      redirect_to admin_path
+    else
+      redirect_to new_user_path
+    end
+  end
+
   def update
     @user = current_user
     if @user.update
@@ -19,6 +32,8 @@ class UsersController < ApplicationController
     	redirect_to root_path
     end
 	end
+
+
 
 	def edit
 		@user = User.find(params[:id])
@@ -32,5 +47,12 @@ class UsersController < ApplicationController
   	if @user.destroy
   		redirect_to admin_path
   	end
+  end
+
+
+  private
+
+  def user_params
+    params.require(:user).permit(:first_name, :last_name, :email, :city, :phonenumber, :admin, :password, :password_confirmation)
   end
 end

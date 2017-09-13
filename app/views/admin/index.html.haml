@@ -15,9 +15,11 @@
 %h1 Akcje						
 %div#actions
 	%div.action-button#add-dish{:data => {:link => new_dish_path}}
-		= image_tag 'dish_add.svg'
-		%h2 Dodaj potrawę
-	%div.action-button
+		= image_tag 'add_dish.svg'
+		%h4 Dodaj potrawę
+	%div.action-button{:data => {:link => new_user_path}}
+		= image_tag 'add_user.svg'
+		%h4 Dodaj użytkownika
 	%div.action-button
 	%div.action-button
 
