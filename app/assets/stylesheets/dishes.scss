@@ -11,10 +11,49 @@
 	#dish-view {
 		width: 50vw;
 		#card {
+			@include display(flex, space-between, center, wrap, column);
 			width: 90%;
 			margin: auto;
 			margin-top: 20px;
+			padding: 35px;
 			min-height: 80%;
+			overflow: scroll;
+			img.meal-image {
+				max-width: 50%;
+				float: left;
+				margin-right: 30px;
+				margin-bottom: 30px;
+				border: 1px solid rgba(0,0,0,.05);
+				box-shadow: 0 0 1px 1px rgba(0,0,0,.05);
+			}
+			h2 {
+				display: inline-block;
+				margin-top: 0;
+				margin-bottom: 7px;
+				word-wrap: break-word;
+			}
+			p {
+				text-align: justify;
+				line-height: 1.7em;				
+			}
+			#buttons {
+				@include display(flex, flex-end, center, wrap, row);
+				a {
+					text-decoration: none;
+					padding: 10px;
+					color: white;
+					margin: 0 5px;
+					&:active {
+						transform: translate(1px, 1px);
+					}	
+				}				
+				#edit-dish {					
+					background: $nav-bg-color;											
+				}
+				#delete-dish {
+					background: #ed2d4c;
+				}
+			}
 		}
 	}
 	#dish-list {
@@ -22,6 +61,16 @@
 			min-width: 50%;
 			margin: auto;
 			margin-top: 50px;
+			tr#last {
+
+				&:hover {
+					background-color: rgba(0,0,0,0);
+				}
+				td {
+					text-align: right;
+					padding-right: 5px;
+				}
+			}
 			th.tableheader {
 				text-align: center;
 				background-color: #FFF;
@@ -29,6 +78,18 @@
 			a {
 				text-decoration: none;
 				color: #000;
+			}
+			a#add-dish {
+				background-color: #3c992c;
+				padding: 2px 8px;
+				color: white;
+				font-weight: 400;
+				font-size: 1em;
+				border-radius: 100%;
+				transition: box-shadow 0.1s;
+				&:hover {
+					box-shadow: 0 0 1px 1px rgba(0,0,0,.1);
+				}
 			}
 		}
 	}

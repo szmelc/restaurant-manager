@@ -1,5 +1,8 @@
 class DishesController < ApplicationController
 	respond_to :html, :js
+	before_action :creation_params, only: [:show]
+	before_action :dish_params, only: [:create, :update]
+	before_action :find_dish, only: [:show, :edit, :update, :destroy]
 
 	def index
 		@dishes = Dish.all
@@ -7,10 +10,9 @@ class DishesController < ApplicationController
 	end
 
 	def show
-		@dish = Dish.find(params[:id])
 
 		respond_to do |format|
-		  format.js {render layout: false} # Add this line to you respond_to block
+		  format.js {render layout: false}
 		end		
 	end
 
@@ -28,12 +30,39 @@ class DishesController < ApplicationController
 		redirect_to dishes_path
 	end
 
+	def edit
+	end
+
+	def update		
+		@dish.update(dish_params)
+		if @dish.update(dish_params)
+			redirect_to dishes_path
+		else
+			puts 'Something went wrong'
+			redirect_to edit_dish_path
+		end
+	end
+
+  def destroy
+    @dish.destroy
+    redirect_to dishes_path
+  end	
+
 
 
 	private
 
+	def creation_params
+		params.permit(:dish)
+	end	
+
 	def dish_params
-		params.require(:dish).permit(:name, :price, :type, :description, :category)
+		params.require(:dish).permit(:name, :price, :type, :description, :category, :image)
 	end
+
+	def find_dish
+		@dish = Dish.find(params[:id])
+	end
+
 
 end

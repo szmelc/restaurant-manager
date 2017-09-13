@@ -13,6 +13,10 @@
 							%tr
 								%td= link_to dish.name, dish_path(dish), {:remote => true, :class => 'dish-link', :data => {:link => dish_path(dish)}}
 								%td= dish.price
+			%tr#last
+				%td{:colspan => "3"}
+					= link_to '+', new_dish_path, {:id => "add-dish"}
+			}
 	%div#dish-view
 		%div#card
 			= image_tag 'dish.svg'

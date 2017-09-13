@@ -34,7 +34,7 @@
         = f.text_area :description, {:id => "textarea"}
         %div#count
         %div#avatar-div
-          = image_tag current_user.avatar(:thumb)
+          = image_tag current_user.user_avatar
           %div#file-field
             = f.label :avatar, "Wybierz avatar"
             = f.file_field :avatar

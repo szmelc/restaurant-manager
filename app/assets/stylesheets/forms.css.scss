@@ -175,7 +175,8 @@ input[type="submit"] {
 
 // Add dish form
 
-body[class="dishes new"] {
+body[class="dishes new"],
+body[class="dishes edit"] {
 	.wrapper {
 		@include display(flex, flex-start, center, wrap, column);	
 		#form-div {
