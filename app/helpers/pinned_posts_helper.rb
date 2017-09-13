@@ -1,0 +1,2 @@
+module PinnedPostsHelper
+end
