@@ -1,0 +1,9 @@
+- if @post.now - @post.created_at < 86400 
+	%div#pinned-post
+		%div#post
+			= image_tag @post.author_avatar, :id => 'post-avatar'
+			%div#content
+				%div#author-name
+					= @post.author
+				%div#post-content
+					%p= @post.content

@@ -1,5 +1,9 @@
 class PinnedPostsController < ApplicationController
 
+	def index
+		@post = PinnedPost.last
+	end
+
 	def show
 	end
 

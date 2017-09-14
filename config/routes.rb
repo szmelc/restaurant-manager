@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 	get :search, controller: :main
   devise_for :users, :path_prefix => 'my'
     resources :users
-  root to: "home#index"
+  root to: "pinned_posts#index"
   resources :meals
   resources :orders
   resources :users

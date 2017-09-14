@@ -20,7 +20,9 @@
 	%div.action-button{:data => {:link => new_user_path}}
 		= image_tag 'add_user.svg'
 		%h4 Dodaj użytkownika
-	%div.action-button
+	%div.action-button{:data => {:link => new_pinned_post_path}}
+		= image_tag 'add_pinned_post.svg'
+		%h4 Dodaj post
 	%div.action-button
 
 
