@@ -31,8 +31,9 @@ body {
   background-color: $bg-color;
   .wrapper {
     padding-top: 60px;
+    position: relative;
     min-height: 100vh;
-    @include display(flex, center, center, wrap, column);
+    // @include display(flex, center, center, wrap, column);
     table {
       border-spacing: 1.5em;
       margin: 30px 50px;

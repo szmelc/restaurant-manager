@@ -1,9 +1,3 @@
-- if @post.now - @post.created_at < 86400 
-	%div#pinned-post
-		%div#post
-			= image_tag @post.author_avatar, :id => 'post-avatar'
-			%div#content
-				%div#author-name
-					= @post.author
-				%div#post-content
-					%p= @post.content
+= content_for :title, "Arbejder | Strona Główna"
+-# = render 'pinned_posts/pinned_post'
+= render 'posts/index'

@@ -1,0 +1,7 @@
+%div#form-div
+	= simple_form_for @post do |f|
+		%div#post-form
+			%div.form-inputs
+				= f.text_area :content, :placeholder => "Napisz posta...", :id => "post-content"
+			%div#post-button
+				= f.submit 'Wyślij', :id => "submit-post"

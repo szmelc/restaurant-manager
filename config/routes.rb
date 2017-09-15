@@ -4,10 +4,13 @@ Rails.application.routes.draw do
 	get :search, controller: :main
   devise_for :users, :path_prefix => 'my'
     resources :users
-  root to: "pinned_posts#index"
+  root to: "posts#index"
   resources :meals
   resources :orders
   resources :users
+  resources :posts do
+    resources :comments
+  end
   resources :pinned_posts
   get '/orders_today', to: 'orders#orders_today'
   get '/orders_all', to: 'orders#orders_all'

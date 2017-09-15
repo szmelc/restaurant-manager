@@ -8,6 +8,8 @@ class User < ApplicationRecord
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
   validates :description, length: {maximum: 200, too_long: "Maksymalna długość opisu to %{count} znaków"}
   has_many :pinned_posts
+  has_many :posts
+  has_many :comments
 
  
 # Method to display user avatar only if it's present

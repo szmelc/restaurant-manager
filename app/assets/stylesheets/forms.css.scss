@@ -209,4 +209,37 @@ body[class="pinned_posts new"] {
 	}
 }
 
+body[class="posts index"] {
+	#form-div {
+		#post-form {
+			width: 60%;
+			margin: 15px auto;
+			.form-inputs {
+				@include display(flex, center, center, wrap, row);
+				textarea {
+					height: 35px;					
+					min-width: 670px;
+					width: 100%;
+					margin: 10px 0;
+					background-color: #fff;
+				}
+				input[type="submit"] {
+					margin: auto;
+				}
+			}
+			#submit-post {
+				display: none;
+				width: 100px;
+			}		
+		}
+		#post-button {
+			@include display(flex, flex-end, center, wrap, row);
+			&:active {
+				transform: translate(1px, 1px);
+			}
+		}
+	}
+}
+
+
 

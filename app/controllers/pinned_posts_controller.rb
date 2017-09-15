@@ -9,6 +9,7 @@ class PinnedPostsController < ApplicationController
 
 	def new
 		@pinned_post = current_user.pinned_posts.build
+		@post = current_user.posts.build
 	end
 
 	def create
@@ -20,14 +21,19 @@ class PinnedPostsController < ApplicationController
 		end
 	end
 
+	def update
+
+	end
+
 	def destroy
 	end
+
+
 
 	private
 
 	def pinned_post_params
 		params.require(:pinned_post).permit(:content)
 	end
-
 
 end
