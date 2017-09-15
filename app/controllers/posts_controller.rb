@@ -1,9 +1,11 @@
 class PostsController < ApplicationController
+	before_action :authenticate_user!, only: [:index]
 
 	def index	
 		@post = current_user.posts.build
 		@posts = Post.order('created_at DESC').all	
 		@pinned_post = PinnedPost.last
+		# work on comments feature
 	end
 
 	def show

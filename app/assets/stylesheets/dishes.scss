@@ -18,19 +18,25 @@
 			padding: 35px;
 			min-height: 80%;
 			overflow: scroll;
-			img.meal-image {
-				max-width: 50%;
-				float: left;
-				margin-right: 30px;
-				margin-bottom: 30px;
-				border: 1px solid rgba(0,0,0,.05);
-				box-shadow: 0 0 1px 1px rgba(0,0,0,.05);
-			}
-			h2 {
-				display: inline-block;
-				margin-top: 0;
-				margin-bottom: 7px;
-				word-wrap: break-word;
+			#dish {
+				#dish-header {
+					@include display(flex, space-between, center, wrap, column);
+					img.meal-image {
+						margin: auto;
+						float: left;
+						margin-bottom: 30px;
+						border: 1px solid rgba(0,0,0,.05);
+						box-shadow: 0 0 1px 1px rgba(0,0,0,.05);
+					}
+					#dish-name {
+						h2 {
+							display: inline-block;
+							margin-top: 0;
+							margin-bottom: 7px;
+							word-wrap: break-word;
+						}						
+					}			
+				}
 			}
 			p {
 				text-align: justify;
@@ -53,14 +59,17 @@
 				#delete-dish {
 					background: #ed2d4c;
 				}
-			}
+			}			
 		}
 	}
 	#dish-list {
 		table {
-			min-width: 50%;
+			min-width: 70%;
 			margin: auto;
-			margin-top: 50px;
+			margin-top: 20px;
+			th {
+				padding-left: 0;
+			}
 			tr#last {
 
 				&:hover {
@@ -73,11 +82,14 @@
 			}
 			th.tableheader {
 				text-align: center;
-				background-color: #FFF;
+				background-color: #FFF;				
 			}
 			a {
 				text-decoration: none;
 				color: #000;
+				&:hover {
+					font-weight: 400;
+				}
 			}
 			a#add-dish {
 				background-color: #3c992c;

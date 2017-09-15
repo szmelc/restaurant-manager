@@ -1,8 +1,11 @@
 %div#card
 	%div#dish
-		= image_tag @dish.dish_image, {:class => 'meal-image'}
-		%h2= @dish.name
+		%div#dish-header
+			= image_tag @dish.dish_image, {:class => 'meal-image'}
+			%div#dish-name
+				%h2= @dish.name
 		%p= @dish.description
-	%div#buttons
-		= link_to 'Edytuj', edit_dish_path, {:id => "edit-dish"}
-		= link_to 'Usuń', dish_path, method: :delete, :id => "delete-dish", :data => {:confirm => "Czy jesteś pewien, że chcesz usunąć potrawę?"}
+	- if current_user.admin?
+		%div#buttons
+			= link_to 'Edytuj', edit_dish_path, {:id => "edit-dish"}
+			= link_to 'Usuń', dish_path, method: :delete, :id => "delete-dish", :data => {:confirm => "Czy jesteś pewien, że chcesz usunąć potrawę?"}

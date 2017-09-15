@@ -17,7 +17,9 @@ body[class="orders"] {
 				padding: 15px;
 			}
 
-	body[class='orders index'] {
+	
+}
+body[class='orders index'] {
 		@include display(flex, center, center, wrap, row);
 
 		#orders {
@@ -92,4 +94,3 @@ body[class="orders"] {
 			}
 		}
 	}
-}

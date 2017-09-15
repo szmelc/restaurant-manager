@@ -7,6 +7,8 @@
 			= f.input :price, label: false
 			= f.label :description, 'Opis potrawy'
 			= f.text_area :description, label: false
+			= f.label :category, 'Kategoria'
+			= f.select :category, @categories
 			= f.label :image, 'Zdjęcie'
-			= f.input :image, as: :file
+			= f.input :image, as: :file, label: false
 			= f.submit

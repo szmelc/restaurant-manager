@@ -3,6 +3,7 @@ class DishesController < ApplicationController
 	before_action :creation_params, only: [:show]
 	before_action :dish_params, only: [:create, :update]
 	before_action :find_dish, only: [:show, :edit, :update, :destroy]
+	before_action :categories, only: [:new, :edit]
 
 	def index
 		@dishes = Dish.all
@@ -62,6 +63,10 @@ class DishesController < ApplicationController
 
 	def find_dish
 		@dish = Dish.find(params[:id])
+	end
+
+	def categories
+		@categories = ['Zupy', 'Dania z wołowiną', 'Dania z kurczakiem', 'Dania z owocami morza', 'Napoje']
 	end
 
 
