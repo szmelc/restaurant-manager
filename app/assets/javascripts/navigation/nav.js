@@ -22,6 +22,11 @@ $(document).ready(function() {
 	  window.location = chosen.data("link");
 	});
 
+	$("img").click(function() {
+	  var chosen = $(this)
+	  window.location = chosen.data("link");
+	});	
+
 
 // Go to action when clicking on action button
 

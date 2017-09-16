@@ -1,6 +1,6 @@
 - @posts.each do |post|
 	%div.post
-		= image_tag post.author_avatar, :class => 'post-avatar'
+		= image_tag post.author_avatar, :class => 'post-avatar', :data => {:link => user_path(post.user_id)}
 		%div.content
 			%div.author-name
 				= link_to post.author, user_path(post.user_id)

@@ -2,7 +2,7 @@
 %div.user 
 	%div.personal-info
 		%div.profile-pic
-			= image_tag @user.user_avatar, :class => "avatar"
+			= image_tag @user.user_avatar, :class => "avatar", :data => {:link => user_path(@user)}
 		%div.name-info
 			%h1
 				= @user.first_name
@@ -29,13 +29,6 @@
 	- if current_user.id == @user.id					
 		%div#settings{:data => {:link => edit_user_registration_path}}
 			= image_tag 'settings.png', :alt => "Ustawienia"
-
-- if current_user.id == @user.id || current_user.admin? # showing chart only for the user that's logged in and admin
-	%h2{:id => "orders-header"} Pokaż ilość przyjmowanych zamówień
-	%div#orders-chart
-		%canvas#barChart
-
-
 %h1 Współpracownicy
 %div.user-list
 	- @users.each do |user|
@@ -46,5 +39,8 @@
 					- if user.admin?
 						= image_tag 'admin.png', :class => "admin-tag", :alt => "Admin"
 					= link_to user.name, user_path(user)
-
+- if current_user.id == @user.id || current_user.admin? # showing chart only for the user that's logged in and admin
+	%h2{:id => "orders-header"} Pokaż ilość przyjmowanych zamówień
+	%div#orders-chart
+		%canvas#barChart
 

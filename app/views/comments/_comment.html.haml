@@ -1,6 +1,6 @@
 %div.comment
 	%div.avatar
-		= image_tag comment.author_avatar, :class => 'comment-avatar', :alt => "Avatar"
+		= image_tag comment.author_avatar, :class => 'comment-avatar', :alt => "Avatar", :data => {:link => user_path(comment.user_id)}
 	%div.content
 		%div.comment-content
 			%p.author= comment.author
