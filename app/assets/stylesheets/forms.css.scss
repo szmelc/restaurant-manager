@@ -254,5 +254,33 @@ body[class="posts index"] {
 	}
 }
 
-
+body[class="comments new"] {
+	#form-div {
+		width: 60%;
+		margin: auto;
+		.form-inputs {
+			@include display(flex, flex-start, space-between, no-wrap, row);
+			width: 100%;
+			margin: auto;
+			.avatar {
+				width: 80px;
+				.comment-avatar-thumb {
+					width: 35px;
+					height: 35px;
+				}
+			}
+			.comment {
+				width: 859px;
+				@include display(flex, space-between, center, wrap, row);
+				input[type='text'] {
+					background: white;
+					width: 720px;
+				}
+				input[type='submit'] {
+					max-width: 100px;
+				}			
+			}
+		}
+	}
+}
 

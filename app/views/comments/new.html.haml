@@ -1,0 +1,13 @@
+= content_for :title, "Arbejder | Dodaj komentarz"
+%div#post-show
+	%div.post
+		= image_tag @post.author_avatar, :class => 'post-avatar'
+		%div.content
+			%div.author-name
+				%p= @post.author
+				%p= @post.date
+			%div.post-content
+				%p= @post.content
+	%div#comments
+		= render @post.comments
+= render 'comments/form', :id => 'new-comment'

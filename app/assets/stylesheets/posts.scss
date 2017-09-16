@@ -4,7 +4,8 @@
 @import 'variables';
 @import 'mixins';
 
-body[class="posts index"] { 
+body[class="posts index"],
+body[class="comments new"] { 
 	wrapper {
 		overflow: scroll;
 		@include display(flex, flex-start, flex-start, wrap, column);
@@ -49,7 +50,8 @@ body[class="posts index"] {
 		}
 	}
 
-	#posts {
+	#posts,
+	#post-show {
 		align-self: center;
 		height: 100%;
 		width: 100%;
@@ -58,12 +60,12 @@ body[class="posts index"] {
 				min-width: 670px;
 				width: 60%;
 				margin: auto;
+				margin-top: 10px;
 				@include display(flex, flex-start, flex-start, no-wrap, row);	
 			.content {				
 				background-color: rgba(255,255,255,.50);
 				color: black;
 				margin: auto;
-				margin-bottom: 20px;
 				margin-right: 0;
 				margin-left: 10px;
 				width: 100%;
@@ -75,6 +77,11 @@ body[class="posts index"] {
 					margin-bottom: 5px;
 					font-weight: 400;
 					@include display(flex, center, center, wrap, column);	
+					a {
+						margin: 1px;
+						text-decoration: none;
+						color: #000;
+					}
 					p {
 						margin: 1px;
 						&:last-child {
@@ -87,6 +94,14 @@ body[class="posts index"] {
 						margin: 0;						
 					}
 				}
+				.comment-count {
+					font-size: .65em;
+					margin-bottom: 0;
+					a {
+						text-decoration: none;
+						font-weight: 400;
+					}
+				}
 			}
 			.post-avatar {
 				height: 50px;
@@ -96,6 +111,42 @@ body[class="posts index"] {
 				margin-right: 15px;
 			}
 		}
+		#comments {
+			max-width: 60%;
+			min-width: 670px;
+			margin: auto;
+			background-color: rgba(0,0,0,.005);
+			margin-top: 10px;
+			.comment {	
+			@include display(flex, flex-start, center, wrap, row);
+			margin-bottom: 10px;
+			.avatar {
+				width: 74px;
+				.comment-avatar {
+					width: 35px;
+				}
+			}			
+				.content {
+					@include display(flex, flex-start, center, no-wrap, column);
 
+					background-color: rgba(255,255,255,.50);
+					color: black;
+					width: 863px;
+					border: 1px solid rgba(0,0,0,.05);
+					box-shadow: 0 0 1px 1px rgba(0,0,0,.05);		
+					padding: 10px 15px;
+					.comment-content {
+						.author {
+							font-size: .7em;
+							font-weight: 400;
+							margin-top: 0;
+						}
+						.comment-text {
+							margin: 0;
+						}
+					}						
+				}
+			}
+		}
 	}
 }

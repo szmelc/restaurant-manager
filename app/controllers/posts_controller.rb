@@ -5,10 +5,10 @@ class PostsController < ApplicationController
 		@post = current_user.posts.build
 		@posts = Post.order('created_at DESC').all	
 		@pinned_post = PinnedPost.last
-		# work on comments feature
 	end
 
 	def show
+		@post = Post.find(params[:id])
 	end
 
 	def new

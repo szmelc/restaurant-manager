@@ -1,0 +1,7 @@
+%div.comment
+	%div.avatar
+		= image_tag comment.author_avatar, :class => 'comment-avatar', :alt => "Avatar"
+	%div.content
+		%div.comment-content
+			%p.author= comment.author
+			%p.comment-text= comment.content
