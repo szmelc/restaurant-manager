@@ -1,10 +1,9 @@
 .nested-fields
-	-# = f.select(:name, options_for_select(@dishes.map{ |dish| [dish.name, {'data-description' => dish.price}]}), {include_blank: true}, {class: 'meal-name'})
-	= f.collection_select(:name, Dish.all, :name, :name, {include_blank: true}, {class: "meal-select"})
+	= f.select(:name, options_for_select(@dishes.collect{ |dish| [dish.name, dish.name,{'data-description' => dish.price}]}), :class => 'meal-select')
 	= f.select :quantity, options_for_select((1..10))
-	= f.text_field(:price, disabled: true)
+	%div#pricediv
+	= f.text_field :price
 	= link_to_remove_association "X", f
 	
 
 
-	-# <%= f.select :section, :section_id, options_for_select(@sections.map{ |s| [s.title, s.id, {'data-description'=>s.description}] }) %>

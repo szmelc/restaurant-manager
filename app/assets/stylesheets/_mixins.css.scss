@@ -15,3 +15,17 @@
 	background-color: $bgcolor;
 	box-shadow: $shadow;
 }
+
+@mixin button($fontsize, $fontweight, $border, $bgcolor, $color, $textdec, $padding, $cursor, $shadow) {
+	font-size: $fontsize;
+	font-weight: $fontweight;
+	border: $border;
+	background-color: $bgcolor;
+	color: $color;
+	text-decoration: $textdec;
+	padding: $padding;
+	&:hover {
+		cursor: $cursor;
+		box-shadow: $shadow;
+	}
+}

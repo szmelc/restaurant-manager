@@ -284,3 +284,74 @@ body[class="comments new"] {
 	}
 }
 
+body[class="orders new"] {
+	.wrapper {
+		#order-form {
+			padding-top: 100px;
+			@include display(flex, center, center, no-wrap, row);
+			.meals {
+				input[type="submit"] {
+					@include button(1em, 300, none, #36b56b, #FFF, none, 5px, pointer, 0 0 1px 1px rgba(0,0,0,.1));
+				}
+				.nested-fields {
+					@include display(flex, center, center, no-wrap, row);
+					margin-bottom: 15px;
+					select {
+						font-size: 1.3em;
+						padding: 5px;
+					}
+					input {
+						font-size: 1.3em;
+						text-align: right;
+						max-width: 75px;
+					}
+					&>* {
+						margin-left: 5px;
+						margin-right: 5px;
+					}
+					.remove_fields {
+						background-color: red;
+						color: white;
+						border-radius: 50%;
+						text-align: center;
+						font-weight: 400;
+						height: 30px;
+						width: 30px;
+						line-height: 30px;
+						align-self: center;
+						text-decoration: none;
+
+					}
+				}
+				.links {
+					margin-top: 20px;
+					display: inline-block;
+					.add_fields {
+						@include button(1em, 300, none, #36b56b, #FFF, none, 5px, pointer, 0 0 1px 1px rgba(0,0,0,.1));
+					}
+				}						
+			}	
+			input[id$='price'] {
+				display: none;
+			}
+			#pricediv {
+				background: white;
+				display: inline-block;
+				width: 70px;
+				height: 40px;
+				border: 1px solid rgba(0,0,0,.08);
+				text-align: center;
+				line-height: 40px;
+				p {
+					@include display(flex, center, center, no-wrap, column);
+					margin: 0;
+					display: inline;
+					margin: auto;
+					font-size: 1.2em;
+					text-align: center;										
+				}
+			}
+		}
+	}
+}
+

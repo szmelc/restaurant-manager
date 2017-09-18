@@ -16,8 +16,12 @@ class OrdersController < ApplicationController
   end
 
   def new
-    @dishes = Dish.all
-    @order = current_user.orders.build
+    if user_signed_in?
+      @dishes = Dish.all
+      @order = current_user.orders.build
+    else
+      redirect_to root_path
+    end
   end
 
   def create
@@ -26,10 +30,11 @@ class OrdersController < ApplicationController
     @order = current_user.orders.build(order_params)
     if @order.save
       puts "Order saved!"
+      # raise '¯\_(ツ)_/¯'
     else
       puts "Something went wrong"
     end
-    redirect_to orders_today_path
+    redirect_to orders_path
   end
 
 

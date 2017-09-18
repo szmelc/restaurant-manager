@@ -41,15 +41,7 @@ $("#textarea").keyup(function(){
 
 // CHANGE PRICE TEXT FIELD VALUE WHEN A MEAL IS CHOSEN
 
-$('.meals').on('change', '.meal-name', function() {
-	$('.meal-name').on('change', function() {		
-		var chosen = $(this).find(":selected");
-		var price = chosen.data("description");
-		console.log(price)		
-		$(this).siblings("input").val(price);
 
-	})
-})
 
 // END
 
