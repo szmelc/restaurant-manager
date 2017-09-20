@@ -26,7 +26,7 @@ class User < ApplicationRecord
 
   def phone_number
     if phonenumber.present?
-      phonenumber.scan(/.../).join('-')
+      phonenumber.scan(/.../).join('-') # scans for 3 consecutive characters and joins them with '-'
     else
       '-'
     end
@@ -37,6 +37,8 @@ class User < ApplicationRecord
   def name
     [first_name, last_name].join(' ')
   end
+
+
 
 
 end

@@ -290,6 +290,7 @@ body[class="orders new"] {
 			padding-top: 100px;
 			@include display(flex, center, center, no-wrap, row);
 			.meals {
+				margin-bottom: 30px;
 				input[type="submit"] {
 					@include button(1em, 300, none, #36b56b, #FFF, none, 5px, pointer, 0 0 1px 1px rgba(0,0,0,.1));
 				}
@@ -332,7 +333,7 @@ body[class="orders new"] {
 				}						
 			}	
 			input[id$='price'] {
-				display: none;
+				// display: none;
 			}
 			#pricediv {
 				background: white;

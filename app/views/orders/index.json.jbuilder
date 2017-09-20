@@ -5,5 +5,7 @@ json.orders @user_orders do |order|
 	json.meals order.meals do |meal|
 		json.meal meal.name
 		json.quantity meal.quantity
+		json.price meal.price
+		json.category meal.kind
 	end
 end

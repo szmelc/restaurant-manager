@@ -1,5 +1,5 @@
-$(".orders.index").ready(function() {
-  if($('body').hasClass('orders')) {
+$(".orders index").ready(function() {
+  if($('body').hasClass('orders index')) {
   	let labels = [];
 	  var colors = [
 	    "#2ecc71",

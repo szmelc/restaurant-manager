@@ -1,5 +1,5 @@
 .nested-fields
-	= f.select(:name, options_for_select(@dishes.collect{ |dish| [dish.name, dish.name,{'data-description' => dish.price}]}), :class => 'meal-select')
+	= f.select(:name, options_for_select(@dishes.collect{ |dish| [dish.name, dish.name,{'data-description' => dish.price, 'data-type' => 'dish'}]}), :class => 'meal-select')
 	= f.select :quantity, options_for_select((1..10))
 	%div#pricediv
 	= f.text_field :price

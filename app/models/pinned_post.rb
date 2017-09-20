@@ -1,6 +1,6 @@
 class PinnedPost < ApplicationRecord
 	belongs_to :user
-	validates :content, length: {maximum: 200}
+	validates :content, length: {maximum: 200, minimum: 5}
 
 
 	def author_avatar

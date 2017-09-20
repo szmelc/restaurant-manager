@@ -1,6 +1,6 @@
 // CHART
-$(".orders.index").ready(function() {
-  if($('body').hasClass('orders')) {
+$(".orders index").ready(function() {
+  if($('body').hasClass('orders index')) {
     // Download .json for all orders  
     $.getJSON(window.location + '.json', function(json) {
       let ordersCount = json.orders.length // number of all orders

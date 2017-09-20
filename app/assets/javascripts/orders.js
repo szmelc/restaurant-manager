@@ -1,23 +1,23 @@
 $(document).ready(function() {
 	if($('body').hasClass('orders new')) {
-		
 
-		$('.meals').on('change', 'select:first-child', function() {
+		$('.meals').on('change', '.nested-fields select:first-child', function() {
 			var chosen = $(this).find(":selected");
+			$fields = chosen.parent().parent();
 			var price = chosen.data("description");
 			var priceInt = parseInt(price)
 			var quantity = $(this).siblings('select').val()
 			var quantityInt = parseInt(quantity)
-			console.log(priceInt)
-			console.log(quantityInt)
-
-			$(this).siblings("div").html("<p>" + priceInt*quantityInt + " pln</p>");	
+			$(this).siblings("input[id$='price']").val(priceInt*quantityInt)
+			$(this).siblings("#pricediv").html("<p>" + priceInt*quantityInt + "</p>");	
 			$('.meals').on('change', 'select:nth-child(2)', function() {
 				var quant = $(this).val()
 				var quantInt = parseInt(quant);
-				console.log(quant)
-				$(this).siblings("div").html("<p>" + priceInt*quantInt + " pln</p>");	
+				console.log(priceInt)
+				$(this).siblings("input[id$='price']").val(priceInt*quantInt)
+				$(this).siblings("#pricediv").html("<p>" + priceInt*quantInt + "</p>");	
 			})	
 		});
 	}
 })
+
