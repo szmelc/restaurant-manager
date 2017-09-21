@@ -42,11 +42,18 @@ $(document).ready(function() {
 		$(this).addClass('active');
 		$alt = $(this).attr('alt')
 		$('canvas').css('display', 'none')
-		
-
 		$('canvas[id="' + $alt + '"]').css('display', 'inline');
 	});
 
+// Navigate through income tabs in admin panel
+	$('.button-income').click(function() {
+		$(this).siblings().removeClass('active');
+		$(this).addClass('active');
+		$alt = $(this).attr('alt')
+		$income = $("div[class='income']")
+		$income.css('display', 'none')
+		$('div[id="' + $alt + '"]').css('display', 'inline');
+	});
 
 });
 

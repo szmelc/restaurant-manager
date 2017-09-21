@@ -1,10 +1,5 @@
 %h1 Utarg
 %div#income
-	%div#income-today
-		%h3 Utarg dzisiaj:
-		= Date.today
-		- @orders_today.each do |order|
-			= order.meals.each do |meal|
-				= meal.price
-
-
+	%div#income-chart
+		%p dupa dupadupa s
+	= render 'admin/incometoday'

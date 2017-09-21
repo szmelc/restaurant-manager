@@ -4,6 +4,7 @@ class AdminController < ApplicationController
   	@users = User.all
     @orders = Order.all
     @orders_today = Order.where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day)
+    # @orders_today_by_user = Order.where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day && :user_id == user.id)
   end
 
   def destroy

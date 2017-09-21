@@ -10,6 +10,14 @@ class Order < ApplicationRecord
   	created_at.year.to_s + "-" + created_at.month.to_s + "-" + created_at.day.to_s
   end
 
+  def total_price
+    prices = []
+  	meals.each do |meal|
+      prices << meal.price
+    end  	
+    return prices.reduce(:+)
+  end
+
 
 
 end

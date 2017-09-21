@@ -1,0 +1,21 @@
+%div#income-per-employee.income
+	- @users.each do |user|
+		%div.employee-income
+			- prices = []
+			%div.employee-name
+				%h3= user.name
+			- user.orders.each do |order|
+				- if order.created_at.between?(Time.zone.now.beginning_of_day, Time.zone.now.end_of_day)				
+					- order.meals.each do |meal|
+						- prices << meal.price
+			- if prices.empty?
+				%div.income-today
+					0 pln
+			- else
+				%div.income-today			
+					%span= prices.reduce(:+)
+					%span pln
+
+
+
+

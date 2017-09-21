@@ -67,8 +67,63 @@
 
 #income {
 	@include container(0, 900px, 900px, 750px, auto, rgba(255,255, 255,.5), 0 0 1px 1px rgba(0,0,0,.1));
+	@include display(flex, center, center, wrap, row);
+	#income-chart {
+		width: 60%;
+	}
 	#income-today {
-		
+		border-left: 1px solid rgba(0,0,0,.15);
+		width: 40%;
+		.buttons {
+			@include display(flex, center, center, wrap, row);
+			width: 100%;	
+			margin-bottom: 20px;
+			.button-income {
+				@include display(flex, center, center, wrap, column);
+				border-bottom: 1px solid rgba(0,0,0,.15);
+				text-align: center;
+				width: 50%;
+				border-left: 1px solid rgba(0,0,0,.15);
+				border-right: 1px solid rgba(0,0,0,.15);
+				height: 50px;
+				&:hover {
+					cursor: pointer;
+					background-image: linear-gradient(white 70%, rgba(0,0,0,.01) 100%)
+				}
+				&.active {
+					font-weight: 400;
+					border-bottom: none;
+				}
+				&:last-child {
+					border-right: none;
+				}
+				&:first-child {
+					border-left: none;
+				}
+				&:not(.active) {
+					background-color: rgba(0,0,0,.009)
+				}
+			}
+		}		
+		h1 {
+			font-size: 6em;
+		}
+		#income-per-employee {
+			display: none;
+			width: 100%;
+			padding: 15px;
+			.employee-income {
+				@include display(flex, flex-start, center, wrap, row);
+				width: 100%;
+				margin-bottom: 20px;
+				.employee-name {
+					width: 65%;
+				}
+				h3 {
+					margin: 0;
+				}
+			}
+		}
 	}
 }
 
