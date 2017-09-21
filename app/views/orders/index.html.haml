@@ -7,37 +7,7 @@
 	%div#orders-today
 		%canvas#pie-chart-today 
 	%div#orders-all-table
-		%h2 Wszystkie zamówienia 
-		- @user_orders.each do |order|
-			%table
-				%tbody
-					%tr
-						%th Danie
-						%th Ilość
-						%th Data
-					%tr
-						%th(colspan="2")
-							%td= Date.today.strftime("%Y-%-m-%-d").to_s
-						- order.meals.each do |meal|
-							%tr
-								%td= meal.name
-								%td{:class => "tablequantity"}= meal.quantity
-								%td= order.date
+		= render 'orders/all_orders_table'					
 	%div#orders-today-table
-		%h2 Zamówienia z dzisiaj
-		- @user_orders.each do |order|
-			- if order.date == Date.today.strftime("%Y-%-m-%-d").to_s
-				%table
-					%tbody
-						%tr
-							%th Danie
-							%th Ilość
-						%tr
-							%th{:colspan => 3}= Date.today.strftime("%Y-%-m-%d").to_s				
-							- order.meals.each do |meal|
-								%tr
-									%td= meal.name
-									%td= meal.quantity
-						%tr
-							%td= order.total_price
+		= render 'orders/orders_today_table'
 									

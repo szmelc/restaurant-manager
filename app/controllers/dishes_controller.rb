@@ -11,7 +11,6 @@ class DishesController < ApplicationController
 	end
 
 	def show
-
 		respond_to do |format|
 		  format.js {render layout: false}
 		end		

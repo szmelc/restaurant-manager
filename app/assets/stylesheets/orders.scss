@@ -80,17 +80,29 @@ body[class='orders index'] {
 				overflow: scroll;
 				margin-top: 20px;
 				@include display(flex, flex-start, center, no-wrap, column);
-			}
-			table {
-				tr {
-					.tablequantity {
-						margin: auto;
-						text-align: center;
+				table {
+					min-width: 80%;
+					max-width: 80%;
+					th.order-date {
+						font-size: .7em;
+						font-weight: 300;
 					}
-					td {
-						margin: 0 10px;
+					tr {
+						.quantity {
+							margin: auto;
+							text-align: center;
+						}
+						&:last-child {
+							border-top: 1px dashed rgba(0,0,0,.1);
+						}
+						td {
+							margin: 0 10px;
+							&.price {
+								text-align: center;
+							}
+						}
 					}
-				}
+				}				
 			}
 		}
 	}

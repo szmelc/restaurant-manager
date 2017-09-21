@@ -1,0 +1,24 @@
+%h2 Zamówienia z dzisiaj
+- @user_orders.each do |order|
+	- if order.date == Date.today.strftime("%Y-%-m-%-d").to_s
+		%table
+			%tbody
+				%tr
+					%th.order-date{:colspan => 3}= order.date
+				%tr
+					%th Danie
+					%th Ilość
+					%th Cena		
+					- order.meals.each do |meal|
+						%tr
+							%td= meal.name
+							%td.quantity= meal.quantity
+							%td.price
+								= meal.price
+								pln
+				%tr
+					%th
+					%th
+					%th
+						= order.total_price
+						pln

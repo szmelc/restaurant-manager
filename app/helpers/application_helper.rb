@@ -10,8 +10,9 @@ module ApplicationHelper
 		return prices.reduce(:+)
 	end
 
-	def employee_income_today
-		
+	def average_order_value
+		number_with_precision(income_today / @orders_today.count, precision: 2) + ' pln'
 	end
+
 
 end

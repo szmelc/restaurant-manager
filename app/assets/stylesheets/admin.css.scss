@@ -74,6 +74,7 @@
 	#income-today {
 		border-left: 1px solid rgba(0,0,0,.15);
 		width: 40%;
+		min-height: 300px;
 		.buttons {
 			@include display(flex, center, center, wrap, row);
 			width: 100%;	
@@ -111,7 +112,9 @@
 		#income-per-employee {
 			display: none;
 			width: 100%;
-			padding: 15px;
+			padding: 20px;
+			padding-top: 40px;
+			overflow: scroll;
 			.employee-income {
 				@include display(flex, flex-start, center, wrap, row);
 				width: 100%;

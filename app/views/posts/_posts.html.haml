@@ -12,4 +12,8 @@
 				= post.comments.count	
 				|
 				= link_to 'Skomentuj', new_post_comment_path(post)
+				-# |
+				-# - if current_user.admin?
+				-# 	= link_to 'Usuń posta', post_path(post), method: :delete, :data => {:confirm => "Czy jesteś pewien, że chcesz usunąć posta?"}
+
 			
