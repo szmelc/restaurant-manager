@@ -1,4 +1,6 @@
 %div#income-per-employee.income
+	-# %h4= Date.today.strftime("%A, %d.%m.%Y")
+	-# %hr/
 	- @users.each do |user|
 		%div.employee-income
 			- prices = []

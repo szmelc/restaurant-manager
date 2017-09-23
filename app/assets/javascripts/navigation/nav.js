@@ -42,7 +42,7 @@ $(document).ready(function() {
 		$(this).addClass('active');
 		$alt = $(this).attr('alt')
 		$('canvas').css('display', 'none')
-		$('canvas[id="' + $alt + '"]').css('display', 'inline');
+		$('div[id="' + $alt + '"]').css('display', 'inline');
 	});
 
 // Navigate through income tabs in admin panel

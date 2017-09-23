@@ -115,6 +115,12 @@
 			padding: 20px;
 			padding-top: 40px;
 			overflow: scroll;
+			h4 {
+				margin-top: 0;
+			}
+			hr {
+				color: rgba(0,0,0,.1);
+			}
 			.employee-income {
 				@include display(flex, flex-start, center, wrap, row);
 				width: 100%;
@@ -124,7 +130,7 @@
 				}
 				h3 {
 					margin: 0;
-				}
+				}				
 			}
 		}
 	}
