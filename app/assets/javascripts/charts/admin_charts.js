@@ -202,16 +202,57 @@ $(document).ready(function() {
 
 
 			// INCOME CHARTS
-			
-				// GENERAL INCOME EACH DAY
+				function calculateIncome() {
+					let income = []
+					// GENERAL INCOME EACH DAY
+					for(let i = 0; i < setLabels().length; i++) {
+						// let income = [];
+						var pricesOnThatDay = []
+						for(order of json.orders) {
+							if(setLabels()[i] == returnDate(order.date)) {
+								pricesOnThatDay.push(order.price);
+							}
+						}
+						if(pricesOnThatDay.length > 0) {
+							let sum = pricesOnThatDay.reduce(function(a, b) {
+								return a + b;
+							})
+							income.push(sum)
+						} else {
+							income.push(0)
+						}
+					}
+					return income
+				}
+				
+					// for(order of json.orders) {							
+					// 	let income = []
+					// 	for(let i = 0; i < setLabels().length; i++) {
+					// 		var pricesOnThatDay = []
+					// 		if(setLabels()[i] == returnDate(order.date)) {
+					// 			pricesOnThatDay.push(order.price);
+					// 		}								
+					// 	}
+					// 	console.log(pricesOnThatDay)
+					// }						
+				
+				
+
+
+
+
 					var incomeDailyChart = document.getElementById('income-daily-chart');
 					var dailyIncomeChart = new Chart(incomeDailyChart, {
 					  type: 'bar',
 					  data: {
 					    labels: setLabels(),
 					    datasets: [{
-					      label: 'apples',
-					      data: [12, 19, 3, 17, 28, 24, 7]
+					      label: 'Przychód',
+								backgroundColor: 'rgba(27, 157, 226, .95)',
+								hoverBackgroundColor: 'rgba(27, 157, 226, 1)',
+			  				borderColor: 'whitesmoke',
+			  				borderWidth: 2,					      
+					      data: calculateIncome()
 					    }]
 					  }
 					});
