@@ -9,6 +9,15 @@ $(document).ready(function() {
 				let year = date.getFullYear();
 				return `${day}-${month}-${year}`;
 	  	}	// converts any date to a usable format	DD-MM-YYYY
+
+      function defineColor() {
+        let letters = '0123456789ABCDEF'
+        let color = '#'
+        for(let i = 0; i < 6; i++) {
+          color += letters[Math.floor(Math.random()*16)]
+        }
+        return color;
+      } // generates random color with hex values	  	
 		
 			function setLabels() {
 				let startDate = new Date - 24 * 3600 * 1000 * 7 - 1 //returns miliseconds
@@ -78,7 +87,21 @@ $(document).ready(function() {
 	  				borderWidth: 2,
 	  				data: ordersNumber						
 					}]	
-					}
+					},
+		  		options: {
+		  			legend: {
+		  				labels: {
+		  					defaultFontFamily: "'Lato', sans-serif"
+		  				}
+		  			},
+		  			scales: {
+		  				yAxes: [{
+		  					ticks: {
+		  						beginAtZero: true
+		  					}
+		  				}]
+		  			}
+		  		}					
 				});	
 			// END Porównanie zamówień między robolami
 
@@ -98,8 +121,22 @@ $(document).ready(function() {
 							backgroundColor: 'rgba(27, 157, 226, .95)',
 							data: defineAmounts()
 						}]
-					}
-				})				
+					},
+		  		options: {
+		  			legend: {
+		  				labels: {
+		  					defaultFontFamily: "'Lato', sans-serif"
+		  				}
+		  			},
+		  			scales: {
+		  				yAxes: [{
+		  					ticks: {
+		  						beginAtZero: true
+		  					}
+		  				}]
+		  			}
+		  		}					
+				});		
 			// END ILOŚĆ WSZYSTKICH ZAMÓWIEŃ DANEGO DNIA
 
 			// PORÓWNANIE ZAMÓWIEŃ Z POSZCZEGÓLNYCH DNI
@@ -193,87 +230,181 @@ $(document).ready(function() {
 				var chartAllEmployeesDaily = new Chart(ctud, {
 					type: 'bar',
 					data: {
-					labels: setLabels(),
-					datasets: returnDataset()
-						}				
+						labels: setLabels(),
+						datasets: returnDataset()
+					},
+		  		options: {
+		  			legend: {
+		  				labels: {
+		  					defaultFontFamily: "'Lato', sans-serif"
+		  				}
+		  			},
+		  			scales: {
+		  				yAxes: [{
+		  					ticks: {
+		  						beginAtZero: true
+		  					}
+		  				}]
+		  			}
+		  		}									
 				});
 			// END PORÓWNANIE ZAMÓWIEŃ Z POSZCZEGÓLNYCH DNI
 
 
 
 			// INCOME CHARTS
-				function calculateIncome() {
-					let income = []
-					// GENERAL INCOME EACH DAY
-					for(let i = 0; i < setLabels().length; i++) {
-						// let income = [];
-						var pricesOnThatDay = []
-						for(order of json.orders) {
-							if(setLabels()[i] == returnDate(order.date)) {
-								pricesOnThatDay.push(order.price);
+				// GENERAL INCOME EACH DAY & AVERAGE ORDER COST
+					function calculateIncome() {
+						let income = []
+						
+						for(let i = 0; i < setLabels().length; i++) {
+							var pricesOnThatDay = []
+							for(order of json.orders) {
+								if(setLabels()[i] == returnDate(order.date)) {
+									pricesOnThatDay.push(order.price);
+								}
+							}
+							if(pricesOnThatDay.length > 0) {
+								let sum = pricesOnThatDay.reduce(function(a, b) {
+									return a + b;
+								})
+								income.push(sum)
+							} else {
+								income.push(0)
 							}
 						}
-						if(pricesOnThatDay.length > 0) {
-							let sum = pricesOnThatDay.reduce(function(a, b) {
-								return a + b;
-							})
-							income.push(sum)
-						} else {
-							income.push(0)
-						}
+						return income
 					}
-					return income
-				}
-				
-					// for(order of json.orders) {							
-					// 	let income = []
-					// 	for(let i = 0; i < setLabels().length; i++) {
-					// 		var pricesOnThatDay = []
-					// 		if(setLabels()[i] == returnDate(order.date)) {
-					// 			pricesOnThatDay.push(order.price);
-					// 		}								
-					// 	}
-					// 	console.log(pricesOnThatDay)
-					// }						
-				
-				
+									
+					function calculateAverageOrderPrice() {		
+						let averagePrices = []
+						for(let i = 0; i < setLabels().length; i++) {
+							let prices = [];
+							for(order of json.orders) {
+								if(setLabels()[i] == returnDate(order.date)) {
+									prices.push(order.price);
+								}
+							}
+							if(prices.length > 0) {
+								let sum = prices.reduce(function(a, b) {
+									return a + b;									
+								});
+								averagePrices.push(parseInt((sum/prices.length).toFixed(2)));
+							} else {
+								let sum = 0;
+								averagePrices.push(sum)
+							}							
+						}
+						return averagePrices
+					}
 
-
-
-
+					calculateAverageOrderPrice()
 					var incomeDailyChart = document.getElementById('income-daily-chart');
 					var dailyIncomeChart = new Chart(incomeDailyChart, {
 					  type: 'bar',
 					  data: {
 					    labels: setLabels(),
-					    datasets: [{
-					      label: 'Przychód',
+					    datasets: [
+					    {
+					    	label: 'Średnia wartość zamówienia',
+					    	backgroundColor: 'rgba(232, 255, 33, .85)',
+					    	borderColor: 'rgba(27, 157, 226, 1)',
+					    	borderWidth: 2,
+					    	type: 'line',
+					    	data: calculateAverageOrderPrice(),
+					    	lineTension: 0.25,
+					    	spanGaps: true
+					    },					    	
+					    {
+					      label: 'Dzienny przychód',
 								backgroundColor: 'rgba(27, 157, 226, .95)',
 								hoverBackgroundColor: 'rgba(27, 157, 226, 1)',
 			  				borderColor: 'whitesmoke',
 			  				borderWidth: 2,					      
 					      data: calculateIncome()
 					    }]
-					  }
+					  },
+			  		options: {
+			  			legend: {
+			  				labels: {
+			  					defaultFontFamily: "'Lato', sans-serif"
+			  				}
+			  			},
+			  			scales: {
+			  				yAxes: [{
+			  					ticks: {
+			  						beginAtZero: true
+			  					}
+			  				}]
+			  			}
+			  		}					  
 					});
 
-				// END GENERAL INCOME EACH DAY
-
-				// INCOME PER EMPLOYEE ON CERTAIN DAY
+				// END GENERAL INCOME EACH DAY & AVERAGE ORDER COST
 
 
+
+
+				// INCOME PER EMPLOYEE ON A CERTAIN DAY
+
+					function setNameLabels() {
+						let namesArray = []
+						for(user of json.users) {
+							namesArray.push(user.name);
+						}
+						return namesArray;
+					}
+
+					function returnEmployeeDatasets() {
+						let dataset = [];
+						let i = 0;
+						let cost = [];
+						for(user of json.users) {
+							let dailyCost = []
+							console.log(`Current user is ${user.name} and those are his arrays:`)							
+							for(let j = 0; j < setLabels().length; j++) {
+								console.log(setLabels()[j])
+								for(order of user.orders) {
+									if(setLabels()[j] == returnDate(order.date)) {
+										cost.push(order.price);
+									}			
+								}
+								// console.log(cost)
+								if (cost.length > 0) {
+									let sum = cost.reduce(function(a, b) {
+										return a + b;
+									});
+									dailyCost.push(sum)
+									console.log(sum)
+								} else {
+									let sum = 0;
+									dailyCost.push(0);
+								}
+							}							
+							i++
+							dataset.push({label: user.name, data: dailyCost, backgroundColor: defineColor()})
+							cost = []
+						}
+						console.log(dataset)
+						return dataset
+					}
+					returnEmployeeDatasets()
+
+
+
+					var incomePerEmployeeChart = document.getElementById("income-per-employee-chart").getContext('2d');
+					var barChart = new Chart(incomePerEmployeeChart, {
+					  type: 'bar',
+					  data: {
+					    labels: setLabels(),
+					    datasets: returnEmployeeDatasets()
+					  }
+					});
 
 				// END INCOME PER EMPLOYEE ON CERTAIN DAY
 
 
 			// END INCOME CHARTS
-
-
-
-
-
-
-
 		});
 	}
 });
