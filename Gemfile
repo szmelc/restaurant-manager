@@ -24,6 +24,7 @@ gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem 'devise-i18n'
 gem 'chartjs-ror'
 gem 'ransack'
+gem 'rubocop', '~> 0.50.0', require: false
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 2.13'
