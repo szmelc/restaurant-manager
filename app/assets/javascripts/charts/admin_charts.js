@@ -327,6 +327,10 @@ $(document).ready(function() {
 					    }]
 					  },
 			  		options: {
+			  			title: {
+			  				display: true,
+			  				text: "Tygodniowy utarg"
+			  			},
 			  			legend: {
 			  				labels: {
 			  					defaultFontFamily: "'Lato', sans-serif"
@@ -363,21 +367,17 @@ $(document).ready(function() {
 						let cost = [];
 						for(user of json.users) {
 							let dailyCost = []
-							console.log(`Current user is ${user.name} and those are his arrays:`)							
 							for(let j = 0; j < setLabels().length; j++) {
-								console.log(setLabels()[j])
 								for(order of user.orders) {
 									if(setLabels()[j] == returnDate(order.date)) {
 										cost.push(order.price);
 									}			
 								}
-								// console.log(cost)
 								if (cost.length > 0) {
 									let sum = cost.reduce(function(a, b) {
 										return a + b;
 									});
 									dailyCost.push(sum)
-									console.log(sum)
 								} else {
 									let sum = 0;
 									dailyCost.push(0);
@@ -387,7 +387,6 @@ $(document).ready(function() {
 							dataset.push({label: user.name, data: dailyCost, backgroundColor: defineColor()})
 							cost = []
 						}
-						console.log(dataset)
 						return dataset
 					}
 					returnEmployeeDatasets()
@@ -400,13 +399,153 @@ $(document).ready(function() {
 					  data: {
 					    labels: setLabels(),
 					    datasets: returnEmployeeDatasets()
+					  },
+					  options: {
+				      title: {
+				        display: true,
+				        text: 'Utarg poszczególnych pracowinków'
+				      }					  	
 					  }
 					});
+
+					
+
 
 				// END INCOME PER EMPLOYEE ON CERTAIN DAY
 
 
 			// END INCOME CHARTS
+
+			// NAJPOPULARNIEJSZE POTRAWY
+		    function defineMealsLabels(condition) {
+		      let mealsAll = []; // list of meals for chart labels
+		      for(order of json.orders) {
+		        for(meal of order.meals) {
+		          if(condition == 'all') {
+		            if(mealsAll.includes(meal.name) == false) {
+		              mealsAll.push(meal.name)
+		            }
+		          } else if(condition == 'today') {
+		            if(returnDate(order.date) == returnDate(today) 
+		               && mealsAll.includes(meal.name) == false) {
+		             mealsAll.push(meal.name)
+		           }
+		          }
+		        }
+		      }
+		     return mealsAll.sort()
+		    } // returns array with names of sold meals
+
+		    function defineAmountOfMeals() {
+		    	let arr = []
+		    	let quantities = []
+		    	for(order of json.orders) {
+		    		for(meal of order.meals) {
+		    			for(let i = 0; i < meal.quantity; i++) {
+			    			arr.push(meal.name)	
+		    			}		    			
+		    		}
+		    	}
+		    	arr.sort()
+		    	console.log(arr)
+		    	for(let i = 0; i < defineMealsLabels('all').length; i++) {
+		    		let counter = 0;
+		    		for(let j = 0; j < arr.length; j++) {
+		    			if(defineMealsLabels('all')[i] == arr[j]) {
+		    				counter++;
+		    			}		    			
+		    		}
+		    		quantities.push(counter);
+		    	}
+		    	return quantities
+		    }
+		    defineAmountOfMeals()
+
+		    function returnArrOfColors(amount) {	      
+		      let colors = [];
+		    	for(let i = 0; i < amount; i++) {
+		    		let color = '#';
+		    		let letters = '0123456789ABCDEF'		      
+		    		for(let i = 0; i < 6; i++) {
+			        color += letters[Math.floor(Math.random()*16)]
+			      }
+			      colors.push(color);
+		    	}		      
+		      return colors;
+		    }
+
+
+
+
+				new Chart(document.getElementById("mostPopularDishesChart"), {
+				    type: 'bar',
+				    data: {
+				      labels: defineMealsLabels('all'),
+				      datasets: [				      	
+				        {
+				          backgroundColor: returnArrOfColors(defineAmountOfMeals().length),				          
+				          data: defineAmountOfMeals()				          
+				        }
+				      ]
+				    },
+				    options: {
+				      legend: { 
+				      	display: false,
+				      },				      
+				      title: {
+				        display: true,
+				        text: 'Najpopularniejsze potrawy'
+				      },
+			  			scales: {
+			  				yAxes: [{
+			  					ticks: {
+			  						beginAtZero: true
+			  					}
+			  				}],
+			  				xAxes: [{
+			  					ticks: {
+			  						autoSkip: false,
+			  						maxRotation: 90,
+			  						minRotation: 90
+			  					}
+			  				}]
+			  			}				      
+				    }
+				});
+			// END NAJPOPULARNIEJSZE POTRAWY
+
+			// create a sorted object with meals and quantites to use it in a list and populate the list
+			function createMealsObject() {
+				var arr = [];
+				for(let i = 0; i < defineMealsLabels('all').length; i++) {					
+					arr.push({'name': defineMealsLabels('all')[i], 'quantity': defineAmountOfMeals()[i]})
+				}
+				console.log(arr);
+				// sort the array according to amount of meals
+				function compareMealAmounts(a, b) {
+					let firstItem = a.quantity;
+					let secondItem = b.quantity;
+					if(firstItem > secondItem) {
+						return - 1;
+					} else if(firstItem < secondItem) {
+						return 1;
+					} else {
+						return 0;
+					}
+				}
+				arr.sort(compareMealAmounts)
+				return arr;
+			}
+
+			createMealsObject();
+
+		// Populate table with popular meals
+			// $('#meals-table').append("<ul>");
+			for(let i = 0; i < createMealsObject().length; i++) {
+				$('#meals-table').append("<li><span>" + createMealsObject()[i].name + "</span>" + "<strong>" + createMealsObject()[i].quantity + '</strong></li>')
+			}
+			// $('#meals-table').append("</ul>");
+
 		});
 	}
 });

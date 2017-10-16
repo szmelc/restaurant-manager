@@ -69,6 +69,8 @@ $(document).ready(function() {
 		$('.income-chart > canvas[id="' + $alt + '"]').css('display', 'inline');
 	});
 
+
+
 });
 
 
