@@ -131,7 +131,8 @@ $(document).ready(function() {
 		  			scales: {
 		  				yAxes: [{
 		  					ticks: {
-		  						beginAtZero: true
+		  						beginAtZero: true,
+		  						stepSize: 1
 		  					}
 		  				}]
 		  			}
@@ -242,7 +243,8 @@ $(document).ready(function() {
 		  			scales: {
 		  				yAxes: [{
 		  					ticks: {
-		  						beginAtZero: true
+		  						beginAtZero: true,
+		  						stepSize: 1
 		  					}
 		  				}]
 		  			}

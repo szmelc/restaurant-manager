@@ -10,7 +10,7 @@ module ApplicationHelper
 		if !(prices.empty?)
 			return prices.reduce(:+)
 		else
-			return 0
+			return '0 pln'
 		end
 	end
 

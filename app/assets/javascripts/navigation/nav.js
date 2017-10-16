@@ -35,14 +35,19 @@ $(document).ready(function() {
 		window.location = chosen.data('link')
 	});
 
+// Hide two canvases
+	$('#barChartAllEmployees').css("display", "none");
+	$('#barChartAllEmployeesDailyComparison').css("display", "none");
+	$('#income-per-employee-chart').css("display", "none");
+
 // Navigate through charts in admin panel
 
 	$('.button').click(function() {
 		$(this).siblings().removeClass('active');
 		$(this).addClass('active');
 		$alt = $(this).attr('alt')
-		$('canvas').css('display', 'none')
-		$('div[id="' + $alt + '"]').css('display', 'inline');
+		$('#chart > canvas').css('display', 'none')
+		$('canvas[id="' + $alt + '"]').css('display', 'inline');
 	});
 
 // Navigate through income tabs in admin panel
@@ -53,6 +58,15 @@ $(document).ready(function() {
 		$income = $("div[class='income']")
 		$income.css('display', 'none')
 		$('div[id="' + $alt + '"]').css('display', 'inline');
+	});
+
+// Navigate through charts in the income panel
+	$('.button-income-chart').click(function() {
+		$(this).siblings().removeClass('active');
+		$(this).addClass('active');		
+		$alt = $(this).attr('alt');
+		$('.income-chart > canvas').css('display', 'none')
+		$('.income-chart > canvas[id="' + $alt + '"]').css('display', 'inline');
 	});
 
 });

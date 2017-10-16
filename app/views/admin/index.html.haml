@@ -14,13 +14,13 @@
 						= link_to 'Usuń', admin_destroy_user_path(user), :id => "delete-link", method: :delete, data: {confirm: "Czy jesteś pewien że chcesz usunąć użytkownika #{user.name}?"}
 %h1 Akcje						
 %div#actions
-	%div.action-button#add-dish{:data => {:link => new_dish_path}}
+	%div.action-button#add-dish{data: {link: new_dish_path}}
 		= image_tag 'add_dish.svg'
 		%h4 Dodaj potrawę
-	%div.action-button{:data => {:link => new_user_path}}
+	%div.action-button{data: {link: new_user_path}}
 		= image_tag 'add_user.svg'
 		%h4 Dodaj użytkownika
-	%div.action-button{:data => {:link => new_pinned_post_path}}
+	%div.action-button{data: {link: new_pinned_post_path}}
 		= image_tag 'add_pinned_post.svg'
 		%h4 Dodaj przypięty post
 	%div.action-button
@@ -30,9 +30,9 @@
 %h1 Produktywność roboli
 %div#orders-chart
 	%div#buttons
-		%div.button.active{:alt => "barChartAllOrders"} Wszystkie zamówienia danego dnia
-		%div.button{:alt => "barChartAllEmployees"} Wszystkie zamówienia pracowników
-		%div.button{:alt => "barChartAllEmployeesDailyComparison"} Porównanie zamówień
+		%div.button.active{alt: "barChartAllOrders"} Wszystkie zamówienia danego dnia
+		%div.button{alt: "barChartAllEmployees"} Wszystkie zamówienia pracowników
+		%div.button{alt: "barChartAllEmployeesDailyComparison"} Porównanie zamówień
 	%div#chart
 		%canvas#barChartAllOrders
 		%canvas#barChartAllEmployees
