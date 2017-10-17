@@ -50,6 +50,13 @@ body {
   .button {
     background-color: $color1;
   }
+  p.notice,
+  p.alert {
+    background-color: rgb(207, 229, 91);
+    margin: 0 auto;
+    @include display(flex, center, center, wrap, row);
+    width: 100%;
+  }
 }
 
 

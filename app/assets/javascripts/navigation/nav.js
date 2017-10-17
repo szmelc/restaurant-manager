@@ -22,7 +22,7 @@ $(document).ready(function() {
 	  window.location = chosen.data("link");
 	});
 
-	$("img").click(function() {
+	$("img#avatar").click(function() {
 	  var chosen = $(this)
 	  window.location = chosen.data("link");
 	});	

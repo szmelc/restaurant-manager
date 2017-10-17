@@ -87,6 +87,9 @@ body[class='orders index'] {
 						font-size: .7em;
 						font-weight: 300;
 					}
+					th.totalprice {
+						text-align: right;
+					}
 					tr {
 						.quantity {
 							margin: auto;

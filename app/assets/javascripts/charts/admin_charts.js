@@ -378,6 +378,7 @@ $(document).ready(function() {
 										return a + b;
 									});
 									dailyCost.push(sum)
+									cost = []
 								} else {
 									let sum = 0;
 									dailyCost.push(0);
@@ -387,7 +388,7 @@ $(document).ready(function() {
 							dataset.push({label: user.name, data: dailyCost, backgroundColor: defineColor()})
 							cost = []
 						}
-						return dataset
+						return dataset;
 					}
 					returnEmployeeDatasets()
 
@@ -447,7 +448,6 @@ $(document).ready(function() {
 		    		}
 		    	}
 		    	arr.sort()
-		    	console.log(arr)
 		    	for(let i = 0; i < defineMealsLabels('all').length; i++) {
 		    		let counter = 0;
 		    		for(let j = 0; j < arr.length; j++) {
@@ -520,7 +520,6 @@ $(document).ready(function() {
 				for(let i = 0; i < defineMealsLabels('all').length; i++) {					
 					arr.push({'name': defineMealsLabels('all')[i], 'quantity': defineAmountOfMeals()[i]})
 				}
-				console.log(arr);
 				// sort the array according to amount of meals
 				function compareMealAmounts(a, b) {
 					let firstItem = a.quantity;
@@ -540,11 +539,10 @@ $(document).ready(function() {
 			createMealsObject();
 
 		// Populate table with popular meals
-			// $('#meals-table').append("<ul>");
 			for(let i = 0; i < createMealsObject().length; i++) {
 				$('#meals-table').append("<li><span>" + createMealsObject()[i].name + "</span>" + "<strong>" + createMealsObject()[i].quantity + '</strong></li>')
 			}
-			// $('#meals-table').append("</ul>");
+
 
 		});
 	}

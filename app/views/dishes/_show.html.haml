@@ -5,7 +5,7 @@
 			%div#dish-name
 				%h2= @dish.name
 		%p= @dish.description
-	- if current_user.admin?
+	- if can? :manage, @dish
 		%div#buttons
 			= link_to 'Edytuj', edit_dish_path, {:id => "edit-dish"}
 			= link_to 'Usuń', dish_path, method: :delete, :id => "delete-dish", :data => {:confirm => "Czy jesteś pewien, że chcesz usunąć potrawę?"}

@@ -48,7 +48,6 @@ $(document).ready(function() {
 					let date = `${day}-${month}-${year}`; // formatted date (like in labels)
 					dates.push(date);
 				}
-				console.log(dates)
 				for(let i = 0; i < setLabels().length; i ++) {
 					let counter = 0;
 					for(let j = 0; j < dates.length; j++) {

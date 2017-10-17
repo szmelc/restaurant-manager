@@ -99,6 +99,7 @@ body.admin {
 		}
 		.personal-info {
 			@include display(flex, flex-start, flex-start, no-wrap, row);
+			width: 100%;
 			h1 {
 				margin: 0;
 				text-align: left;
@@ -106,17 +107,20 @@ body.admin {
 			h3 {
 				font-weight: 300;
 			}
-			.description {
-				line-height: 1.5;
-				font-size: 1em;
-				text-align: justify;
-			}
 			.name-info {
-				@include display(flex, space-between, flex-start, wrap, column);
+				@include display(flex, flex-start, flex-start, wrap, column);
 				margin-right: 40px;
 				padding-right: 40px;
 				border-right: 1px solid #333;
 				width: 50%;
+				.description {
+					line-height: 1.5;
+					font-size: 1em;
+					text-align: justify;
+					p {
+						margin-top: 10px;
+					}
+				}				
 			}
 			.contact-info {
 		    a {

@@ -91,8 +91,7 @@ $(".orders index").ready(function() {
               counter++;
             }          
           }
-          counterArr.push(counter) // returns array with quantites of certain meals
-          // console.log(counterArr)          
+          counterArr.push(counter) // returns array with quantites of certain meals   
         }
         
         for(let i = 0; i < counterArr.length; i++) { 
@@ -130,7 +129,6 @@ $(".orders index").ready(function() {
         };
         
         meals.sort(compare) // returns alphabetically sorted array of all meals ordered today
-        console.log(meals)
 
         for(let i = 0; i < defineLabels('today').length; i++) {
           let counter = 0;
@@ -141,7 +139,6 @@ $(".orders index").ready(function() {
           }
           counterArr.push(counter) // returns occurences of certain meal in orders
         }
-        console.log(counterArr)
 
         for(let i = 0; i < counterArr.length; i++) {
           for(let j = 0; j < counterArr[i]; j++) {
@@ -153,7 +150,6 @@ $(".orders index").ready(function() {
             var quantity = quantArr.reduce(function(a, b) {
               return a.quantity + b.quantity;
             })
-            // console.log(quantity);
             data.push(quantity);
             quantArr = [];          
           } else {

@@ -11,7 +11,7 @@
 %body{class: [controller_name, action_name] }
   = render 'layouts/nav'
   %div.wrapper
-    -# %p.notice= notice
-    -# %p.alert= alert  
+    %p.notice= notice
+    %p.alert= alert  
     = yield
   = render 'layouts/footer'
