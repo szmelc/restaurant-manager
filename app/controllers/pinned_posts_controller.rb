@@ -22,7 +22,6 @@ class PinnedPostsController < ApplicationController
 	end
 
 	def update
-
 	end
 
 	def destroy

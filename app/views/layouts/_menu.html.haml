@@ -4,8 +4,13 @@
 	%div#home.navbutton{:data => {:link => admin_path}}
 		= image_tag 'adminpanel.svg'
 %div#avatar-div
-	- if user_signed_in?
-		= image_tag current_user.user_avatar, :id => 'avatar-thumb'
+	%div.dropdown
+		- if user_signed_in?
+			= image_tag current_user.user_avatar, {id: 'avatar-thumb', class: 'dropbtn'}
+			%div.dropdown-content
+				= link_to 'Mój profil', user_path(current_user)
+				= link_to 'Ustawienia konta', edit_user_registration_path
+				= link_to 'Wyloguj', destroy_user_session_path, method: :delete
 
 - if user_signed_in?
 	%div.navbutton{:data => {:link => user_path(current_user)}}

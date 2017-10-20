@@ -1,5 +1,3 @@
-
-
 %div.nav
   %div#navbar
     %div.nav-left
@@ -25,8 +23,3 @@
           = link_to 'Log in', new_user_session_path
         %div.navbutton{:data => {:link => new_user_registration_path}}
           = link_to 'Sign up', new_user_registration_path
-  %div#user-buttons
-    - if user_signed_in?
-      = link_to 'Mój profil', user_path(current_user)
-    = link_to 'Ustawienia konta', edit_user_registration_path
-    = link_to 'Wyloguj', destroy_user_session_path, method: :delete

@@ -1,8 +1,5 @@
 $(document).ready(function() {
 
-	$('#avatar-thumb').click(function() {
-		$('#user-buttons').slideToggle(100);
-	})
 
 // Go to URL when clicking on buttons divs
 	$('.navbutton').click(function() {
