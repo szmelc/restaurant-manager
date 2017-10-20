@@ -7,7 +7,6 @@ class Ability
         can :manage, :all
       else
         cannot :create, :dish
-        cannot 
       end
     #
     # The first argument to `can` is the action you are giving the user

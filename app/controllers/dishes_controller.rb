@@ -1,5 +1,5 @@
 class DishesController < ApplicationController
-	load_and_authorize_resource
+	# load_and_authorize_resource
 	respond_to :html, :js
 	before_action :creation_params, only: [:show]
 	before_action :dish_params, only: [:create, :update]
@@ -18,6 +18,7 @@ class DishesController < ApplicationController
 	end
 
 	def new
+		authorize! :create, @dish
 		@dish = Dish.new
 	end
 
