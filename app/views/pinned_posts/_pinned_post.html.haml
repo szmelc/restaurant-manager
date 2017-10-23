@@ -1,4 +1,4 @@
-- if @pinned_post.try(:now) - @pinned_post.try(created_at) < 86400 
+- if @pinned_post.try(:now) - @pinned_post.created_at < 86400 
 	%div#pinned-post
 		%div.post
 			= image_tag @pinned_post.author_avatar, :class => 'post-avatar', :data => {:link => user_path(@pinned_post.user_id)}
