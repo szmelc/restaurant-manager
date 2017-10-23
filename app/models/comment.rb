@@ -7,6 +7,12 @@ class Comment < ApplicationRecord
   	[@user.first_name, @user.last_name].join(' ')
   end
 
+  def comment_author_id
+  	@id = user_id
+  	@user = User.find(@id)
+  	@user.id
+  end
+
 	def author_avatar
 		@id = user_id
 		@author = User.find(@id)
