@@ -37,23 +37,26 @@ body.admin {
 					cursor: pointer;
 				}
 			}
+			#admin-buttons {
+				@include display(flex, center, center, wrap, row);
+				font-size: 0.8em;
+				&> * {
+					margin: 0 3px;
+					padding: 2px 3px;
+				}
+				#delete-link {
+					color: red;
+					&:hover {
+						color: white;
+						background-color: red;
+					}
+				}
+			}			
 			.username {
-				@include display(flex, center, center, wrap, column);
+				@include display(flex, center, center, wrap, row);
 				margin-top: 10px;
-				#admin-buttons {
-					@include display(flex, center, center, wrap, row);
-					font-size: 0.8em;
-					&> * {
-						margin: 0 3px;
-						padding: 2px 3px;
-					}
-					#delete-link {
-						color: red;
-						&:hover {
-							color: white;
-							background-color: red;
-						}
-					}
+				img {
+					margin-right: 7px;
 				}
 			}
 			a {

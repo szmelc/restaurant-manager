@@ -7,8 +7,9 @@ class UsersController < ApplicationController
 	def show
 		@users = User.all.order('id ASC')
 		@user = User.find(params[:id])
-		user_id = current_user.id # tutaj nie jest DRY; zrefaktoruj to
-		@user_orders = Order.where(:user_id => user_id)  
+		user_id = @user.id 
+		@user_orders = Order.where(:user_id => user_id)
+    @user_orders_today = Order.where(user_id: @user.id).where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day)  
 	end
 
   def new

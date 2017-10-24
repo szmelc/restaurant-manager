@@ -7,10 +7,24 @@ module ApplicationHelper
 				prices << meal.price
 			end
 		end
-		if !(prices.empty?)
-			return prices.reduce(:+)
-		else
+		if prices.empty?
 			return 0
+		else
+			return prices.reduce(:+)
+		end
+	end
+
+	def user_income_today
+		prices = []
+		@user_orders_today.each do |order|
+			order.meals.each do |meal|
+				prices << meal.price
+			end
+		end
+		if prices.empty?
+			return 0
+		else
+			prices.reduce(:+)		
 		end
 	end
 
@@ -21,6 +35,7 @@ module ApplicationHelper
 			return 0.to_s + ' pln'
 		end
 	end
+
 
 
 end

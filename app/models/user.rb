@@ -32,18 +32,11 @@ class User < ApplicationRecord
     end
   end
 
-# Concatenate first name and last name
 
-  def name
+
+  def name # Concatenate first name and last name
     [first_name, last_name].join(' ')
   end
-
-# Find orders that were made today
-
-  def orders_today
-    @orders_today = Order.where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day)
-  end
-
 
 end
 

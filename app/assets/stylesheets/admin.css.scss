@@ -11,6 +11,10 @@
 		border-color: rgba(0,0,0,.05);
 		margin: 5px 0;
 	}
+	.income {
+		@include display(flex, flex-end, flex-end, no-wrap, row);
+		margin: 0 50px
+	}
 	#meals-table {
 		padding: 15px;
 		column-count: 2;
