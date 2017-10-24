@@ -130,7 +130,7 @@ input[type="submit"] {
 	max-width: 600px;
 	min-width: 400px;
 	margin: auto;
-	label{
+	label {
 		margin-left: 30px;
 		margin-top: 15px;
 	}
@@ -152,6 +152,40 @@ input[type="submit"] {
 			outline: none;
 			border-bottom: 2px solid rgba(27, 157, 226, 0.7);
 		}
+	}
+	.remember {
+		@include display(flex, center, center, wrap, row);
+		width: 100%;
+		label {
+			width: 250px;
+			@include display(flex, center, center, wrap, row);
+			margin: 0;
+			input {
+				display: inline-block;
+				width: 30px;
+				margin: 0;
+				align-self: center;
+			}
+		}
+	}
+	input[type=submit] {
+		@include button(1em, 300, none, #36b56b, #FFF, none, 5px, pointer, 0 0 1px 1px rgba(0,0,0,.1));
+	  font-size: 1em;
+	  font-weight: 300;
+	  border: none;
+	  background-color: #36b56b;
+	  color: #FFF;
+	  text-decoration: none;
+	  padding: 5px;
+	  margin: 1px auto;
+	  width: 350px;
+	  height: 35px;
+	  display: flex;
+	  justify-content: center;
+	  align-content: center;
+	  flex-wrap: no-wrap;
+	  flex-direction: row;
+	  padding: 8px;
 	}
 	}
 	.form-actions{
