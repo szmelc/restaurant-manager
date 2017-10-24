@@ -14,8 +14,12 @@ class Order < ApplicationRecord
     prices = []
   	meals.each do |meal|
       prices << meal.price
-    end  	
-    return prices.reduce(:+)
+    end
+    if prices.empty?
+      return 0
+    else  	
+      return prices.reduce(:+)
+    end
   end
 
 
