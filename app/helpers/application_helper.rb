@@ -10,9 +10,9 @@ module ApplicationHelper
 			end
 		end
 		if prices.empty?
-			return 0
+			 0
 		else
-			return prices.reduce(:+).to_f
+			 prices.reduce(:+).to_f
 		end
 	end
 
