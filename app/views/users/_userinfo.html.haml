@@ -1,0 +1,30 @@
+%div.user 
+	%div.personal-info
+		%div.profile-pic
+			= image_tag @user.user_avatar, :class => "avatar", :data => {:link => user_path(@user)}
+		%div.name-info
+			%h1
+				= @user.first_name
+				= @user.last_name
+			%div.description
+				%p
+					= @user.description
+		%div.contact-info
+			%div#email.contact-row
+				%div.contact-pic
+					= image_tag 'email.svg', {class: "contact-image"}
+				%h2
+					= mail_to @user.email, @user.email
+			%div#location.contact-row
+				%div.contact-pic
+					= image_tag 'location.png', {class: "contact-image"}
+				%h2
+					= @user.city
+			%div#location.contact-row
+				%div.contact-pic
+					= image_tag 'telephone.svg', {class: "contact-image"}
+				%h2
+					= @user.phone_number
+	- if current_user.id == @user.id					
+		%div#settings{:data => {:link => edit_user_registration_path}}
+			= image_tag 'settings.png', :alt => "Ustawienia"
