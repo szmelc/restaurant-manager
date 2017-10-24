@@ -12,7 +12,7 @@ module ApplicationHelper
 		if prices.empty?
 			return 0
 		else
-			return prices.reduce(:+)
+			return prices.reduce(:+).to_f
 		end
 	end
 
@@ -26,7 +26,7 @@ module ApplicationHelper
 		if prices.empty?
 			return 0
 		else
-			prices.reduce(:+)		
+			prices.reduce(:+).to_f
 		end
 	end
 
