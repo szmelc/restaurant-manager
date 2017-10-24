@@ -24,7 +24,7 @@ pl:
       send_instructions: 'Wkrótce powinieneś otrzymać email z instrukcją jak aktywować swoje konto.'
       confirmed: 'Twoje konto zostało aktywowane. Jesteś już zalogowany.'
     registrations:
-      signed_up: 'Rejestracja zakończyła się sukcesem. Link aktywacyjny został wysłany na twój adres e-mail (jeśli włączone).'
+      signed_up: 'Rejestracja zakończyła się sukcesem.'
       updated: 'Twoje konto zostało pomyślnie zaktualizowane.'
       destroyed: 'Papa! Twoje konto zostało usunięte. Mamy nadzieję, że spotkamy się jeszcze kiedyś!'
     unlocks:

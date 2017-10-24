@@ -2,9 +2,11 @@ module ApplicationHelper
 
 	def income_today
 		prices = []
-		@orders_today.each do |order|
-			order.meals.each do |meal|
-				prices << meal.price
+		if !(@orders_today.empty?)
+			@orders_today.each do |order|
+				order.meals.each do |meal|
+					prices << meal.price
+				end
 			end
 		end
 		if prices.empty?
