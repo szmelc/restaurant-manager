@@ -16,6 +16,18 @@ To start the application:
 `rails s`, 
 `localhost:3000` 
 
+### Login Credentials
+
+https://arbejder.herokuapp.com/
+
+#### Admin account
+login: admin@gmail.com
+password: admin123
+
+#### User Account
+login: user@gmail.com
+password: user123
+
 ### Features 
 
 Możliwości aplikacji:
