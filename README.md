@@ -40,13 +40,14 @@ Możliwości aplikacji:
 * application shows the most popular dishes
 * application compares performance of employees in terms of number of taken orders and their value
 
-#### Wykorzystane gemy:
+#### Gems:
 * Devise
-* Cocoon (obsługa zagnieżdżonych formularzy)
+* Cocoon 
 * CanCanCan
 * Ransack
-* Rubocop (sprawdzenie czystości kodu)
+* Rubocop 
 * Paperclip
+* AWS-SDK
 
 #### Possible features
 * add discount feature
