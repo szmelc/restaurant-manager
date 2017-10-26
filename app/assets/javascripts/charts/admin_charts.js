@@ -133,7 +133,7 @@ $(document).ready(function() {
 		  				yAxes: [{
 		  					ticks: {
 		  						beginAtZero: true,
-		  						stepSize: 4
+		  						stepSize: 8
 		  					}
 		  				}]
 		  			}
