@@ -20,6 +20,7 @@ class DishesController < ApplicationController
 	def new
 		authorize! :create, @dish
 		@dish = Dish.new
+		@categories = Dish.distinct.pluck(:category)
 	end
 
 	def create
