@@ -1,9 +1,9 @@
-= content_for :title, "Arbejder | Lista posiłków" 
+= content_for :title, "Arbejder | Dish List" 
 %table
   %tr
-    %th Nazwa
-    %th Rodzaj dania
-    %th Cena
+    %th Name
+    %th Type
+    %th Price
     - @meals.each do |meal|
       %tr
         %td= meal.name

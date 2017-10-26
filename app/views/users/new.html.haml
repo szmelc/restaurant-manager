@@ -1,23 +1,23 @@
 %div#register
-  %h2 Zarejestruj użytkownika
+  %h2 Register User
   = simple_form_for(@user) do |f| 
     = f.error_notification
 
     %div{:class => "form-inputs"}
-      = f.label :first_name, "Imię"
+      = f.label :first_name, "First Name"
       = f.input :first_name, required: true, label: false
-      = f.label :last_name, "Nazwisko"
+      = f.label :last_name, "Last Name"
       = f.input :last_name, required: true, label: false
-      = f.label :email, "E-mail"
+      = f.label :email, "E-mail address"
       = f.input :email, required: true, label: false
-      = f.label :city, "Miasto"
+      = f.label :city, "City"
       = f.input :city, required: true, label: false
-      = f.label :password, "Hasło"
+      = f.label :password, "Password"
       = f.input :password, required: true, label: false
-      = f.label :password_confirmation, "Potwierdź hasło"
+      = f.label :password_confirmation, "Confirm password"
       = f.input :password_confirmation, required: true, label: false
 
     %div{:class => "form-actions"}
-      = f.button :submit, "Dodaj"
+      = f.button :submit, "Add"
 
 

@@ -1,4 +1,4 @@
-= content_for :title, "Arbejder | Lista pracowników"
+= content_for :title, "Arbejder | Employees"
 %div#user-list
 	- @users.each do |user|
 		%div.user
@@ -6,17 +6,3 @@
 			%h3= user.name 
 
 
-
-
-
-
--# %table
--# 	%tr
--# 		%th Imię
--# 		%th Nazwisko
--# 		%th Adres e-mail
--# 	- @users.each do |user|
--# 		%tr{:class => "user-row", :data => {:link => user_path(user)}}
--# 			%td= user.first_name
--# 			%td= user.last_name
--# 			%td= user.email

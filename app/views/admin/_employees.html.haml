@@ -1,4 +1,4 @@
-%h1 Pracownicy
+%h1 Employees
 %div.user-list
 	- @users.each do |user|
 		- if current_user.id != user.id
@@ -9,4 +9,4 @@
 						= image_tag 'admin.png', :class => "admin-tag", :alt => "Admin"
 					= link_to user.name, user_path(user)
 				%div#admin-buttons
-					= link_to 'Usuń', admin_destroy_user_path(user), :id => "delete-link", method: :delete, data: {confirm: "Czy jesteś pewien że chcesz usunąć użytkownika #{user.name}?"}
+					= link_to 'Delete', admin_destroy_user_path(user), :id => "delete-link", method: :delete, data: {confirm: "Are you sure you want to delete #{user.name}?"}

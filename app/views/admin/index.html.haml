@@ -1,4 +1,4 @@
-= content_for :title, "Arbejder | Panel Administratora"
+= content_for :title, "Arbejder | Admin Panel"
 
 = render 'admin/actionbuttons'
 
@@ -8,12 +8,12 @@
 
 = render 'admin/popularmeals'
 
-%h1 Produktywność pracowników
+%h1 Employees Performance
 %div#orders-chart
 	%div#buttons
-		%div.button.active{alt: "barChartAllOrders"} Wszystkie zamówienia danego dnia
-		%div.button{alt: "barChartAllEmployees"} Wszystkie zamówienia pracowników
-		%div.button{alt: "barChartAllEmployeesDailyComparison"} Porównanie zamówień
+		%div.button.active{alt: "barChartAllOrders"} All orders on a certain day
+		%div.button{alt: "barChartAllEmployees"} All orders per employee
+		%div.button{alt: "barChartAllEmployeesDailyComparison"} Orders per employee
 	%div#chart
 		%canvas#barChartAllOrders
 		%canvas#barChartAllEmployees

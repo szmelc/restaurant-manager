@@ -3,6 +3,6 @@
     = f.simple_fields_for :meals, @order.meals.build do |meals|
       = render 'meal_fields', f: meals
     .links
-      = link_to_add_association 'Dodaj potrawę', f, :meals
-    = f.submit 'Dodaj zamówienie'
+      = link_to_add_association 'Add Dish', f, :meals
+    = f.submit 'Add Order'
     %hr/

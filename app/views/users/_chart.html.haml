@@ -1,16 +1,16 @@
 - if current_user.id == @user.id || current_user.admin? # showing chart only for the user that's logged in and admin
-	%h2{:id => "orders-header"} Ilość przyjmowanych zamówień
+	%h2{:id => "orders-header"} Amount of Orders
 	%div#orders-chart
 		%canvas#barChart
 		%hr/
 		%div.income
 			%h3 
 				- if current_user.id == @user.id
-					Twój dzienny utarg:
+					Your Daily Income:
 					= user_income_today
 					pln
 				- else
-					Dzienny utarg użytkownika:
+					User's Daily Income:
 					= user_income_today
 					pln					
 
