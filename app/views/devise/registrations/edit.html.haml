@@ -1,5 +1,5 @@
 %h2 
-  Edytuj ustawienia konta
+  Edit account settings
 
 %div#form-div
 
@@ -8,20 +8,20 @@
 
     %div{:class => "form-inputs"}
       %div{:id => "form-contactinfo"}
-        = f.label :first_name, "Imię"
+        = f.label :first_name, "First Name"
         = f.input :first_name, required: true, label: false
-        = f.label :last_name, "Nazwisko"
+        = f.label :last_name, "Last Name"
         = f.input :last_name, required: true, label: false 
-        = f.label :email, "Adres e-mail"
+        = f.label :email, "E-mail address"
         = f.input :email, required: true, label: false 
-        = f.label :phonenumber, "Numer telefonu"
+        = f.label :phonenumber, "Phone Number"
         = f.input :phonenumber, required: true, label: false 
-        = f.label :city, "Miasto"
+        = f.label :city, "City"
         = f.input :city, required: true, label: false 
-        = f.label :password_autocomplete, "Zmień hasło", {:id => "change-password-btn", :onclick => "togglePassword()"}
+        = f.label :password_autocomplete, "Change Password", {:id => "change-password-btn", :onclick => "togglePassword()"}
         %div#password
           = f.input :password, autocomplete: "off", required: false, label: false
-          = f.input :password_confirmation, required: false, label: false, hint: 'Potwierdź hasło'
+          = f.input :password_confirmation, required: false, label: false, hint: 'Confirm Password'
 
 
 
@@ -30,19 +30,19 @@
         = resource.unconfirmed_email 
 
       %div#form-additional
-        = f.label :description, "Napisz kilka słów o sobie"
+        = f.label :description, "Write about yourself"
         = f.text_area :description, {:id => "textarea"}
         %div#count
         %div#avatar-div
           = image_tag current_user.user_avatar
           %div#file-field
-            = f.label :avatar, "Wybierz avatar"
+            = f.label :avatar, "Choose avatar"
             = f.file_field :avatar
         %div#save
-          = f.label :current_password, "Obecne hasło"
-          = f.input :current_password, hint: "Jeśli chcesz zatwierdzić zmiany, wpisz hasło", required: false, label: false   
+          = f.label :current_password, "Current Password"
+          = f.input :current_password, hint: "If you want to change settings, please type your current password.", required: false, label: false   
           %div{:class => "form-actions"}
-            = f.button :submit, "Zapisz"      
+            = f.button :submit, "Save"      
 
     
 
