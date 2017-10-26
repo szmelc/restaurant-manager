@@ -2,35 +2,42 @@
 
 ## Restaurant Manager
 
-Arbejder to aplikacja, którą postanowiłem zbudować podczas nauki Ruby on Rails. Jest ona uniwersalnym systemem, za pomocą którego można zarządzać pracownikami oraz asortymentem restauracji.
+Arbejder is my application, not based on any tutorial, which I have built while learning Ruby on Rails. It's a universal system for managing a small enterprise. It allows to manage bookkeeping and employees.
 
-### Instalacja
 
-Aby zainstalować aplikację, należy sklonować repozytorium, a następnie, będąc w katalogu aplikacji:
+### Installation
+
+To install the aplication, you need to clone the repo and then, while in the app directory:
 
 `bundle install`
 
-Aby uruchomić aplikację:
+To start the application:
 
 `rails s`, 
-
-a w przeglądarce:
-
 `localhost:3000` 
 
-Możliwości aplikacji:
-* dodawanie, usuwanie, edycja pracowników
-* dodawaniem, usuwanie, edycja potraw
-* przyjmowanie zamówień
-* prowadzenie statystyk dotyczących zamówień, takich jak: liczba zamówień przyjętych przez pracowników (ogółem oraz na przestrzeni tygodnia), obliczanie średniej wartości zamówienia, obliczanie utargu dziennego oraz ogółem, ustalenie najpopularniejszej potrawy (ogółem oraz w obecnym dniu)
-* wewnętrzna komunikacja między pracownikami w stylu Facebookowego news feeda
-* dodawanie przez admina przypiętego posta utrzymującego się na szczycie przez 24 godziny
-* wyszukiwanie pracowników w wyszukiwarce
+### Features 
 
-Wykorzystane gemy:
+Możliwości aplikacji:
+* admin can add, edit and modify users and dishes
+* admin can add a pinned post which will stay visible on the wall for 24 hours
+* admin can see all the statistics and charts regarding all employees and all orders (value of orders, number of orders, average value of orders)
+* user can see only his own charts
+* application calculates daily income for each employee
+* application calculates daily income overall and average price of an order
+* application shows the most popular dishes
+* application compares performance of employees in terms of number of taken orders and their value
+
+#### Wykorzystane gemy:
 * Devise
 * Cocoon (obsługa zagnieżdżonych formularzy)
 * CanCanCan
 * Ransack
 * Rubocop (sprawdzenie czystości kodu)
 * Paperclip
+
+#### Possible features
+* add discount feature
+* tasks assigned by admin for each user
+* generating CSV files with data from the application
+* displaying weekly schedule - who will be working on a certain day
