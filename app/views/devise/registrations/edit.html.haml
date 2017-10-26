@@ -40,7 +40,7 @@
             = f.file_field :avatar
         %div#save
           = f.label :current_password, "Current Password"
-          = f.input :current_password, hint: "If you want to change settings, please type your current password.", required: false, label: false   
+          = f.input :current_password, hint: "Type your current password to confirm changes.", required: false, label: false   
           %div{:class => "form-actions"}
             = f.button :submit, "Save"      
 
