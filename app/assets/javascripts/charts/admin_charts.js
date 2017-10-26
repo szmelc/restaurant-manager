@@ -80,7 +80,7 @@ $(document).ready(function() {
 					data: {
 					labels: nameLabels,
 					datasets: [{
-						label: 'Ilość zamówień',
+						label: 'Amount of Orders',
 						backgroundColor: 'rgba(27, 157, 226, .95)',
 						hoverBackgroundColor: 'rgba(27, 157, 226, 1)',
 	  				borderColor: 'whitesmoke',
@@ -118,7 +118,7 @@ $(document).ready(function() {
 					data: {
 						labels: setLabels(),
 						datasets: [{
-							label: 'Ilość zamówień',
+							label: 'Amount of Orders',
 							backgroundColor: 'rgba(27, 157, 226, .95)',
 							data: defineAmounts()
 						}]
@@ -309,7 +309,7 @@ $(document).ready(function() {
 					    labels: setLabels(),
 					    datasets: [
 					    {
-					    	label: 'Średnia wartość zamówienia',
+					    	label: 'Average Order Value',
 					    	backgroundColor: 'rgba(232, 255, 33, .85)',
 					    	borderColor: 'rgba(27, 157, 226, 1)',
 					    	borderWidth: 2,
@@ -319,7 +319,7 @@ $(document).ready(function() {
 					    	spanGaps: true
 					    },					    	
 					    {
-					      label: 'Dzienny przychód',
+					      label: 'Daily Income',
 								backgroundColor: 'rgba(27, 157, 226, .95)',
 								hoverBackgroundColor: 'rgba(27, 157, 226, 1)',
 			  				borderColor: 'whitesmoke',
@@ -495,7 +495,7 @@ $(document).ready(function() {
 				      },				      
 				      title: {
 				        display: true,
-				        text: 'Najpopularniejsze potrawy'
+				        text: 'Dishes Popularity'
 				      },
 			  			scales: {
 			  				yAxes: [{
