@@ -1,10 +1,10 @@
-= content_for :title, "Arbejder | Dish List" 
+= content_for :title, "Arbejder | Dish List"
 %div#dishes
 	%div#dish-list
 		%table
 			- @categories.each do |category|
 				%tr
-					%th{:colspan => "2", :class => :tableheader}= category 
+					%th{:colspan => "2", :class => :tableheader}= category
 					%tr
 					- @dishes.each do |dish|
 						- if dish.category == category
@@ -19,4 +19,4 @@
 		%div#card
 			= image_tag 'dish.svg'
 			%h1 Asia House Restaurant
-	
+

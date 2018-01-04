@@ -11,10 +11,10 @@ class User < ApplicationRecord
   has_many :posts
   has_many :comments
 
- 
+
 # Method to display user avatar only if it's present
 
-  def user_avatar 	
+  def user_avatar
   	if avatar.present?
   		 avatar.url(:thumb)
 		else

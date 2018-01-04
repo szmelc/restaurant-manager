@@ -30,6 +30,9 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  gem 'rspec-rails', '~> 3.4', '>= 3.4.2'
+  gem 'factory_bot_rails'
+  gem 'shoulda-matchers', '~> 3.1'
 end
 
 group :development do
@@ -44,6 +47,10 @@ end
 group :production do
   gem 'pg'
   gem 'rails_12factor'
+end
+
+group :test do
+  gem 'site_prism'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
