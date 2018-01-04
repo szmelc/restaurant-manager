@@ -2,12 +2,13 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-      user ||= User.new # guest user (not logged in)
-      if user.admin?
-        can :manage, :all
-      else
-        cannot :create, :dish
-      end
+    user ||= User.new # guest user (not logged in)
+    if user.admin?
+      can :manage, :all
+    else
+      cannot :create, :dish
+    end
+  end
     #
     # The first argument to `can` is the action you are giving the user
     # permission to do.
@@ -26,5 +27,4 @@ class Ability
     #
     # See the wiki for details:
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
-  end
 end

@@ -65,7 +65,6 @@ ActiveRecord::Schema.define(version: 20170915194406) do
   create_table "pinned_posts", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "content"
     t.integer "user_id"
     t.index ["user_id"], name: "index_pinned_posts_on_user_id"
   end
