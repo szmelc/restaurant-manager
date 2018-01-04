@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe DishesController, type: :controller do
   let(:user)    { FactoryBot.create(:user) }
-  let(:admin)    { FactoryBot.create(:user, :admin) }
+  let(:admin)   { FactoryBot.create(:user, :admin) }
 
   describe '#new' do
     context 'as an authorized user' do

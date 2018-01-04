@@ -15,10 +15,6 @@ RSpec.feature "UserSignUps", type: :feature do
     end
   end
 
-
-
-
-
   private
 
   def fill_in_user_details
