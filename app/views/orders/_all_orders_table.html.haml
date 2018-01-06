@@ -1,5 +1,5 @@
 %h2 All Orders
-- @user_orders.each do |order|
+- @orders_all.each do |order|
 	- prices = []
 	%table
 		%tbody
@@ -16,7 +16,7 @@
 						%td.price
 							= meal.price
 							pln
-			%tr				
+			%tr
 				%th{colspan: "3", class: "totalprice"}
 					= order.total_price
 					pln

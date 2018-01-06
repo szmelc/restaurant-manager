@@ -1,10 +1,10 @@
 #form-div
-	= simple_form_for @pinned_post do |f|
-		.form-inputs
-			= f.text_area :content, :placeholder => 'Pinned post...'		
-			= f.submit 'Post'
-		- if @pinned_post.errors.any?
-			- @pinned_post.errors.full_messages.each do |message|
-				%p= message
-	%div#hint
-		%p Your post will be visible for all users for 24 hours.
+  = simple_form_for @pinned_post do |f|
+    .form-inputs
+      = f.text_area :content, :placeholder => 'Pinned post...'
+      = f.submit 'Post'
+    - if @pinned_post.errors.any?
+      - @pinned_post.errors.full_messages.each do |message|
+        %p= message
+  %div#hint
+    %p Your post will be visible for all users for 24 hours.
