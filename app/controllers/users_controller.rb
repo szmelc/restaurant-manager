@@ -21,6 +21,7 @@ class UsersController < ApplicationController
       redirect_to admin_path
     else
       redirect_to new_user_path
+      flash[:notice] = 'User was not created.'
     end
   end
 

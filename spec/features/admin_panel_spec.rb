@@ -19,9 +19,11 @@ RSpec.feature "AdminPanel", type: :feature do
     scenario 'admin can add a user' do
       log_in_as(admin)
       admin_panel.load
-      admin_panel.actions.add_user.click
+      visit 'users/new'
+      fill_in 'First Name', with: 'dupa jest obsrana'
+      # create_user
       save_and_open_page
-      # expect(page).to have_content('Register User')
+      expect(page).not_to have_content('User was not created.')
     end
   end
 
@@ -53,5 +55,15 @@ RSpec.feature "AdminPanel", type: :feature do
 
   def expect_proper_page_layout
     expect(admin_panel).to have_menu
+  end
+
+  def create_user
+    fill_in 'First Name', with: user.first_name
+    fill_in 'Last Name', with: user.last_name
+    fill_in 'E-mail address', with: user.email
+    fill_in 'City', with: user.city
+    fill_in 'Password', with: user.password
+    fill_in 'Confirm password', with: user.password
+    click_button 'Add'
   end
 end
