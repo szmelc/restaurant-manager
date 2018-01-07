@@ -2,23 +2,18 @@ require 'rails_helper'
 
 RSpec.feature "UserLogsIns", type: :feature do
   include_context 'users'
+  let(:home) { Home.new }
 
   feature 'user logs in' do
 
     scenario 'regular user logs in' do
       log_in_as(user)
-      aggregate_failures do
-        expect_successful_signup
-        expect_regular_user_menu
-      end
+      save_and_open_page
+
     end
 
     scenario 'admin logs in' do
       log_in_as(admin)
-      aggregate_failures do
-        expect_successful_signup
-        expect_admin_menu
-      end
     end
   end
 

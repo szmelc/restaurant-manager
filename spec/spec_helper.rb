@@ -15,6 +15,8 @@
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
   require 'capybara/rspec'
+  require 'site_prism'
+  require 'shoulda/matchers'
 
   ENV["RAILS_ENV"] ||= 'test'
   require File.expand_path("../../config/environment", __FILE__)
@@ -97,4 +99,16 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
+  require "bundler/setup"
+  ::Bundler.require(:default, :test)
+  require "shoulda/matchers"
+  Shoulda::Matchers.configure do |config|
+    config.integrate do |with|
+      with.test_framework :rspec
+      with.library :rails
+    end
+  end
+
 end
+
+

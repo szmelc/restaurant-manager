@@ -3,8 +3,6 @@ class Post < ApplicationRecord
 	belongs_to :user
 	has_many :comments
 
-
-
 	def author_avatar
 		@id = user_id
 		@author = User.find(@id)
@@ -15,7 +13,7 @@ class Post < ApplicationRecord
 		end
 	end
 
-	def author		
+	def author
 		@id = user_id
 		@author = User.find(@id)
 		[@author.first_name, @author.last_name].join(' ')
