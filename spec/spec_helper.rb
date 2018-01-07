@@ -15,7 +15,7 @@
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
   require 'capybara/rspec'
-  require 'site_prism'
+  # require 'site_prism'
   require 'shoulda/matchers'
 
   ENV["RAILS_ENV"] ||= 'test'
@@ -108,7 +108,4 @@ RSpec.configure do |config|
       with.library :rails
     end
   end
-
 end
-
-
