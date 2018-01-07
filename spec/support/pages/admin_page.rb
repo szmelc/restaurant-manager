@@ -3,5 +3,6 @@ class AdminPage < SitePrism::Page
   element :employees_div, "div[class='user-list']"
   element :income_div, "div[id='income']"
   element :orders_div, "div[id='orders-chart']"
-  # section :menu, MenuSection, '#navbar'
+  section :menu, MenuSection, '#navbar'
+  section :actions, AdminActions, '#actions'
 end

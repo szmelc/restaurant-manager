@@ -33,6 +33,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.4', '>= 3.4.2'
   gem 'factory_bot_rails'
   gem 'shoulda-matchers', '~> 3.1'
+  gem 'launchy', '~> 2.4', '>= 2.4.3'
 end
 
 group :development do

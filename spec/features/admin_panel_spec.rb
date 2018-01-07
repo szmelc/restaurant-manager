@@ -4,7 +4,7 @@ RSpec.feature "AdminPanel", type: :feature do
   include LoginSupport
   include_context 'users'
   let(:admin_panel) { AdminPage.new }
-  let(:main_page) { MainPage.new }
+  # let(:main_page) { MainPage.new }
 
   feature 'admin navigates to admin panel' do
     scenario 'and sees proper admin panel' do
@@ -15,12 +15,20 @@ RSpec.feature "AdminPanel", type: :feature do
       expect_admin_panel_nav
       expect_proper_page_layout
     end
+
+    scenario 'admin can add a user' do
+      log_in_as(admin)
+      admin_panel.load
+      admin_panel.actions.add_user.click
+      save_and_open_page
+      # expect(page).to have_content('Register User')
+    end
   end
 
   feature 'user navigates to admin panel' do
     scenario 'and cannot sccess admin panel' do
       log_in_as(user)
-      main_page.load
+      # main_page.load
       # expect(main_page.menu).not_to have_admin_button
       # expect(admin_panel.load).to raise_error(CanCan::AccessDenied)
     end

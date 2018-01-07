@@ -1,5 +1,5 @@
 class NullUser
-  def phonenumber
+  def phone_number
     '-'
   end
 end

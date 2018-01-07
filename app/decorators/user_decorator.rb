@@ -28,35 +28,17 @@ class UserDecorator < SimpleDelegator
     city || '-'
   end
 
-  def is_admin_or_displayed_user
-    @current_user.id == @displayed_user.id || @current_user.admin
-  end
-
   def income_today
-    prices = []
     @orders_today = OrdersQuery.new.today
     unless @orders_today.empty?
-      @orders_today.each do |order|
-        sum = order.meals.sum(:price)
-        prices << sum
-      end
-    end
-    if prices.empty?
-      0
-    else
-      prices.reduce(:+).to_f
+      sum_prices(@orders_today)
     end
   end
 
   def user_income_today(user)
-    prices = []
     orders_today = OrdersQuery.new.today
     user_orders = OrdersQuery.new(orders_today).by_user(user)
-    user_orders.each do |order|
-      sum = order.meals.sum(:price)
-      prices << sum
-    end
-    prices.reduce(:+).to_f
+    sum_prices(user_orders)
   end
 
   def average_order_value
@@ -66,6 +48,21 @@ class UserDecorator < SimpleDelegator
       average.round(2).to_s + ' pln'
     else
       return 0.to_s + ' pln'
+    end
+  end
+
+  private
+
+  def sum_prices(orders)
+    prices = []
+    orders.each do |order|
+      sum = order.meals.sum(:price)
+      prices << sum
+    end
+    if prices.empty?
+      0
+    else
+      prices.reduce(:+).to_f
     end
   end
 end

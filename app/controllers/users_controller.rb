@@ -9,8 +9,6 @@ class UsersController < ApplicationController
     @user = UserDecorator.new(user)
     @users = User.all.order('id ASC')
     @orders_today = OrdersQuery.new.today
-    # @user_orders = Order.where(:user_id => @user.id)
-    # @user_orders_today = Order.where(user_id: @user.id).where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day)
   end
 
   def new
@@ -53,6 +51,15 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :city, :phonenumber, :admin, :password, :password_confirmation)
+    params.require(:user).permit(
+      :first_name,
+      :last_name,
+      :email,
+      :city,
+      :phonenumber,
+      :admin,
+      :password,
+      :password_confirmation
+    )
   end
 end
