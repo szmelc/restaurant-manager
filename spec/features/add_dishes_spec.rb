@@ -18,6 +18,21 @@ RSpec.feature "AddDishes", type: :feature do
       load_dishes_page_as admin
       dishes_page.add_dish.click
       fill_in_dish_form_without_name
+      expect(page).to have_content("Name can't be blank")
+    end
+
+    scenario 'price has invalid format' do
+      load_dishes_page_as admin
+      dishes_page.add_dish.click
+      fill_in_dish_form_with_invalid_price
+      expect(page).to have_content("Price is not a number")
+    end
+  end
+
+  feature 'unauthorized user wants to add new dish' do
+    scenario 'and cannot find add button' do
+      load_dishes_page_as user
+      expect(dishes_page).not_to have_add_dish
     end
   end
 
@@ -38,6 +53,13 @@ RSpec.feature "AddDishes", type: :feature do
 
   def fill_in_dish_form_without_name
     fill_in 'Price', with: dish.price
+    fill_in 'Description', with: dish.description
+    click_button 'Save changes'
+  end
+
+  def fill_in_dish_form_with_invalid_price
+    fill_in 'Name', with: dish.name
+    fill_in 'Price', with: '2-'
     fill_in 'Description', with: dish.description
     click_button 'Save changes'
   end

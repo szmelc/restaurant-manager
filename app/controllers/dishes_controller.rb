@@ -29,7 +29,7 @@ class DishesController < ApplicationController
       redirect_to dishes_path
     else
       redirect_to new_dish_path
-      flash[:notice] = 'Dish could not be created.'
+      print_errors(@dish)
     end
   end
 
@@ -41,13 +41,13 @@ class DishesController < ApplicationController
     if @dish.update(dish_params)
       redirect_to dishes_path
     else
-      puts 'Something went wrong'
       redirect_to edit_dish_path
     end
   end
 
   def destroy
     @dish.destroy
+    authorize! :destroy, @dish
     redirect_to dishes_path
   end
 
@@ -69,5 +69,10 @@ class DishesController < ApplicationController
     @categories = ['Zupy', 'Dania z wołowiną', 'Dania z kurczakiem', 'Dania z owocami morza', 'Napoje']
   end
 
+  def print_errors(object)
+    object.errors.full_messages.each do |message|
+      flash[:notice] = message
+    end
+  end
 
 end

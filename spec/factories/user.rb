@@ -6,6 +6,7 @@ FactoryBot.define do
     password              'sashasasha321'
     city                  'Poznań'
     phonenumber           '666 666 666'
+    admin                 false
 
     trait :admin do
       admin               true
