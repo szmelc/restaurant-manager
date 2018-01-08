@@ -4,4 +4,5 @@ class MenuSection < SitePrism::Section
   element :avatar, "img[id='avatar-thumb']"
   element :search, "input[id='search']"
   element :login_menu, "div[class='login-buttons']"
+  element :search, "input[id='search']"
 end
