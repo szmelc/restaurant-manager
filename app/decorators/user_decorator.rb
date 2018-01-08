@@ -5,7 +5,7 @@ class UserDecorator < SimpleDelegator
   end
 
   def phone_number
-    phonenumber || '-'
+    phonenumber || I18n.t('user_decorator.phone_missing')
   end
 
   def user_avatar
@@ -21,7 +21,7 @@ class UserDecorator < SimpleDelegator
   end
 
   def email_address
-    email || '-'
+    email || I18n.t('user_decorator.address_missing')
   end
 
   def address_city
