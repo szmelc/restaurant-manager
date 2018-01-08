@@ -17,7 +17,7 @@ class UserDecorator < SimpleDelegator
   end
 
   def bio
-    description || 'no description given...'
+    description || I18n.t('user_decorator.description_missing')
   end
 
   def email_address
