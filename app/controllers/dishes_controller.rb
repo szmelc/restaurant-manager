@@ -20,7 +20,7 @@ class DishesController < ApplicationController
   def new
     authorize! :create, @dish
     @dish = Dish.new
-    @categories = Dish.distinct.pluck(:category)
+    @categories = ['Zupy', 'Dania z wołowiną', 'Dania z kurczakiem', 'Dania z owocami morza', 'Napoje']
   end
 
   def create
@@ -28,7 +28,8 @@ class DishesController < ApplicationController
     if @dish.save
       redirect_to dishes_path
     else
-      render new
+      redirect_to new_dish_path
+      flash[:notice] = 'Dish could not be created.'
     end
   end
 

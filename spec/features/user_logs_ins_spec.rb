@@ -5,11 +5,9 @@ RSpec.feature "UserLogsIns", type: :feature do
   let(:home) { Home.new }
 
   feature 'user logs in' do
-
     scenario 'regular user logs in' do
       log_in_as(user)
       save_and_open_page
-
     end
 
     scenario 'admin logs in' do
