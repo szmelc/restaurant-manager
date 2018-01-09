@@ -29,6 +29,7 @@ gem 'rubocop', '~> 0.50.0', require: false
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 2.13'
+  gem 'pry'
   gem 'selenium-webdriver'
   gem 'rspec-rails', '~> 3.4', '>= 3.4.2'
   gem 'factory_bot_rails'
@@ -37,7 +38,6 @@ end
 
 group :development do
   gem 'sqlite3'
-  gem 'pry'
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'

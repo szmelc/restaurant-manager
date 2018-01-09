@@ -5,13 +5,12 @@ RSpec.feature "AddOrders", type: :feature do
   let(:order_page)  { AddOrder.new }
   let!(:dish) { FactoryBot.create(:dish) }
 
-
   scenario 'admin wants to take an order', js: true do
     log_in_as admin
     order_page.load
     expect_form_fields
     select_dish
-    save_and_open_page
+    click_link 'Dish List'
   end
 
 
@@ -26,6 +25,6 @@ RSpec.feature "AddOrders", type: :feature do
 
   def select_dish
     order_page.select_dish.select(dish.name)
-    order_page.select_quantity.select(2)
+    order_page.select_quantity.click
   end
 end
