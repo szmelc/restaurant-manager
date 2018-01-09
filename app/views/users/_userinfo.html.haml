@@ -1,29 +1,29 @@
 %div.user
-	%div.personal-info
-		%div.profile-pic
-			= image_tag @user.user_avatar, :class => "avatar", :data => {:link => user_path(@user)}
-		%div.name-info
-			%h1
-				= @user.name
-			%div.description
-				%p
-					= @user.bio
-		%div.contact-info
-			%div#email.contact-row
-				%div.contact-pic
-					= image_tag 'email.svg', {class: "contact-image"}
-				%h2
-					= mail_to @user.email_address, @user.email_address
-			%div#location.contact-row
-				%div.contact-pic
-					= image_tag 'location.png', {class: "contact-image"}
-				%h2
-					= @user.address_city
-			%div#location.contact-row
-				%div.contact-pic
-					= image_tag 'telephone.svg', {class: "contact-image"}
-				%h2
-					= @user.phone_number
-	- if current_user.id == @user.id
-		%div#settings{:data => {:link => edit_user_registration_path}}
-			= image_tag 'settings.png', :alt => "Settings"
+  %div.personal-info
+    %div.profile-pic
+      = image_tag @user.user_avatar, :class => "avatar", :data => {:link => user_path(@user)}
+    %div.name-info
+      %h1
+        = @user.name
+      %div.description
+        %p
+          = @user.bio
+    %div.contact-info
+      %div#email.contact-row
+        %div.contact-pic
+          = image_tag 'email.svg', {class: "contact-image"}
+        %h2
+          = mail_to @user.email_address, @user.email_address
+      %div#location.contact-row
+        %div.contact-pic
+          = image_tag 'location.png', {class: "contact-image"}
+        %h2
+          = @user.address_city
+      %div#location.contact-row
+        %div.contact-pic
+          = image_tag 'telephone.svg', {class: "contact-image"}
+        %h2
+          = @user.phone_number
+  - if current_user.id == @user.id
+    %div#settings{:data => {:link => edit_user_registration_path}}
+      = image_tag 'settings.png', :alt => "Settings"

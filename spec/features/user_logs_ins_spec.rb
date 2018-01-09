@@ -27,6 +27,10 @@ RSpec.feature "UserLogsIns", type: :feature do
       add_too_short_post('abc', user)
     end
 
+    scenario 'and cannot see admin panel button' do
+      expect(home_page.menu).not_to have_admin_button
+    end
+
     context 'looks at pinned posts' do
       let(:admin)           { FactoryBot.create(:user, :admin) }
 
