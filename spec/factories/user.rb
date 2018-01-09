@@ -1,7 +1,7 @@
 FactoryBot.define do
-  factory :user do
+  factory :user, aliases: [:admin] do
     first_name            'John'
-    last_name             'Smith'
+    sequence(:last_name)  { |n| "Smith_#{n}" }
     sequence(:email)      { |n| "exampleuser#{n}@example.com" }
     password              'sashasasha321'
     city                  'Poznań'

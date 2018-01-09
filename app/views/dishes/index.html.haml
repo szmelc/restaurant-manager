@@ -9,7 +9,7 @@
 					- @dishes.each do |dish|
 						- if dish.category == category
 							%tr
-								%td= link_to dish.name, dish_path(dish), { remote: true, class: 'dish-link', :data => {:link => dish_path(dish)}}
+								%td= link_to dish.name, dish_path(dish, format: :js), { remote: true, class: 'dish-link', :data => {:link => dish_path(dish)}}
 								%td= "#{dish.price} pln"
 			- if can? :manage, @dishes
 				%tr#last

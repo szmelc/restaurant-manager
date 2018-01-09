@@ -4,7 +4,7 @@
 body[class="registrations edit"],
  {
 	.wrapper {
-		@include display(flex, flex-start, center, wrap, column);	
+		@include display(flex, flex-start, center, wrap, column);
 	}
 }
 h2 {
@@ -78,7 +78,7 @@ h2 {
 		@include display(flex, space-between, center, wrap, row);
 		img {
 			margin: 10px;
-		}	
+		}
 		label {
 			display: inline-block;
 			margin-top: 10px;
@@ -90,7 +90,7 @@ h2 {
 			width: 250px;
 		}
 	}
-	
+
 	input[type="file"]{
 		display: block;
 	}
@@ -126,7 +126,7 @@ input[type="submit"] {
 	@include display(flex, center, center, wrap, column);
 	background-color: rgba(255,255, 255,.5);
 	box-shadow: 0 0 1px 1px rgba(0,0,0,.1);
-	padding: 15px;	
+	padding: 15px;
 	max-width: 600px;
 	min-width: 400px;
 	margin: auto;
@@ -203,7 +203,7 @@ input[type="submit"] {
 			&:hover {
 				box-shadow: 0 0 1px 1px rgba(0,0,0,.1);
 			}
-		}	
+		}
 	}
 
 }
@@ -214,7 +214,7 @@ body[class="dishes new"],
 body[class="dishes edit"],
 body[class="pinned_posts new"] {
 	.wrapper {
-		@include display(flex, flex-start, center, wrap, column);	
+		@include display(flex, flex-start, center, wrap, column);
 		#form-div {
 			max-width: 370px;
 			padding: 20px;
@@ -223,7 +223,7 @@ body[class="pinned_posts new"] {
 			box-shadow: 0 0 1px 1px rgba(0,0,0,.1);
 			@include display(flex, center, center, wrap, row);
 			.form-inputs {
-				@include display(flex, center, center, wrap, column);	
+				@include display(flex, center, center, wrap, column);
 				label {
 					margin-left: 7px;
 				}
@@ -253,19 +253,19 @@ body[class="pinned_posts new"] {
 					color: red;
 				}
 			}
-		}		
+		}
 	}
 }
 
 body[class="posts index"] {
 	#form-div {
-		#post-form {
+		#regular-post-form {
 			width: 60%;
 			margin: 15px auto;
 			.form-inputs {
 				@include display(flex, center, center, wrap, row);
 				textarea {
-					height: 35px;					
+					height: 35px;
 					min-width: 670px;
 					width: 100%;
 					margin: 10px 0;
@@ -278,7 +278,7 @@ body[class="posts index"] {
 			#submit-post {
 				display: none;
 				width: 100px;
-			}		
+			}
 		}
 		#post-button {
 			@include display(flex, flex-end, center, wrap, row);
@@ -313,7 +313,7 @@ body[class="comments new"] {
 				}
 				input[type='submit'] {
 					max-width: 100px;
-				}			
+				}
 			}
 		}
 	}
@@ -365,8 +365,8 @@ body[class="orders new"] {
 					.add_fields {
 						@include button(1em, 300, none, #36b56b, #FFF, none, 5px, pointer, 0 0 1px 1px rgba(0,0,0,.1));
 					}
-				}						
-			}	
+				}
+			}
 			input[id$='price'] {
 				display: none;
 			}
@@ -384,7 +384,7 @@ body[class="orders new"] {
 					display: inline;
 					margin: auto;
 					font-size: 1.2em;
-					text-align: center;										
+					text-align: center;
 				}
 			}
 		}

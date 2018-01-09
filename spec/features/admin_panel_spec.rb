@@ -60,6 +60,7 @@ RSpec.feature "AdminPanel", type: :feature do
       expect(admin_panel).to have_employees_div
       expect(admin_panel).to have_income_div
       expect(admin_panel).to have_orders_div
+      expect(admin_panel).to have_footer
     end
   end
 
