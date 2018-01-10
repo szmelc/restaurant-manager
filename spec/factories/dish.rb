@@ -1,9 +1,9 @@
 FactoryBot.define do
   factory :dish do
-    name  'Shrimps'
-    price 20
-    category 'Mięcho'
-    description 'Perfect Shrimps'
+    sequence(:name)  { |n| "Shrimps_#{n}"}
+    price            20
+    category        'Mięcho'
+    description     'Perfect Shrimps'
   end
 
   trait :without_name do

@@ -32,7 +32,7 @@ RSpec.feature "AddDishes", type: :feature do
       scenario 'edits it successfuly', js: true do
         dishes_page.load
         click_link 'Shrimps'
-        screenshot_and_open_image
+        # dopisz
       end
     end
 

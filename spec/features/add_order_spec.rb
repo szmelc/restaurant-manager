@@ -2,29 +2,33 @@ require 'rails_helper'
 
 RSpec.feature "AddOrders", type: :feature do
   include_context 'users'
-  let(:order_page)  { AddOrder.new }
-  let!(:dish) { FactoryBot.create(:dish) }
+  let(:new_order_page)  { AddOrder.new }
+  let(:orders_page)     { OrdersPage.new}
 
-  scenario 'admin wants to take an order', js: true do
-    log_in_as admin
-    order_page.load
-    expect_form_fields
-    select_dish
-    click_link 'Dish List'
-  end
+  feature 'user wants to take an order' do
+    let!(:dishes)  { FactoryBot.create_list(:dish, 5) }
+    before do
+      log_in_as user
+      new_order_page.load
+    end
 
+    scenario 'add dish form has all elements' do
+      expect(new_order_page.add_dish_form).to have_select_dish
+      expect(new_order_page.add_dish_form).to have_select_quantity
+      expect(new_order_page.add_dish_form).to have_price_field
+    end
 
-  private
+    scenario 'user takes an order' do
+      select dishes.last.name, from: 'order_meals_attributes_0_name'
+      expect{
+        click_button 'Add Order'
+      }.to change(user.orders, :count).by(1)
+    end
 
-  def expect_form_fields
-    expect(order_page).to have_select_dish
-    expect(order_page).to have_select_quantity
-    expect(order_page).to have_price_field
-    # expect(order_page).to have_remove_dish
-  end
-
-  def select_dish
-    order_page.select_dish.select(dish.name)
-    order_page.select_quantity.click
+    scenario 'after taking an order is redirected to orders index' do
+      select dishes.last.name, from: 'order_meals_attributes_0_name'
+      click_button 'Add Order'
+      expect(orders_page).to be_displayed
+    end
   end
 end
