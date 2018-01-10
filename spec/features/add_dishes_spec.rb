@@ -12,45 +12,30 @@ RSpec.feature "AddDishes", type: :feature do
         expect(dishes_page).to have_add_dish
         dishes_page.add_dish.click
         fill_in_dish_form
-        expect{ click_button 'Save changes' }.to change(Dish, :count).by(1)
+        expect { click_button 'Save changes' }.to change(Dish, :count).by(1)
         expect_dish_to_be_displayed
-      end
-
-      scenario 'and wants to edit dish that has just been created' do
-        load_dishes_page_as admin
-        expect(dishes_page).to have_add_dish
-        dishes_page.add_dish.click
-        # fill_in_dish_form
-        # click_button 'Save changes'
-        # click_link 'Shrimps'
-        # save_and_open_page
-      end
-    end
-
-    feature 'admin wants to edit dish' do
-      let!(:dish)  { FactoryBot.create(:dish) }
-      scenario 'edits it successfuly', js: true do
-        dishes_page.load
-        click_link 'Shrimps'
-        # dopisz
       end
     end
 
     context 'but fills the form incorrectly' do
-      scenario 'name is missing' do
-        load_dishes_page_as admin
-        dishes_page.add_dish.click
-        fill_in_dish_form_without_name
-        expect { click_button 'Save changes' }.not_to change(Dish, :count)
-        expect(page).to have_content("Name can't be blank")
+      context 'reveves is missing' do
+        scenario 'receives an error' do
+          load_dishes_page_as admin
+          dishes_page.add_dish.click
+          fill_in_dish_form_without_name
+          expect { click_button 'Save changes' }.not_to change(Dish, :count)
+          expect(page).to have_content("Name can't be blank")
+        end
       end
 
-      scenario 'price has invalid format' do
-        load_dishes_page_as admin
-        dishes_page.add_dish.click
-        fill_in_dish_form_with_invalid_price
-        expect { click_button 'Save changes' }.not_to change(Dish, :count)
-        expect(page).to have_content("Price is not a number")
+      context 'price has invalid format' do
+        scenario 'receives an error' do
+          load_dishes_page_as admin
+          dishes_page.add_dish.click
+          fill_in_dish_form_with_invalid_price
+          expect { click_button 'Save changes' }.not_to change(Dish, :count)
+          expect(page).to have_content("Price is not a number")
+        end
       end
     end
   end
@@ -62,7 +47,6 @@ RSpec.feature "AddDishes", type: :feature do
       expect(dishes_page).not_to have_add_dish
     end
   end
-
 
   private
 
