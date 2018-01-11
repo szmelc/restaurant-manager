@@ -8,6 +8,7 @@ class PinnedPostsController < ApplicationController
   end
 
   def new
+    authorize! :create, @pinned_post
     @pinned_post = current_user.pinned_posts.build
     @post = current_user.posts.build
   end
@@ -19,12 +20,6 @@ class PinnedPostsController < ApplicationController
     else
       redirect_to new_pinned_post_path
     end
-  end
-
-  def update
-  end
-
-  def destroy
   end
 
   private

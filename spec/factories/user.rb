@@ -5,7 +5,7 @@ FactoryBot.define do
     sequence(:email)      { |n| "exampleuser#{n}@example.com" }
     password              'sashasasha321'
     city                  'Poznań'
-    description           'Jestem wesoły Romek mam w Poznaniu domek.'
+    description           'come to brazil plx'
     phonenumber           '666 666 666'
     admin                 false
 

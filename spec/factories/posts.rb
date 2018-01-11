@@ -1,7 +1,6 @@
 FactoryBot.define do
   factory :post do
     user
-    content 'Ala ma kota.'
-
+    content 'come to brazil'
   end
 end

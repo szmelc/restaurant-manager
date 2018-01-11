@@ -3,39 +3,32 @@ require 'rails_helper'
 RSpec.feature "AdminPanel", type: :feature do
   include LoginSupport
   include_context 'users'
-  let(:admin_panel) { AdminPage.new }
-  let(:home_page)  { Home.new }
-  let(:dish) { FactoryBot.build_stubbed(:dish) }
-  let(:pinned_post) { FactoryBot.build_stubbed(:pinned_post) }
 
-  feature 'admin navigates to admin panel' do
+  let(:admin_panel)       { AdminPage.new }
+  let(:home_page)         { Home.new }
+  let(:dish)              { FactoryBot.build_stubbed(:dish) }
+  let(:pinned_post)       { FactoryBot.build_stubbed(:pinned_post) }
+
+  feature 'I want admin to navigate to admin panel and' do
     before do
       @users = FactoryBot.create_list(:user, 5)
     end
 
-    scenario 'and sees proper admin panel' do
+    scenario 'see proper admin panel' do
       go_to_admin_panel
       expect(admin_panel).to be_displayed
       expect_admin_panel_nav
       expect_proper_admin_panel
     end
 
-    scenario 'and can add user' do
-      go_to_admin_panel
-      visit 'users/new'
-      fill_in "user_first_name", with: 'dupa jest obsrana'
-      create_user
-      # expect(page).not_to have_content('User was not created.')
-    end
-
-    scenario 'and can add dish' do
+    scenario 'be able to add dish from admin panel' do
       go_to_admin_panel
       visit 'dishes/new'
       expect{ create_dish }.to change(Dish, :count).by(1)
       expect_redirect_to_dish_list
     end
 
-    scenario 'and can add pinned post' do
+    scenario 'be able to add pinned post from admin panel' do
       go_to_admin_panel
       visit 'pinned_posts/new'
       expect { create_pinned_post }.to change(admin.pinned_posts, :count).by(1)

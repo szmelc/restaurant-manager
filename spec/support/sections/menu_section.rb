@@ -4,5 +4,6 @@ class MenuSection < SitePrism::Section
   element :avatar, "img[id='avatar-thumb']"
   element :search, "input[id='search']"
   element :login_menu, "div[class='login-buttons']"
-  element :search, "input[id='search']"
+  element :login_link, "a[href='/my/users/sign_in']"
+  element :signup_link, "a[href='/my/users/sign_up']"
 end

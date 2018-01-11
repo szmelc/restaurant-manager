@@ -1,12 +1,12 @@
 require 'rails_helper'
 
-RSpec.feature "UserSignUps", type: :feature do
+RSpec.feature "SignUp", type: :feature do
   let(:signup_page)   { SignUpPage.new }
   let(:user)          { FactoryBot.build(:user) }
 
-  feature 'User signs up' do
-    context 'valid details' do
-      scenario 'creates new user' do
+  feature 'I want user to sign up' do
+    context 'with valid details' do
+      scenario 'and create account successfuly' do
         signup_page.load
         fill_in_user_details_correctly
         aggregate_failures do
@@ -17,23 +17,33 @@ RSpec.feature "UserSignUps", type: :feature do
     end
 
     context 'with invalid details' do
-      scenario 'doest not add user without first name' do
-        signup_page.load
-        fill_registration_form_without_first_name
-        expect { signup_page.signup_button.click }.not_to change(User, :count)
+      context 'with first name missing' do
+        scenario 'and be redirected to signup form' do
+          signup_page.load
+          fill_registration_form_without_first_name
+          expect { signup_page.signup_button.click }.not_to change(User, :count)
+          expect(page).to have_content('Sign Up')
+        end
       end
 
-      scenario 'doest not add user without last name' do
-        signup_page.load
-        fill_registration_form_without_last_name
-        expect { signup_page.signup_button.click }.not_to change(User, :count)
+      context 'without last name' do
+        scenario 'nd be redirected to signup form' do
+          signup_page.load
+          fill_registration_form_without_last_name
+          expect { signup_page.signup_button.click }.not_to change(User, :count)
+          expect(page).to have_content('Sign Up')
+        end
       end
 
-      scenario 'does not add user when passwords not matching' do
-        signup_page.load
-        fill_form_with_different_passwords
-        expect { signup_page.signup_button.click }.not_to change(User, :count)
+      context 'with different passwords' do
+        scenario 'nd be redirected to signup form' do
+          signup_page.load
+          fill_form_with_different_passwords
+          expect { signup_page.signup_button.click }.not_to change(User, :count)
+          expect(page).to have_content('Sign Up')
+        end
       end
+
     end
   end
 

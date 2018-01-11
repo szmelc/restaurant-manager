@@ -11,7 +11,23 @@ RSpec.describe OrdersController, type: :controller do
         sign_in user
       end
 
-      it 'returns 302' do
+      it 'returns 200' do
+        get :index
+        expect(response).to have_http_status(200)
+      end
+
+      it 'response is successful' do
+        get :index
+        expect(response).to be_success
+      end
+    end
+
+    context 'as admin' do
+      before do
+        sign_in admin
+      end
+
+      it 'returns 200' do
         get :index
         expect(response).to have_http_status(200)
       end
@@ -22,23 +38,6 @@ RSpec.describe OrdersController, type: :controller do
       end
     end
   end
-
-    context 'as admin' do
-      before do
-        sign_in admin
-
-      end
-
-      it 'returns 302' do
-        get :index
-        expect(response).to have_http_status(200)
-      end
-
-      it 'response is successful' do
-        get :index
-        expect(response).to be_success
-      end
-    end
 
   describe '#new' do
     context 'as a guest' do

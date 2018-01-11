@@ -5,28 +5,28 @@
 @import 'mixins';
 
 body[class="posts index"],
-body[class="comments new"] { 
+body[class="comments new"] {
 	wrapper {
 		overflow: scroll;
 		@include display(flex, flex-start, flex-start, wrap, column);
 	}
 	#pinned-post {
-		@include display(flex, center, center, wrap, column);	
+		@include display(flex, center, center, wrap, column);
 		height: 110px;
 		border-top: 1px solid rgba(0,0,0,.1);
 		border-bottom: 1px solid rgba(0,0,0,.1);
 		width: 100%;
 		.post {
-			@include display(flex, flex-start, flex-start, no-wrap, row);	
+			@include display(flex, flex-start, flex-start, no-wrap, row);
 			background-color: rgba(255,255,255,1);
 			color: black;
 			max-width: 60%;
 			min-width: 670px;
 			width: 60%;
 			min-height: 40%;
-			margin: auto;			
+			margin: auto;
 			border: 1px solid rgba(0,0,0,.05);
-			box-shadow: 0 0 1px 1px rgba(0,0,0,.05);		
+			box-shadow: 0 0 1px 1px rgba(0,0,0,.05);
 			padding: 10px 15px;
 			.content {
 				.author-name {
@@ -56,7 +56,6 @@ body[class="comments new"] {
 	#posts,
 	#post-show {
 		align-self: center;
-		height: 100%;
 		width: 100%;
 		.post {
 				max-width: 60%;
@@ -64,8 +63,8 @@ body[class="comments new"] {
 				width: 60%;
 				margin: auto;
 				margin-top: 10px;
-				@include display(flex, flex-start, flex-start, no-wrap, row);	
-			.content {				
+				@include display(flex, flex-start, flex-start, no-wrap, row);
+			.content {
 				background-color: rgba(255,255,255,.50);
 				color: black;
 				margin: auto;
@@ -73,13 +72,13 @@ body[class="comments new"] {
 				margin-left: 10px;
 				width: 100%;
 				border: 1px solid rgba(0,0,0,.05);
-				box-shadow: 0 0 1px 1px rgba(0,0,0,.05);		
-				padding: 10px 15px;				
+				box-shadow: 0 0 1px 1px rgba(0,0,0,.05);
+				padding: 10px 15px;
 				.author-name {
 					font-size: 0.7em;
 					margin-bottom: 5px;
 					font-weight: 400;
-					@include display(flex, center, center, wrap, column);	
+					@include display(flex, center, center, wrap, column);
 					a {
 						margin: 1px;
 						text-decoration: none;
@@ -94,7 +93,7 @@ body[class="comments new"] {
 				}
 				.post-content {
 					p {
-						margin: 0;						
+						margin: 0;
 					}
 				}
 				.comment-count {
@@ -109,7 +108,7 @@ body[class="comments new"] {
 			.post-avatar {
 				&:hover {
 					cursor: pointer;
-				}				
+				}
 				height: 50px;
 				max-height: 60px;
 				min-height: 50px;
@@ -123,18 +122,18 @@ body[class="comments new"] {
 			margin: auto;
 			background-color: rgba(0,0,0,.005);
 			margin-top: 10px;
-			.comment {	
+			.comment {
 			@include display(flex, flex-start, center, wrap, row);
 			margin-bottom: 10px;
 			.avatar {
 				&:hover {
 					cursor: pointer;
-				}				
+				}
 				width: 74px;
 				.comment-avatar {
 					width: 35px;
 				}
-			}			
+			}
 				.content {
 					@include display(flex, flex-start, center, no-wrap, column);
 
@@ -142,7 +141,7 @@ body[class="comments new"] {
 					color: black;
 					width: 863px;
 					border: 1px solid rgba(0,0,0,.05);
-					box-shadow: 0 0 1px 1px rgba(0,0,0,.05);		
+					box-shadow: 0 0 1px 1px rgba(0,0,0,.05);
 					padding: 10px 15px;
 					.comment-content {
 						.author {
@@ -157,7 +156,7 @@ body[class="comments new"] {
 						.comment-text {
 							margin: 0;
 						}
-					}						
+					}
 				}
 			}
 		}

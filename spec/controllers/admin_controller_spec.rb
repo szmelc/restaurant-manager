@@ -21,7 +21,7 @@ RSpec.describe AdminController, type: :controller do
     context 'as an unauthorized user' do
       it 'restricts access to admin panel' do
         sign_in user
-        expect{ get :index }.to raise_error(CanCan::AccessDenied)
+        expect { get :index }.to raise_error(CanCan::AccessDenied)
       end
     end
   end

@@ -7,6 +7,7 @@ class Ability
       can :manage, :all
     else
       cannot :create, :dish
+      cannot :manage, PinnedPost
     end
   end
     #
