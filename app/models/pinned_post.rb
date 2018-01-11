@@ -20,9 +20,9 @@ class PinnedPost < ApplicationRecord
     [@author.first_name, @author.last_name].join(' ')
   end
 
-  def now
-    @time = Time.new
-    @now = @time.localtime
+  def active?
+    time = Time.new
+    now = time.localtime
+    now - created_at < 86400
   end
-
 end

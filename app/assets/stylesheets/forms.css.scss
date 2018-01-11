@@ -3,110 +3,110 @@
 
 body[class="registrations edit"],
  {
-	.wrapper {
-		@include display(flex, flex-start, center, wrap, column);
-	}
+  .wrapper {
+    @include display(flex, flex-start, center, wrap, column);
+  }
 }
 h2 {
-	text-align: center;
+  text-align: center;
 }
 
 #form-div {
-	@include display(flex, center, center, wrap, column);
-	.form-inputs {
-		@include display(flex, center, center, wrap, row);
-		#form-contactinfo {
-			margin-right: 30px;
-			background-color: rgba(255,255, 255,.5);
-			box-shadow: 0 0 1px 1px rgba(0,0,0,.1);
-			padding: 15px;
-		}
-		#form-additional {
-			margin-left: 30px;
-			background-color: rgba(255,255, 255,.5);
-			box-shadow: 0 0 1px 1px rgba(0,0,0,.1);
-			padding: 15px;
-			@include display(flex, space-between, center, wrap, column);
-			#save {
-				span {
-					margin-bottom: 15px;
-				}
-			}
-		}
-	}
-	form {
-	input,
-	textarea {
-		font-family: "Lato", sans-serif;
-		font-size: 1em;
-		background: none;
-		margin-bottom: 10px;
-		padding: 8px;
-		font-weight: 300;
-		box-shadow: none;
-		border: none;
-		border-bottom: 2px solid rgba(0,0,0,.2);
-		width: 350px;
-		transition: border-bottom .5s;
-		&:focus {
-			outline: none;
-			border-bottom: 2px solid rgba(27, 157, 226, 0.7);
-		}
-	}
-	label {
-		font-weight: 400;
-		margin-bottom: 8px;
-		display: block;
-		font-size: 1.1em;
-	}
-	textarea {
-		resize: none;
-		display: block;
-		margin: 10px;
-		height: 30%;
-		border: 2px solid rgba(0,0,0,.2);
-		&:focus {
-			border: 2px solid rgba(27, 157, 226, 0.7);
-		}
-	}
-	#count {
-		text-align: right;
-		font-size: .7em;
-		margin: 0 10px;
-	}
-	#avatar-div {
-		@include display(flex, space-between, center, wrap, row);
-		img {
-			margin: 10px;
-		}
-		label {
-			display: inline-block;
-			margin-top: 10px;
-		}
-		#file-field {
-			@include display(flex, space-between, center, wrap, column);
-		}
-		input {
-			width: 250px;
-		}
-	}
+  @include display(flex, center, center, wrap, column);
+  .form-inputs {
+    @include display(flex, center, center, wrap, row);
+    #form-contactinfo {
+      margin-right: 30px;
+      background-color: rgba(255,255, 255,.5);
+      box-shadow: 0 0 1px 1px rgba(0,0,0,.1);
+      padding: 15px;
+    }
+    #form-additional {
+      margin-left: 30px;
+      background-color: rgba(255,255, 255,.5);
+      box-shadow: 0 0 1px 1px rgba(0,0,0,.1);
+      padding: 15px;
+      @include display(flex, space-between, center, wrap, column);
+      #save {
+        span {
+          margin-bottom: 15px;
+        }
+      }
+    }
+  }
+  form {
+  input,
+  textarea {
+    font-family: "Lato", sans-serif;
+    font-size: 1em;
+    background: none;
+    margin-bottom: 10px;
+    padding: 8px;
+    font-weight: 300;
+    box-shadow: none;
+    border: none;
+    border-bottom: 2px solid rgba(0,0,0,.2);
+    width: 350px;
+    transition: border-bottom .5s;
+    &:focus {
+      outline: none;
+      border-bottom: 2px solid rgba(27, 157, 226, 0.7);
+    }
+  }
+  label {
+    font-weight: 400;
+    margin-bottom: 8px;
+    display: block;
+    font-size: 1.1em;
+  }
+  textarea {
+    resize: none;
+    display: block;
+    margin: 10px;
+    height: 30%;
+    border: 2px solid rgba(0,0,0,.2);
+    &:focus {
+      border: 2px solid rgba(27, 157, 226, 0.7);
+    }
+  }
+  #count {
+    text-align: right;
+    font-size: .7em;
+    margin: 0 10px;
+  }
+  #avatar-div {
+    @include display(flex, space-between, center, wrap, row);
+    img {
+      margin: 10px;
+    }
+    label {
+      display: inline-block;
+      margin-top: 10px;
+    }
+    #file-field {
+      @include display(flex, space-between, center, wrap, column);
+    }
+    input {
+      width: 250px;
+    }
+  }
 
-	input[type="file"]{
-		display: block;
-	}
-	.form-actions {
-		@include display(flex, center, center, wrap, row);
-	}
+  input[type="file"]{
+    display: block;
+  }
+  .form-actions {
+    @include display(flex, center, center, wrap, row);
+  }
 }
 
 input[type="submit"] {
-	border: none;
-	background-color: #36b56b;
-	color: #FFF;
-	&:hover {
-		cursor: pointer;
-		box-shadow: 0 0 1px 1px rgba(0,0,0,.1)
-	}
+  border: none;
+  background-color: #36b56b;
+  color: #FFF;
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0 0 1px 1px rgba(0,0,0,.1)
+  }
 }
 
 }
@@ -114,8 +114,8 @@ input[type="submit"] {
 
 
 .input {
-	margin: 10px 10px;
-	@include display(flex, space-between, center, wrap, column);
+  margin: 10px 10px;
+  @include display(flex, space-between, center, wrap, column);
 }
 
 
@@ -123,88 +123,88 @@ input[type="submit"] {
 
 #login,
 #register {
-	@include display(flex, center, center, wrap, column);
-	background-color: rgba(255,255, 255,.5);
-	box-shadow: 0 0 1px 1px rgba(0,0,0,.1);
-	padding: 15px;
-	max-width: 600px;
-	min-width: 400px;
-	margin: auto;
-	label {
-		margin-left: 30px;
-		margin-top: 15px;
-	}
-	form {
-	input,
-	textarea {
-		font-family: "Lato", sans-serif;
-		font-size: 1em;
-		background: none;
-		padding: 8px;
-		font-weight: 300;
-		box-shadow: none;
-		border: none;
-		border-bottom: 2px solid rgba(0,0,0,.2);
-		width: 85%;
-		margin: auto;
-		transition: border-bottom .5s;
-		&:focus {
-			outline: none;
-			border-bottom: 2px solid rgba(27, 157, 226, 0.7);
-		}
-	}
-	.remember {
-		@include display(flex, center, center, wrap, row);
-		width: 100%;
-		label {
-			width: 250px;
-			@include display(flex, center, center, wrap, row);
-			margin: 0;
-			input {
-				display: inline-block;
-				width: 30px;
-				margin: 0;
-				align-self: center;
-			}
-		}
-	}
-	input[type=submit] {
-		@include button(1em, 300, none, #36b56b, #FFF, none, 5px, pointer, 0 0 1px 1px rgba(0,0,0,.1));
-	  font-size: 1em;
-	  font-weight: 300;
-	  border: none;
-	  background-color: #36b56b;
-	  color: #FFF;
-	  text-decoration: none;
-	  padding: 5px;
-	  margin: 1px auto;
-	  width: 350px;
-	  height: 35px;
-	  display: flex;
-	  justify-content: center;
-	  align-content: center;
-	  flex-wrap: no-wrap;
-	  flex-direction: row;
-	  padding: 8px;
-	}
-	}
-	.form-actions{
-		@include display(flex, center, center, wrap, row);
-		input[type="submit"] {
-			margin: auto;
-			background-color: #36b56b;
-			color: white;
-			border: none;
-			margin: 10px 0;
-			transition: box-shadow .2s;
-			&:active {
-				transform: translate(1px, 1px);
-			}
-			&:hover {
-				box-shadow: 0 0 1px 1px rgba(0,0,0,.1);
-			}
-		}
-	}
+  @include display(flex, center, center, wrap, column);
+  background-color: rgba(255,255, 255,.5);
+  box-shadow: 0 0 1px 1px rgba(0,0,0,.1);
+  padding: 15px;
+  max-width: 600px;
+  min-width: 400px;
+  margin: auto;
+  label {
+    margin-left: 30px;
+    margin-top: 15px;
+  }
+  form {
+  input,
+  textarea {
+    font-family: "Lato", sans-serif;
+    font-size: 1em;
+    background: none;
+    padding: 8px;
+    font-weight: 300;
+    box-shadow: none;
+    border: none;
+    border-bottom: 2px solid rgba(0,0,0,.2);
+    width: 85%;
+    margin: auto;
+    transition: border-bottom .5s;
+    &:focus {
+      outline: none;
+      border-bottom: 2px solid rgba(27, 157, 226, 0.7);
+    }
+  }
+  .remember {
+    @include display(flex, center, center, wrap, row);
+    width: 100%;
+    label {
+      width: 250px;
+      @include display(flex, center, center, wrap, row);
+      margin: 0;
+      input {
+        display: inline-block;
+        width: 30px;
+        margin: 0;
+        align-self: center;
+      }
+    }
+  }
+  input[type=submit] {
+    @include button(1em, 300, none, #36b56b, #FFF, none, 5px, pointer, 0 0 1px 1px rgba(0,0,0,.1));
+    font-size: 1em;
+    font-weight: 300;
+    border: none;
+    background-color: #36b56b;
+    color: #FFF;
+    text-decoration: none;
+    padding: 5px;
+    margin: 1px auto;
+    width: 350px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: no-wrap;
+    flex-direction: row;
+    padding: 8px;
+  }
+  }
+  .form-actions{
+    @include display(flex, center, center, wrap, row);
+    input[type="submit"] {
+      margin: auto;
+      background-color: #36b56b;
+      color: white;
+      border: none;
+      margin: 10px 0;
+      transition: box-shadow .2s;
+      &:active {
+        transform: translate(1px, 1px);
+      }
+      &:hover {
+        box-shadow: 0 0 1px 1px rgba(0,0,0,.1);
+      }
+    }
+  }
 
 }
 
@@ -213,193 +213,193 @@ input[type="submit"] {
 body[class="dishes new"],
 body[class="dishes edit"],
 body[class="pinned_posts new"] {
-	.wrapper {
-		@include display(flex, flex-start, center, wrap, column);
-		#form-div {
-			max-width: 370px;
-			padding: 20px;
-			margin: auto;
-			background-color: rgba(255,255, 255,.5);
-			box-shadow: 0 0 1px 1px rgba(0,0,0,.1);
-			@include display(flex, center, center, wrap, row);
-			.form-inputs {
-				@include display(flex, center, center, wrap, column);
-				label {
-					margin-left: 7px;
-				}
-				textarea {
-					min-height: 180px;
-				}
-				input[type="submit"] {
-					margin: auto;
-					margin-top: 15px;
-				}
-				select {
-					width: 95%;
-					margin: auto;
-					height: 40px;
-					border-radius: 0;
-					font-size: 1.1em;
-					background-color: white;
-					margin-bottom: 20px;
-				}
-			}
-			#hint {
-				p {
-					margin: 0;
-					margin-top: 5px;
-					text-align: center;
-					font-size: .7em;
-					color: red;
-				}
-			}
-		}
-	}
+  .wrapper {
+    @include display(flex, flex-start, center, wrap, column);
+    #form-div {
+      max-width: 370px;
+      padding: 20px;
+      margin: auto;
+      background-color: rgba(255,255, 255,.5);
+      box-shadow: 0 0 1px 1px rgba(0,0,0,.1);
+      @include display(flex, center, center, wrap, row);
+      .form-inputs {
+        @include display(flex, center, center, wrap, column);
+        label {
+          margin-left: 7px;
+        }
+        textarea {
+          min-height: 180px;
+        }
+        input[type="submit"] {
+          margin: auto;
+          margin-top: 15px;
+        }
+        select {
+          width: 95%;
+          margin: auto;
+          height: 40px;
+          border-radius: 0;
+          font-size: 1.1em;
+          background-color: white;
+          margin-bottom: 20px;
+        }
+      }
+      #hint {
+        p {
+          margin: 0;
+          margin-top: 5px;
+          text-align: center;
+          font-size: .7em;
+          color: red;
+        }
+      }
+    }
+  }
 }
 
 body[class="posts index"] {
-	#form-div {
-		#regular-post-form {
-			width: 60%;
-			margin: 15px auto;
-			.form-inputs {
-				@include display(flex, center, center, wrap, row);
-				textarea {
-					height: 35px;
-					min-width: 670px;
-					width: 100%;
-					margin: 10px 0;
-					background-color: #fff;
-				}
-				input[type="submit"] {
-					margin: auto;
-				}
-			}
-			#submit-post {
-				display: none;
-				width: 100px;
-			}
-		}
-		#post-button {
-			@include display(flex, flex-end, center, wrap, row);
-			&:active {
-				transform: translate(1px, 1px);
-			}
-		}
-	}
+  #form-div {
+    #regular-post-form {
+      width: 60%;
+      margin: 15px auto;
+      .form-inputs {
+        @include display(flex, center, center, wrap, row);
+        textarea {
+          height: 35px;
+          min-width: 670px;
+          width: 100%;
+          margin: 10px 0;
+          background-color: #fff;
+        }
+        input[type="submit"] {
+          margin: auto;
+        }
+      }
+      #submit-post {
+        display: none;
+        width: 100px;
+      }
+    }
+    #post-button {
+      @include display(flex, flex-end, center, wrap, row);
+      &:active {
+        transform: translate(1px, 1px);
+      }
+    }
+  }
 }
 
 body[class="comments new"] {
-	#form-div {
-		width: 60%;
-		margin: auto;
-		.form-inputs {
-			@include display(flex, flex-start, space-between, no-wrap, row);
-			width: 100%;
-			margin: auto;
-			.avatar {
-				width: 80px;
-				.comment-avatar-thumb {
-					width: 35px;
-					height: 35px;
-				}
-			}
-			.comment {
-				width: 859px;
-				@include display(flex, space-between, center, wrap, row);
-				input[type='text'] {
-					background: white;
-					width: 720px;
-				}
-				input[type='submit'] {
-					max-width: 100px;
-				}
-			}
-		}
-	}
+  #form-div {
+    width: 60%;
+    margin: auto;
+    .form-inputs {
+      @include display(flex, flex-start, space-between, no-wrap, row);
+      width: 100%;
+      margin: auto;
+      .avatar {
+        width: 80px;
+        .comment-avatar-thumb {
+          width: 35px;
+          height: 35px;
+        }
+      }
+      .comment {
+        width: 859px;
+        @include display(flex, space-between, center, wrap, row);
+        input[type='text'] {
+          background: white;
+          width: 720px;
+        }
+        input[type='submit'] {
+          max-width: 100px;
+        }
+      }
+    }
+  }
 }
 
 body[class="orders new"] {
-	.wrapper {
-		#order-form {
-			padding-top: 100px;
-			@include display(flex, center, center, no-wrap, row);
-			.meals {
-				margin-bottom: 30px;
-				input[type="submit"] {
-					@include button(1em, 300, none, #36b56b, #FFF, none, 5px, pointer, 0 0 1px 1px rgba(0,0,0,.1));
-				}
-				.nested-fields {
-					@include display(flex, center, center, no-wrap, row);
-					margin-bottom: 15px;
-					select {
-						font-size: 1.3em;
-						padding: 5px;
-					}
-					input {
-						font-size: 1.3em;
-						text-align: right;
-						max-width: 75px;
-					}
-					&>* {
-						margin-left: 5px;
-						margin-right: 5px;
-					}
-					.remove_fields {
-						background-color: red;
-						color: white;
-						border-radius: 50%;
-						text-align: center;
-						font-weight: 400;
-						height: 30px;
-						width: 30px;
-						line-height: 30px;
-						align-self: center;
-						text-decoration: none;
+  .wrapper {
+    #order-form {
+      padding-top: 100px;
+      @include display(flex, center, center, no-wrap, row);
+      .meals {
+        margin-bottom: 30px;
+        input[type="submit"] {
+          @include button(1em, 300, none, #36b56b, #FFF, none, 5px, pointer, 0 0 1px 1px rgba(0,0,0,.1));
+        }
+        .nested-fields {
+          @include display(flex, center, center, no-wrap, row);
+          margin-bottom: 15px;
+          select {
+            font-size: 1.3em;
+            padding: 5px;
+          }
+          input {
+            font-size: 1.3em;
+            text-align: right;
+            max-width: 75px;
+          }
+          &>* {
+            margin-left: 5px;
+            margin-right: 5px;
+          }
+          .remove_fields {
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            font-weight: 400;
+            height: 30px;
+            width: 30px;
+            line-height: 30px;
+            align-self: center;
+            text-decoration: none;
 
-					}
-				}
-				.links {
-					margin-top: 20px;
-					display: inline-block;
-					.add_fields {
-						@include button(1em, 300, none, #36b56b, #FFF, none, 5px, pointer, 0 0 1px 1px rgba(0,0,0,.1));
-					}
-				}
-			}
-			input[id$='price'] {
-				display: none;
-			}
-			#pricediv {
-				background: white;
-				display: inline-block;
-				width: 70px;
-				height: 40px;
-				border: 1px solid rgba(0,0,0,.08);
-				text-align: center;
-				line-height: 40px;
-				p {
-					@include display(flex, center, center, no-wrap, column);
-					margin: 0;
-					display: inline;
-					margin: auto;
-					font-size: 1.2em;
-					text-align: center;
-				}
-			}
-		}
-	}
+          }
+        }
+        .links {
+          margin-top: 20px;
+          display: inline-block;
+          .add_fields {
+            @include button(1em, 300, none, #36b56b, #FFF, none, 5px, pointer, 0 0 1px 1px rgba(0,0,0,.1));
+          }
+        }
+      }
+      input[id$='price'] {
+        display: none;
+      }
+      #pricediv {
+        background: white;
+        display: inline-block;
+        width: 70px;
+        height: 40px;
+        border: 1px solid rgba(0,0,0,.08);
+        text-align: center;
+        line-height: 40px;
+        p {
+          @include display(flex, center, center, no-wrap, column);
+          margin: 0;
+          display: inline;
+          margin: auto;
+          font-size: 1.2em;
+          text-align: center;
+        }
+      }
+    }
+  }
 }
 
 .shared-links {
-	width: 100%;
-	@include display(flex, center, center, no-wrap, column);
-	a.shared-link {
-		@include button(1em, 300, none, #36b56b, #FFF, none, 5px, pointer, 0 0 1px 1px rgba(0,0,0,.1));
-		margin: 1px auto;
-		width: 350px;
-		height: 35px;
-		@include display(flex, center, center, no-wrap, row);
-		padding: 8px;
-	}
+  width: 100%;
+  @include display(flex, center, center, no-wrap, column);
+  a.shared-link {
+    @include button(1em, 300, none, #36b56b, #FFF, none, 5px, pointer, 0 0 1px 1px rgba(0,0,0,.1));
+    margin: 1px auto;
+    width: 350px;
+    height: 35px;
+    @include display(flex, center, center, no-wrap, row);
+    padding: 8px;
+  }
 }
