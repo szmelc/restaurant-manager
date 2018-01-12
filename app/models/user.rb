@@ -4,39 +4,27 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :orders
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :email, presence: true
   has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100#" }, default_url: "/images/:style/missing.png"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
-  validates :description, length: {maximum: 200, too_long: "Maksymalna długość opisu to %{count} znaków"}
+  validates :description, length: {maximum: 200, too_long: "Maximum description length is %{count} characters."}
   has_many :pinned_posts
   has_many :posts
   has_many :comments
 
-
-# Method to display user avatar only if it's present
-
-  def user_avatar
-  	if avatar.present?
-  		 avatar.url(:thumb)
-		else
-			 'thumb/missing.jpg'
-  	end
+  def name
+    [first_name, last_name].join(' ')
   end
 
-# Method to slice a phone number and join with '-'
-
-  def phone_number
-    if phonenumber.present?
-      phonenumber.scan(/.../).join('-') # scans for 3 consecutive characters and joins them with '-'
+  def user_avatar
+    if avatar.present?
+       avatar.url(:thumb)
     else
-      '-'
+       'thumb/missing.jpg'
     end
   end
 
 
-
-  def name # Concatenate first name and last name
-    [first_name, last_name].join(' ')
-  end
-
 end
-

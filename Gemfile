@@ -29,15 +29,18 @@ gem 'rubocop', '~> 0.50.0', require: false
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 2.13'
+  gem 'capybara-email'
+  gem 'capybara-screenshot'
+  gem 'capybara-webkit'
+  gem 'pry'
   gem 'selenium-webdriver'
   gem 'rspec-rails', '~> 3.4', '>= 3.4.2'
   gem 'factory_bot_rails'
-  gem 'shoulda-matchers', '~> 3.1'
+  gem 'launchy', '~> 2.4', '>= 2.4.3'
 end
 
 group :development do
   gem 'sqlite3'
-  gem 'pry'
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
@@ -51,6 +54,7 @@ end
 
 group :test do
   gem 'site_prism'
+  gem 'shoulda-matchers', '~> 3.1', require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

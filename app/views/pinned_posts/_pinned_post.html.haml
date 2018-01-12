@@ -1,10 +1,10 @@
 - if @pinned_post
-	- if @pinned_post.now - @pinned_post.created_at < 86400 
-		%div#pinned-post
-			%div.post
-				= image_tag @pinned_post.author_avatar, :class => 'post-avatar', :data => {:link => user_path(@pinned_post.user_id)}
-				%div.content
-					%div.author-name
-						= link_to @pinned_post.author, user_path(@pinned_post.user_id)
-					%div.post-content
-						%p= @pinned_post.content				
+  - if @pinned_post.active?
+    %div#pinned-post
+      %div.post
+        = image_tag @pinned_post.author_avatar, :class => 'post-avatar', :data => {:link => user_path(@pinned_post.user_id)}
+        %div.content
+          %div.author-name
+            = link_to @pinned_post.author, user_path(@pinned_post.user_id)
+          %div.post-content
+            %p= @pinned_post.content

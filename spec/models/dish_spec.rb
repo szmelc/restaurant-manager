@@ -1,25 +1,17 @@
 require 'rails_helper'
 
 RSpec.describe Dish do
-  let(:dish) { FactoryBot.create(:dish) }
+  let(:dish) { FactoryBot.build(:dish) }
 
-  context 'valid dish' do
-    context 'a dish with a name is added' do
-      it 'is valid with a name' do
-        expect(dish).to be_valid
-      end
-    end
-  end
+  it { is_expected.to validate_presence_of(:name) }
+  it { is_expected.to validate_presence_of(:price) }
 
-  context 'invalid dish' do
-    it 'is invalid without a name ' do
-      dish.name = nil
+  context 'dish is added' do
+    it 'is invalid when price is not an integer' do
+      dish.price = 'abc'
+      dish.save
       expect(dish).not_to be_valid
-    end
-
-    it 'expects dish to have a name' do
-      dish.name = nil
-      expect(dish.save).to include("can't be blank")
+      expect(dish.errors[:price]).to include('is not a number')
     end
   end
 end

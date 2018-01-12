@@ -1,9 +1,8 @@
 %div#register
   %h2 Register User
-  = simple_form_for(@user) do |f| 
+  = simple_form_for(@user) do |f|
     = f.error_notification
-
-    %div{:class => "form-inputs"}
+    %div{ class: "form-inputs" }
       = f.label :first_name, "First Name"
       = f.input :first_name, required: true, label: false
       = f.label :last_name, "Last Name"
@@ -16,8 +15,7 @@
       = f.input :password, required: true, label: false
       = f.label :password_confirmation, "Confirm password"
       = f.input :password_confirmation, required: true, label: false
-
-    %div{:class => "form-actions"}
+    %div{ class: "form-actions" }
       = f.button :submit, "Add"
 
 

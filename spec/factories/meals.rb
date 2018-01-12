@@ -1,5 +1,7 @@
 FactoryBot.define do
   factory :meal do
-    name    'Shrimps'
+    name      'Shrimps'
+    quantity  2
+    order
   end
 end

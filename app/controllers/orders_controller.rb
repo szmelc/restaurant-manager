@@ -1,23 +1,16 @@
 class OrdersController < ApplicationController
-  # before_action :find_order, only: [:show]
-  before_action :find_meal, only: [:new]
-  before_action :define_order, only: [:index, :orders_all, :orders_today]
 
   def index
-  end
-
-  def orders_all
-  end
-
-  def orders_today 
-  end
-
-  def show
+    user = current_user
+    user_id = current_user.id
+    @orders_all = OrdersQuery.new.by_user(user)
+    @orders_today = OrdersQuery.new(@orders_all).today
   end
 
   def new
+    find_all_meals
     if user_signed_in?
-      @dishes = Dish.all
+      display_dishes
       @order = current_user.orders.build
     else
       redirect_to root_path
@@ -25,33 +18,29 @@ class OrdersController < ApplicationController
   end
 
   def create
-    # binding.pry
-    # puts order_params
     @order = current_user.orders.build(order_params)
     if @order.save
-      puts "Order saved!"
-      # raise '¯\_(ツ)_/¯'
+      redirect_to orders_path
     else
-      puts "Something went wrong"
+      render new
     end
-    redirect_to orders_path
   end
-
 
   private
+
   def order_params
-    params.require(:order).permit(:user_id, meals_attributes: Meal.attribute_names.map(&:to_s).push(:_destroy))
+    params.require(:order).permit(
+      :user_id,
+      meals_attributes:
+      Meal.attribute_names.map(&:to_s).push(:_destroy)
+    )
   end
 
-
-  def find_meal
+  def find_all_meals
     @meal = Meal.all
   end
 
-  def define_order
-    @user = current_user
-    user_id = current_user.id
-    @user_orders = Order.where(:user_id => user_id)    
+  def display_dishes
+    @dishes = Dish.all
   end
-
 end

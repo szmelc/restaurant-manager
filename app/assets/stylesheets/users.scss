@@ -22,7 +22,7 @@ body.admin {
 		min-width: 750px;
 		background-color: rgba(255,255, 255,.5);
 		box-shadow: 0 0 1px 1px rgba(0,0,0,.1);
-		padding: 15px;	
+		padding: 15px;
 		margin: auto;
 		margin-bottom: 50px;
 
@@ -51,7 +51,7 @@ body.admin {
 						background-color: red;
 					}
 				}
-			}			
+			}
 			.username {
 				@include display(flex, center, center, wrap, row);
 				margin-top: 10px;
@@ -100,7 +100,7 @@ body.admin {
 		.avatar {
 			margin: 0 20px;
 		}
-		.personal-info {
+		#personal-info {
 			@include display(flex, flex-start, flex-start, no-wrap, row);
 			width: 100%;
 			h1 {
@@ -123,14 +123,14 @@ body.admin {
 					p {
 						margin-top: 10px;
 					}
-				}				
+				}
 			}
 			.contact-info {
 		    a {
 		      text-decoration: none;
 		      color: inherit;
 		      min-width: 300px;
-		    }			
+		    }
 				@include display(flex, center, center, wrap, column);
 				.contact-row {
 					@include display(flex, flex-start, center, no-wrap, row);
@@ -152,7 +152,7 @@ body.admin {
 					@include display(flex, center, center, wrap, row);
 				}
 			}
-		}	
+		}
 		#settings {
 			position: absolute;
 			bottom: 2px;
@@ -167,6 +167,6 @@ body.admin {
 		}
 	}
 
-	
+
 }
-	
+

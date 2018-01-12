@@ -1,22 +1,19 @@
 class AdminController < ApplicationController
+  before_action :authenticate_user!
   load_and_authorize_resource :class => AdminController
 
   def index
+    user = current_user
+    @user = UserDecorator.new(user)
   	@users = User.all
-    @orders = Order.all
-    @orders_today = Order.where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day)
-    # @orders_today_by_user = Order.where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day && :user_id == user.id)
+    @orders_today = OrdersQuery.new.today
   end
 
   def destroy
-  	@user = User.find(params[:id])
-  	@user.destroy
-
-  	if @user.destroy
-  		redirect_to admin_path
-  	end
+    @user = User.find(params[:id])
+    @user.destroy
+    if @user.destroy
+      redirect_to admin_path
+    end
   end
-
-
-
 end

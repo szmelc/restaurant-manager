@@ -7,13 +7,10 @@
 				%p= post.date
 			%div.post-content
 				%p= post.content
-			%p.comment-count 
-				Komentarzy:	
-				= post.comments.count	
+			%p.comment-count
+				Comments:
+				= post.comments.count
 				|
-				= link_to 'Comment', new_post_comment_path(post)
-				-# |
-				-# - if current_user.admin?
-				-# 	= link_to 'Usuń posta', post_path(post), method: :delete, :data => {:confirm => "Czy jesteś pewien, że chcesz usunąć posta?"}
+				= link_to 'Comment', new_post_comment_path(post), class: 'comment-link'
 
-			
+
