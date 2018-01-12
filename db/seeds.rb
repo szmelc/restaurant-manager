@@ -9,8 +9,8 @@
 # Create admin
 admin = User.create(
   id: 1,
-  first_name: 'Marek',
-  last_name: 'Mikołajczyk',
+  first_name: 'Gordon',
+  last_name: 'Ramsay',
   email: 'admin@admin.com',
   password: 'admin123',
   password_confirmation: 'admin123',
