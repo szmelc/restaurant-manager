@@ -1,10 +1,7 @@
 shared_examples_for('standard index action') do
-  it 'returns 200' do
-    expect(response).to have_http_status(200)
-  end
 
-  it 'response is a success' do
-    expect(response).to be_success
+  it 'response is a success and 200' do
+    expect(response).to be_success and have_http_status(200)
   end
 end
 
@@ -23,12 +20,8 @@ shared_examples_for('standard new action') do
     get :new
   end
 
-  it 'returns 200' do
-    expect(response).to have_http_status(200)
-  end
-
-  it 'response is successful' do
-    expect(response).to be_success
+  it 'response is successful 200' do
+    expect(response).to be_success and have_http_status(200)
   end
 end
 
