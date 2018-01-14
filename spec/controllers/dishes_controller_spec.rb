@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'shared_examples/controllers'
 
 RSpec.describe DishesController, type: :controller do
   let(:admin)  { FactoryBot.create(:user, :admin) }
@@ -9,27 +10,16 @@ RSpec.describe DishesController, type: :controller do
       before do
         sign_in admin
       end
-      it 'reponse is successful' do
-        get :index
-        expect(response).to be_success
-      end
 
-      it 'has http status 200' do
-        get :index
-        expect(response).to have_http_status(200)
-      end
+      it_behaves_like 'standard index action'
     end
 
-    context 'as regular user' do
-      it 'response is successful' do
-        get :index
-        expect(response).to be_success
+    context 'as user' do
+      before do
+        sign_in user
       end
 
-      it 'has http status 200' do
-        get :index
-        expect(response).to have_http_status(200)
-      end
+      it_behaves_like 'standard index action'
     end
   end
 
@@ -39,25 +29,11 @@ RSpec.describe DishesController, type: :controller do
         sign_in admin
       end
 
-      it 'response is successful' do
-        get :new
-        expect(response).to be_success
-      end
-
-      it 'has http status 200' do
-        get :new
-        expect(response).to have_http_status(200)
-      end
+      it_behaves_like 'standard new action'
     end
 
     context 'as unauthorized user' do
-      before do
-        sign_in user
-      end
-
-      it 'restricts access to the form' do
-        expect{ get :new }.to raise_error(CanCan::AccessDenied)
-      end
+     it_behaves_like 'new action restricting access'
     end
   end
 
@@ -66,6 +42,7 @@ RSpec.describe DishesController, type: :controller do
       before do
         sign_in admin
       end
+
       context 'with valid attributes' do
         let(:dish_params)  { FactoryBot.attributes_for(:dish) }
 
