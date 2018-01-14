@@ -1,22 +1,20 @@
 require 'rails_helper'
+require 'shared_examples/controllers'
 
 RSpec.describe PinnedPostsController, type: :controller do
   include_context 'users'
 
   describe '#new' do
     context 'as admin' do
-      it 'allows to add pinned post' do
+      before do
         sign_in admin
-        get :new
-        expect(response).to be_success
       end
+
+      it_behaves_like 'standard new action'
     end
 
-    context 'as user' do
-      it 'restricts access to pinned post form' do
-        sign_in user
-        expect { get :new }.to raise_error(CanCan::AccessDenied)
-      end
+    context 'as unauthorized user' do
+      it_behaves_like 'new action restricting access'
     end
   end
 end
